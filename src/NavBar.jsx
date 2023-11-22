@@ -3,12 +3,33 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from "react-bootstrap/Form";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
 
 function NavBar() {
     const [searchPhrase, setSearchPhrase] = useState('');
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        function handleResize() {
+            if (inputRef.current) {
+                const inputWidth = inputRef.current.offsetWidth;
+                const dropdownMenu = document.getElementById('searchDropdownMenu');
+                if (dropdownMenu) {
+                    dropdownMenu.style.minWidth = `${inputWidth}px`;
+                }
+            }
+        }
+
+        handleResize(); // Initial calculation on mount
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [searchPhrase]);
 
     function handleSearchChange(event) {
         setSearchPhrase(event.target.value);
@@ -24,30 +45,32 @@ function NavBar() {
                     </Nav>
                     <Nav className="mx-auto w-100 justify-content-center">
                         <Form inline className="w-75">
-                            <Form.Control type="text"
-                                          placeholder="Search"
-                                          onChange={handleSearchChange}
+                            <Form.Control
+                                type="text"
+                                placeholder="Search"
+                                onChange={handleSearchChange}
+                                ref={inputRef}
                             />
+                            {searchPhrase && (
+                                <Dropdown
+                                    style={{
+                                        marginTop: '-12px',
+                                        position: 'absolute',
+                                        top: 'calc(100% + 10px)',
+                                        width: 'calc(100% - 2px)',
+                                        zIndex: 1000,
+                                    }}
+                                >
+                                    <Dropdown.Menu id="searchDropdownMenu" show>
+                                        <Dropdown.Item href="#/action-1">
+                                            {searchPhrase}
+                                        </Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            )}
                         </Form>
-                        {(searchPhrase) ?
-                            <Dropdown.Menu show
-                                           style={{
-                                               position: 'absolute',
-                                               top: '100%', // Adjust the top position as needed
-                                               left: '50%', // Center the dropdown horizontally
-                                               transform: 'translateX(-50%)',
-                                               minWidth: '200px' // Optional: Set a minimum width for the dropdown
-                                           }}>
-                                <Dropdown.Item href="#/action-1">{searchPhrase}</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                            </Dropdown.Menu>
-
-                            :
-                            <div>
-
-                            </div>
-                        }
                     </Nav>
                     <Nav className="mx-right" style={{width: '80px'}}>
                         <Nav.Link href="#link">Login</Nav.Link>
