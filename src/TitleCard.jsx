@@ -4,7 +4,7 @@ import { Col, Row, Image } from 'react-bootstrap';
 
 function TitleCard() {
     return (
-        <Card style={{ width: '40rem' }}>
+        <Card className="w-100" /*style={{ width: '40rem' }}*/>
             <Card.Body>
                 <Row>
                     <Col xs={3}>

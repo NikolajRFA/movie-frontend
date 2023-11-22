@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
+import TitleCard from "./TitleCard";
 
 function NavBar() {
     const [searchPhrase, setSearchPhrase] = useState('');
@@ -65,6 +66,7 @@ function NavBar() {
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
                                         </Dropdown.Item>
+                                        <Dropdown.Item> <TitleCard /> </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
