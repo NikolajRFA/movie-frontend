@@ -10,6 +10,7 @@ import TitleCard from "./TitleCard";
 
 function NavBar() {
     const [searchPhrase, setSearchPhrase] = useState('');
+    const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
 
     useEffect(() => {
@@ -30,10 +31,19 @@ function NavBar() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [searchPhrase]);
+    }, [searchPhrase, showDropdown]);
 
     function handleSearchChange(event) {
         setSearchPhrase(event.target.value);
+        setShowDropdown(true);
+    }
+
+    function handleSearchFocus() {
+        setShowDropdown(true);
+    }
+
+    function handleSearchBlur() {
+        setTimeout(() => setShowDropdown(false), 200);
     }
 
     return (
@@ -45,28 +55,31 @@ function NavBar() {
                     <Nav className="mx-left">
                     </Nav>
                     <Nav className="mx-auto w-100 justify-content-center">
-                        <Form inline className="w-75">
+                        <Form className="w-75">
                             <Form.Control
                                 type="text"
                                 placeholder="Search"
                                 onChange={handleSearchChange}
+                                onFocus={handleSearchFocus}
+                                //onClick={handleSearchFocus}
+                                onBlur={handleSearchBlur}
                                 ref={inputRef}
                             />
-                            {searchPhrase && (
-                                <Dropdown
-                                    style={{
-                                        marginTop: '-12px',
-                                        position: 'absolute',
-                                        top: 'calc(100% + 10px)',
-                                        width: 'calc(100% - 2px)',
-                                        zIndex: 1000,
-                                    }}
+                            {showDropdown && (
+                                <Dropdown as={"div"}
+                                          style={{
+                                              marginTop: '-12px',
+                                              position: 'absolute',
+                                              top: 'calc(100% + 10px)',
+                                              width: 'calc(100% - 2px)',
+                                              zIndex: 1000,
+                                          }}
                                 >
                                     <Dropdown.Menu id="searchDropdownMenu" show>
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
                                         </Dropdown.Item>
-                                        <Dropdown.Item> <TitleCard /> </Dropdown.Item>
+                                        <Dropdown.Item href="https://dr.dk"> <TitleCard/> </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
