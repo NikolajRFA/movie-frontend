@@ -20,12 +20,11 @@ function TitleCard({title}) {
     }
 
     return (
-        <Card className="w-100" /*style={{ width: '40rem' }}*/>
-            <Card.Body>
-                <Row>
-                    <Col xs={3}>
-                        {/* Adjust the xs value based on your desired image size */}
-                        <Image src="logo192.png" fluid={true} />
+        <Card onResize={handleResize}>
+            <Card.Body style={{height: "220px"}}>
+                <Row className="no-gutters" style={{flexWrap: "nowrap"}}>
+                    <Col xs="auto" style={{ maxWidth: '150px', minWidth: '150px'}}>
+                        <Image src={title.poster} fluid />
                     </Col>
                     <Col >
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
