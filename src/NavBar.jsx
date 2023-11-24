@@ -37,7 +37,7 @@ function NavBar() {
     }
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-dark" variant="dark">
             <Container>
                 <Navbar.Brand href="#home" style={{width: '80px'}}>React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
