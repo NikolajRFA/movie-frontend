@@ -16,7 +16,7 @@ function DropdownCard({title}) {
                     </Col>
                     <Col xs={9}>
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
-                        <Card.Text>{title.startYear}</Card.Text>
+                        <Card.Subtitle>{title.startYear}</Card.Subtitle>
                         <Card.Text>{title.crew}</Card.Text>
                     </Col>
                 </Row>
