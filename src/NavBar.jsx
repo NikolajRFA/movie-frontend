@@ -44,7 +44,14 @@ function NavBar() {
         setShowDropdown(true);
     }
 
-    function handleSearchBlur() {
+    function handleSearchBlur(event) {
+        const dropdownMenu = document.getElementById('searchDropdownMenu');
+
+        if (dropdownMenu && dropdownMenu.contains(event.relatedTarget)) {
+            // If focus is moving to the dropdown or its children, don't close the dropdown immediately
+            return;
+        }
+
         setTimeout(() => setShowDropdown(false), 200);
     }
 
@@ -72,9 +79,9 @@ function NavBar() {
                                     marginTop: '-12px',
                                     position: 'absolute',
                                     top: 'calc(100% + 10px)',
-                                    width: 'calc(100% - 2px)',
                                     zIndex: 1000,
-                                }}>
+                                }}
+                                onBlur={handleSearchBlur}>
                                     <Dropdown.Menu id="searchDropdownMenu" show>
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
