@@ -10,9 +10,8 @@ function DropdownCard({title}) {
         <Card className="w-100" /*style={{ width: '40rem' }}*/>
             <Card.Body>
                 <Row>
-                    <Col xs={1}>
-                        {/* Adjust the xs value based on your desired image size */}
-                        <Image src={title.poster} fluid={true}/>
+                    <Col xs="auto" style={{ maxWidth: '80px', minWidth: '80px'}}>
+                        <Image src={title.poster} fluid />
                     </Col>
                     <Col xs={9}>
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
