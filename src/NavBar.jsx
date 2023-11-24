@@ -87,9 +87,7 @@ function NavBar({titles}) {
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
                                         </Dropdown.Item>
-                                        <Dropdown.Item>
-                                            {titles.map(title => <DropdownCard key={title.url} title={title} />)}
-                                        </Dropdown.Item>
+                                        {titles.map(title => <DropdownCard key={title.url} title={title} />)}
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
