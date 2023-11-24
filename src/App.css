@@ -49,6 +49,10 @@
     cursor: pointer; /* Add pointer cursor for better UX */
 }
 
+.active {
+    font-weight: bold;
+}
+
 .menuItem:hover {
     font-weight: bold; /* Make the text bold on hover */
 }
