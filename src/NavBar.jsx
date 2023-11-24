@@ -10,6 +10,7 @@ import TitleCard from "./TitleCard";
 
 function NavBar() {
     const [searchPhrase, setSearchPhrase] = useState('');
+    const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
 
     useEffect(() => {
@@ -18,7 +19,9 @@ function NavBar() {
                 const inputWidth = inputRef.current.offsetWidth;
                 const dropdownMenu = document.getElementById('searchDropdownMenu');
                 if (dropdownMenu) {
+                    // Ensure the dropdown has the same width as the search bar.
                     dropdownMenu.style.minWidth = `${inputWidth}px`;
+                    dropdownMenu.style.maxWidth = `${inputWidth}px`;
                 }
             }
         }
@@ -30,47 +33,64 @@ function NavBar() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [searchPhrase]);
+    }, [searchPhrase, showDropdown]);
 
     function handleSearchChange(event) {
         setSearchPhrase(event.target.value);
+        setShowDropdown(true);
+    }
+
+    function handleSearchFocus() {
+        setShowDropdown(true);
+    }
+
+    function handleSearchBlur(event) {
+        const dropdownMenu = document.getElementById('searchDropdownMenu');
+
+        if (dropdownMenu && dropdownMenu.contains(event.relatedTarget)) {
+            // If focus is moving to the dropdown or its children, don't close the dropdown immediately
+            return;
+        }
+
+        setShowDropdown(false);
     }
 
     return (
         <Navbar expand="lg" className="bg-dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home" style={{width: '80px'}}>React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home" style={{width: '80px'}}>Veagt Bøøtstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-left">
                     </Nav>
                     <Nav className="mx-auto w-100 justify-content-center">
-                        <Form inline className="w-75">
+                        <Form className="w-75">
                             <Form.Control
                                 type="text"
                                 placeholder="Search"
                                 onChange={handleSearchChange}
+                                onFocus={handleSearchFocus}
+                                //onClick={handleSearchFocus}
+                                onBlur={handleSearchBlur}
                                 ref={inputRef}
                             />
-                            {searchPhrase && (
-                                <Dropdown
-                                    style={{
-                                        marginTop: '-12px',
-                                        position: 'absolute',
-                                        top: 'calc(100% + 10px)',
-                                        width: 'calc(100% - 2px)',
-                                        zIndex: 1000,
-                                    }}
-                                >
+                            {showDropdown && (
+                                <div style={{
+                                    marginTop: '-12px',
+                                    position: 'absolute',
+                                    top: 'calc(100% + 10px)',
+                                    zIndex: 1000,
+                                }}
+                                onBlur={handleSearchBlur}>
                                     <Dropdown.Menu id="searchDropdownMenu" show>
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
                                         </Dropdown.Item>
-                                        <Dropdown.Item> <TitleCard /> </Dropdown.Item>
+                                        <Dropdown.Item href="https://dr.dk"> <TitleCard/> </Dropdown.Item>
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
-                                </Dropdown>
+                                </div>
                             )}
                         </Form>
                     </Nav>
