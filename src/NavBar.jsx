@@ -19,7 +19,9 @@ function NavBar() {
                 const inputWidth = inputRef.current.offsetWidth;
                 const dropdownMenu = document.getElementById('searchDropdownMenu');
                 if (dropdownMenu) {
+                    // Ensure the dropdown has the same width as the search bar.
                     dropdownMenu.style.minWidth = `${inputWidth}px`;
+                    dropdownMenu.style.maxWidth = `${inputWidth}px`;
                 }
             }
         }
@@ -66,15 +68,13 @@ function NavBar() {
                                 ref={inputRef}
                             />
                             {showDropdown && (
-                                <Dropdown as={"div"}
-                                          style={{
-                                              marginTop: '-12px',
-                                              position: 'absolute',
-                                              top: 'calc(100% + 10px)',
-                                              width: 'calc(100% - 2px)',
-                                              zIndex: 1000,
-                                          }}
-                                >
+                                <div style={{
+                                    marginTop: '-12px',
+                                    position: 'absolute',
+                                    top: 'calc(100% + 10px)',
+                                    width: 'calc(100% - 2px)',
+                                    zIndex: 1000,
+                                }}>
                                     <Dropdown.Menu id="searchDropdownMenu" show>
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
@@ -83,7 +83,7 @@ function NavBar() {
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
-                                </Dropdown>
+                                </div>
                             )}
                         </Form>
                     </Nav>

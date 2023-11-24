@@ -7,11 +7,11 @@ import DropdownTest from "./DropdownTest";
 
 
 function App() {
-  return (
-      <div>
-        <NavBar />
-      </div>
-  );
+    return (
+        <div>
+            <NavBar/>
+        </div>
+    );
 }
 
 export default App;
