@@ -52,13 +52,13 @@ function NavBar() {
             return;
         }
 
-        setTimeout(() => setShowDropdown(false), 200);
+        setShowDropdown(false);
     }
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home" style={{width: '80px'}}>React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand href="#home" style={{width: '80px'}}>Veagt Bøøtstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-left">
