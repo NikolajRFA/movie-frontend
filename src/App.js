@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TitleCard from "./TitleCard";
+import Title from "./pages/Title";
 
 function App() {
     const [titles, setTitles] = useState([]);
@@ -23,7 +24,8 @@ function App() {
     }, []);
 
     return (
-        <div>
+        <Title titleUrl="http://localhost:5011/api/titles/tt0386676"/>
+        /*<div>
             <NavBar titles={titles} />
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
@@ -31,7 +33,7 @@ function App() {
             {!loading && !error && titles.length > 0 &&
                 titles.map(title => <TitleCard key={title.url} title={title} />)
             }
-        </div>
+        </div>*/
     );
 }
 
