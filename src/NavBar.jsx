@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
-import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
 import TitleCard from "./TitleCard";
 import DropdownCard from "./DropdownCard";
