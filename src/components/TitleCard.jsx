@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import { Col, Row, Image } from 'react-bootstrap';
+import TwoHighestOrderedCrew from "./components/TwoHighestOrderedCrew";
 
 function TitleCard({title}) {
     const [posterHeight, setPosterHeight] = useState(0);
@@ -30,7 +31,9 @@ function TitleCard({title}) {
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
                         <Card.Subtitle>Rating - {title.averageRating}</Card.Subtitle>
                         <Card.Text>{title.startYear} | {title.titleType} | {(title.isAdult) && 'Adult |'} {title.genres.map(genre => genre.genre).join(', ')}</Card.Text>
-                        <Card.Text>{title.crew}</Card.Text>
+                        <Card.Text>
+                            <TwoHighestOrderedCrew crewUrl={title.crew}/>
+                        </Card.Text>
                         <Card.Text>{truncateText(title.plot, maxCharacters)}</Card.Text>
                     </Col>
                 </Row>
