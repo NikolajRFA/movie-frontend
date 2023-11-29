@@ -1,10 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./NavBar";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TitleCard from "./TitleCard";
-import DropdownCard from "./DropdownCard";
 
 function App() {
     const [titles, setTitles] = useState([]);
@@ -32,7 +31,6 @@ function App() {
             {!loading && !error && titles.length > 0 &&
                 titles.map(title => <TitleCard key={title.url} title={title} />)
             }
-
         </div>
     );
 }

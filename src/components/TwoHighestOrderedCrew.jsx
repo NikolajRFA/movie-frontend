@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Spinner} from "react-bootstrap";
 import LoadingSpinner from "./LoadingSpinner";
 
 export default function TwoHighestOrderedCrew({crewUrl}) {
