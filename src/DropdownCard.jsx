@@ -6,7 +6,7 @@ import TwoHighestOrderedCrew from "./components/TwoHighestOrderedCrew";
 
 function DropdownCard({title}) {
     return (
-        <Card className="w-100" /*style={{ width: '40rem' }}*/>
+        <Card className="w-100">
             <Card.Body>
                 <Row>
                     <Col xs="auto" style={{maxWidth: '80px', minWidth: '80px'}}>
