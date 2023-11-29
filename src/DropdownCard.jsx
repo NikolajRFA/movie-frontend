@@ -53,14 +53,17 @@ function DropdownCard({title}) {
                     <Col xs={9}>
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
                         <Card.Subtitle>{title.startYear}</Card.Subtitle>
-                        <!-- TODO: Handle multiple of the same person -->
-                        <Card.Text>{topOrderedCrew.length > 0 ? topOrderedCrew.map((person, index) => (
-                            <span key={person.url}>
+                        <Card.Text>{topOrderedCrew.length > 0 ? topOrderedCrew
+                            .filter((person, index, self) =>
+                                self.findIndex(p => p.name === person.name) === index
+                            )
+                            .map((person, index, arr) => (
+                                <span key={person.url}>
                                 <a href={person.url}>{person.name}</a>
-                                <!-- create the comma separation -->
-                                {index !== topOrderedCrew.length - 1 && ', '}
+                                    {/*create the comma separation*/}
+                                    {index !== arr.length - 1 && ', '}
                             </span>
-                        )) : 'Loading...'}
+                            )) : 'Loading...'}
                         </Card.Text>
                     </Col>
                 </Row>
