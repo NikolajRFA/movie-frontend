@@ -28,8 +28,9 @@ function DropdownCard({title}) {
                 return Promise.all(promises);
             })
             .then(results => {
-                const names = results.map(res => res.data.name);
-                setTopOrderedCrew(names);
+                const people = results
+                    .map(res => res.data);
+                setTopOrderedCrew(people);
                 setLoading(false);
             })
             .catch(error => {
@@ -52,7 +53,14 @@ function DropdownCard({title}) {
                     <Col xs={9}>
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
                         <Card.Subtitle>{title.startYear}</Card.Subtitle>
-                        <Card.Text>{topOrderedCrew.length > 0 ? topOrderedCrew.join(', ') : 'Loading...'}
+                        <!-- TODO: Handle multiple of the same person -->
+                        <Card.Text>{topOrderedCrew.length > 0 ? topOrderedCrew.map((person, index) => (
+                            <span key={person.url}>
+                                <a href={person.url}>{person.name}</a>
+                                <!-- create the comma separation -->
+                                {index !== topOrderedCrew.length - 1 && ', '}
+                            </span>
+                        )) : 'Loading...'}
                         </Card.Text>
                     </Col>
                 </Row>
