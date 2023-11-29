@@ -1,15 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from "./NavBar";
-import TitleIdCard from "./TitleCard";
-import {Dropdown} from "react-bootstrap";
-import DropdownTest from "./DropdownTest";
-import Sidebar from "./Sidebar";
-
-import { useEffect, useState } from "react";
+import NavBar from "./components/NavBar";
+import TitlesForFrontpage from './components/TitlesForFrontpage';
+import {useEffect, useState} from "react";
 import axios from "axios";
-import TitleCard from "./TitleCard";
-import DropdownCard from "./DropdownCard";
+import Sidebar from "./components/Sidebar";
 
 function App() {
     const [titles, setTitles] = useState([]);
@@ -29,14 +24,12 @@ function App() {
     }, []);
 
     return (
-        <div>
-            <NavBar titles={titles} />
-            {loading && <p>Loading...</p>}
-            {error && <p>Error: {error.message}</p>}
-            {!loading && !error && titles.length === 0 && <p>No titles available.</p>}
-            {!loading && !error && titles.length > 0 &&
-                titles.map(title => <TitleCard key={title.url} title={title} />)
-            }
+        <div style={{display: 'flex', marginTop: '40px'}}>
+            <Sidebar/>
+            <div style={{flex: 1, marginLeft: '250px'}}>
+                <TitlesForFrontpage titles={titles} error={error} loading={loading}/>
+                <NavBar titles={titles}/>
+            </div>
         </div>
     );
 }

@@ -56,7 +56,7 @@ function NavBar({titles}) {
     }
 
     return (
-        <Navbar expand="lg" className="bg-dark" variant="dark">
+        <Navbar expand="lg" className="bg-dark" variant="dark" fixed="top">
             <Container>
                 <Navbar.Brand href="#home" style={{width: '80px'}}>Veagt Bøøtstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
