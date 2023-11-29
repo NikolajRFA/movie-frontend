@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import {Col, Row, Image} from 'react-bootstrap';
-import TwoHighestOrderedCrew from "./components/TwoHighestOrderedCrew";
+import TwoHighestOrderedCrew from "./TwoHighestOrderedCrew";
 
 
 function DropdownCard({title}) {

@@ -1,14 +1,29 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
-import {Dropdown} from "react-bootstrap";
-import TitleCard from "./TitleCard";
+import {Dropdown, Image} from "react-bootstrap";
 import DropdownCard from "./DropdownCard";
+import axios from "axios";
 
-function NavBar({titles}) {
+function NavBar() {
+    const [titles, setTitles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios.get(`http://localhost:5011/api/titles?page=0&pageSize=10`)
+            .then(res => {
+                setTitles(res.data.items);
+                setLoading(false);
+            })
+            .catch(error => {
+                setError(error);
+                setLoading(false);
+            });
+    }, []);
+
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
@@ -58,11 +73,10 @@ function NavBar({titles}) {
     return (
         <Navbar expand="lg" className="bg-dark" variant="dark" fixed="top">
             <Container>
-                <Navbar.Brand href="#home" style={{width: '80px'}}>Veagt Bøøtstrap</Navbar.Brand>
+                <Navbar.Brand href="/" style={{width: '100px'}}><Image src="/imdb_logo.svg" fluid alt="Logo"/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mx-left">
-                    </Nav>
+
                     <Nav className="mx-auto w-100 justify-content-center">
                         <Form className="w-75">
                             <Form.Control

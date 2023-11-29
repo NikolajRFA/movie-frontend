@@ -1,40 +1,48 @@
-import React, {useState} from 'react';
-import {Navbar, Container} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Container } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 import '../App.css';
 
-function Sidebar() {
+function Sidebar({id}) {
+    const location = useLocation();
     const [activeMenuItem, setActiveMenuItem] = useState('');
 
     const menuItems = [
-        {title: 'Bookmarks', link: '#bookmarks'},
-        {title: 'Account details', link: '#account-details'},
-        {title: 'Update account', link: '#update-account'},
-        {title: 'Delete account', link: '#delete-account'},
+        { title: 'Bookmarks', link: `bookmarks` },
+        { title: 'Account details', link: `details` }, // Update the link to match your user ID pattern
+        { title: 'Update account', link: `update` },
+        { title: 'Delete account', link: `delete` },
     ];
 
-    const handleMenuItemClick = (title) => {
-        setActiveMenuItem(title);
+    // Set the active menu item based on the current URL
+    const determineActiveMenuItem = () => {
+        const matchingItem = menuItems.find((item) => location.pathname.includes(item.link));
+        setActiveMenuItem(matchingItem ? matchingItem.title : '');
     };
 
-    return (
-            <div className="sidebar">
-                {menuItems.map((item, index) => (
-                    <Navbar
-                        key={index}
-                        className={`bg-body-primary ${activeMenuItem === item.title ? 'active' : ''}`}
-                    >
-                        <Container
-                            as="a"
-                            href={item.link}
-                            className="menuItem d-flex align-items-center justify-content-center"
-                            onClick={() => handleMenuItemClick(item.title)}
-                        >
-                            {item.title}
-                        </Container>
-                    </Navbar>
-                ))}
-            </div>
+    // Call determineActiveMenuItem when the component mounts or when the location changes
+    React.useEffect(() => {
+        determineActiveMenuItem();
+    }, [location]);
 
+    return (
+        <div className="sidebar">
+            {menuItems.map((item, index) => (
+                <Navbar
+                    key={index}
+                    className={`bg-body-primary ${activeMenuItem === item.title ? 'active' : ''}`}
+                >
+                    <Container
+                        as="a"
+                        href={item.link}
+                        className="menuItem d-flex align-items-center justify-content-center"
+                        onClick={() => setActiveMenuItem(item.title)}
+                    >
+                        {item.title}
+                    </Container>
+                </Navbar>
+            ))}
+        </div>
     );
 }
 
