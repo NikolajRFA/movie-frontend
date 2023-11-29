@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {Spinner} from "react-bootstrap";
 
 export default function TwoHighestOrderedCrew({crewUrl}) {
     const [topOrderedCrew, setTopOrderedCrew] = useState([]);
@@ -51,6 +52,6 @@ export default function TwoHighestOrderedCrew({crewUrl}) {
                     {/*create the comma separation*/}
                     {index !== arr.length - 1 && ', '}
                             </span>
-            )) : 'Loading...'
+            )) : <Spinner animation="border" style={{color: "#FFE920"}}/>
     )
 }
