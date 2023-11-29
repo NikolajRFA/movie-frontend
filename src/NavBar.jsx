@@ -8,11 +8,14 @@ import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
 import TitleCard from "./TitleCard";
 import DropdownCard from "./DropdownCard";
+import SignInModal from "./SignInModal";
 
 function NavBar({titles}) {
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
+    const [smShow, setSmShow] = useState(false);
+    const handleClose = () => {setSmShow(false);};
 
     useEffect(() => {
         function handleResize() {
@@ -96,7 +99,7 @@ function NavBar({titles}) {
                         </Form>
                     </Nav>
                     <Nav className="mx-right" style={{width: '80px'}}>
-                        <Nav.Link href="#link">Login</Nav.Link>
+                        <SignInModal show={smShow} onHide={handleClose} />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
