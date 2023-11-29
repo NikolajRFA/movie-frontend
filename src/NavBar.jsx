@@ -7,8 +7,9 @@ import {useEffect, useRef, useState} from "react";
 import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
 import TitleCard from "./TitleCard";
+import DropdownCard from "./DropdownCard";
 
-function NavBar() {
+function NavBar({titles}) {
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
@@ -86,7 +87,7 @@ function NavBar() {
                                         <Dropdown.Item href="#/action-1">
                                             {searchPhrase}
                                         </Dropdown.Item>
-                                        <Dropdown.Item href="https://dr.dk"> <TitleCard/> </Dropdown.Item>
+                                        {titles.map(title => <DropdownCard key={title.url} title={title} />)}
                                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                                     </Dropdown.Menu>
