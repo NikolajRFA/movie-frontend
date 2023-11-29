@@ -46,13 +46,15 @@ export default function TwoHighestOrderedCrew({crewUrl}) {
     }, []);
 
     return (
-        topOrderedCrew.length > 0 ? topOrderedCrew
-            .map((person, index, arr) => (
-                <span key={person.url}>
+        topOrderedCrew.length > 0
+            ? topOrderedCrew
+                .map((person, index, arr) => (
+                    <span key={person.url}>
                                 <a href={person.url}>{person.name}</a>
-                    {/*create the comma separation*/}
-                    {index !== arr.length - 1 && ', '}
+                        {/*create the comma separation*/}
+                        {index !== arr.length - 1 && ', '}
                             </span>
-            )) : <LoadingSpinner/>
+                ))
+            : <LoadingSpinner/>
     )
 }
