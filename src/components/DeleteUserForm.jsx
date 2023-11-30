@@ -47,6 +47,7 @@ function DeleteUserForm({ id }) {
                 console.error("Deletion failed", error);
             });
         window.location.replace("/");
+        alert("Account deleted!")
     };
 
     if (loading) {

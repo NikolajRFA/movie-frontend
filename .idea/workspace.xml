@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added not_rated + rated .svg">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added delete alert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +62,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.webpack",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -159,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701338540054</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed import statement">
+      <option name="closed" value="true" />
+      <created>1701353652115</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353652115</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added delete alert">
+      <option name="closed" value="true" />
+      <created>1701356400141</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701356400141</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +205,8 @@
     <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
     <MESSAGE value="Added not_rated + rated .svg" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added not_rated + rated .svg" />
+    <MESSAGE value="Fixed import statement" />
+    <MESSAGE value="Added delete alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added delete alert" />
   </component>
 </project>
