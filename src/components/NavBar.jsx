@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import {Dropdown, Image} from "react-bootstrap";
 import DropdownCard from "./DropdownCard";
-import SignInModal from "./components/LoginComp/SignInModal";
+import SignInModal from "./LoginComp/SignInModal";
 import axios from "axios";
 
 function NavBar() {
