@@ -29,14 +29,12 @@ export default function Title({titleUrl}) {
                     <Row>
                         <Col>
                             <h1>{title.title}</h1>
+                            <p>{title.titleType} | {title.startYear} {title.endYear && ' - ' + title.endYear} | {title.runTimeMinutes} min</p>
+
                         </Col>
                         <Col className="text-end">
-                            <h2>Rating - {title.averageRating}</h2>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <p>{title.titleType} | {title.startYear} {title.endYear && ' - ' + title.endYear} | {title.runTimeMinutes} min</p>
+                            <h2>Rating - {title.averageRating}/10</h2>
+                            <h5>Total ratings: {title.numVotes}</h5>
                         </Col>
                     </Row>
                     <Row>
