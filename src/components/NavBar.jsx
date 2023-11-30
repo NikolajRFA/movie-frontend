@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import {Dropdown, Image} from "react-bootstrap";
 import DropdownCard from "./DropdownCard";
+import SignInModal from "./components/LoginComp/SignInModal";
 import axios from "axios";
 
 function NavBar() {
@@ -27,6 +28,8 @@ function NavBar() {
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
+    const [smShow, setSmShow] = useState(false);
+    const handleClose = () => {setSmShow(false);};
 
     useEffect(() => {
         function handleResize() {
@@ -109,7 +112,7 @@ function NavBar() {
                         </Form>
                     </Nav>
                     <Nav className="mx-right" style={{width: '80px'}}>
-                        <Nav.Link href="#link">Login</Nav.Link>
+                        <SignInModal show={smShow} onHide={handleClose} />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
