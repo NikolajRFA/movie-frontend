@@ -3,7 +3,6 @@ import { Button, Modal } from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal'; // Add this import
 import axios from "axios";
-import StdButton from "../StdButton";
 
 function SignInModal() {
     const separatorStyle = {
@@ -57,6 +56,7 @@ function SignInModal() {
 
                 console.log('Sign In API Response:', response.data);
 
+                // Additional logic for successful Sign In
 
             } catch (error) {
                 console.error('Sign In Error:', error);
@@ -92,17 +92,20 @@ function SignInModal() {
 
     return (
         <div>
-            <StdButton text="Login" onClick={() => setModalShow(true)} className="mt-2">>
-            </StdButton>
+            <Button onClick={() => setModalShow(true)} className="me-2">
+                Login
+            </Button>
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
                 <Modal.Body className="d-flex flex-column align-items-center">
-                    <StdButton text="Sign in" onClick={() => setShowSignInModal(true)}>
-                    </StdButton>
+                    <Button onClick={() => setShowSignInModal(true)}>
+                        Sign In
+                    </Button>
                     <div className="mx-auto" style={separatorStyle}>
                         <span style={{ background: 'white', padding: '0 10px' }}>or</span>
                     </div>
-                    <StdButton text="Create Account" onClick={() => setShowCreateAccModal(true)} className="mt-2">
-                    </StdButton>
+                    <Button onClick={() => setShowCreateAccModal(true)} className="mt-2">
+                        Create a new Account
+                    </Button>
                 </Modal.Body>
             </Modal>
             <Modal
