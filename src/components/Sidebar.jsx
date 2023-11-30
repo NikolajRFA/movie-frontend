@@ -3,7 +3,7 @@ import { Navbar, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import '../App.css';
 
-function Sidebar({id}) {
+function Sidebar() {
     const location = useLocation();
     const [activeMenuItem, setActiveMenuItem] = useState('');
 
