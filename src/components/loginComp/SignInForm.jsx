@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import StdButton from "../StdButton";
 
 function SignInForm({ formData, onChange, onSubmit }) {
     return (
@@ -26,9 +27,8 @@ function SignInForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <Button variant="primary" onClick={onSubmit}>
-                Sign In
-            </Button>
+            <StdButton text="Sign in" onClick={onSubmit}>
+            </StdButton>
         </Form>
     );
 }

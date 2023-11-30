@@ -3,6 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal'; // Add this import
 import axios from "axios";
+import StdButton from "../StdButton";
 
 function SignInModal() {
     const separatorStyle = {
@@ -92,20 +93,17 @@ function SignInModal() {
 
     return (
         <div>
-            <Button onClick={() => setModalShow(true)} className="me-2">
-                Login
-            </Button>
+            <StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
+            </StdButton>
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
                 <Modal.Body className="d-flex flex-column align-items-center">
-                    <Button onClick={() => setShowSignInModal(true)}>
-                        Sign In
-                    </Button>
+                    <StdButton text="Sign in" onClick={() => {setShowSignInModal(true); setModalShow(false) }}>
+                    </StdButton>
                     <div className="mx-auto" style={separatorStyle}>
                         <span style={{ background: 'white', padding: '0 10px' }}>or</span>
                     </div>
-                    <Button onClick={() => setShowCreateAccModal(true)} className="mt-2">
-                        Create a new Account
-                    </Button>
+                    <StdButton text="Create a new Account" onClick={() => setShowCreateAccModal(true)} className="mt-2">
+                    </StdButton>
                 </Modal.Body>
             </Modal>
             <Modal
