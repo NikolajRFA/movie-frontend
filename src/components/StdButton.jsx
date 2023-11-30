@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-const StdButton = ({ to, text, type }) => {
+const StdButton = ({ to, text, type, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const buttonStyle = {
@@ -17,6 +17,7 @@ const StdButton = ({ to, text, type }) => {
             href={to}
             style={buttonStyle}
             type={type}
+            onClick={onClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
