@@ -8,7 +8,7 @@ import DropdownTest from "./DropdownTest";
 import {Dropdown} from "react-bootstrap";
 import TitleCard from "./TitleCard";
 import DropdownCard from "./DropdownCard";
-import SignInModal from "./SignInModal";
+import SignInModal from "./components/LoginComp/SignInModal";
 
 function NavBar({titles}) {
     const [searchPhrase, setSearchPhrase] = useState('');
