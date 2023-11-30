@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Moved components">
-      <change afterPath="$PROJECT_DIR$/public/imdb_logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DropdownCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropdownCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TitleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitleCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TitlesForFrontpage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitlesForFrontpage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +86,7 @@
       <workItem from="1701251342167" duration="837000" />
       <workItem from="1701252207551" duration="162000" />
       <workItem from="1701252390461" duration="1768000" />
+      <workItem from="1701336309256" duration="879000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -139,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701254538935</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added pages">
+      <option name="closed" value="true" />
+      <created>1701269512155</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701269512155</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +159,7 @@
     <MESSAGE value="Added Sidebar.jsx" />
     <MESSAGE value="Fixing idea files" />
     <MESSAGE value="Moved components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved components" />
+    <MESSAGE value="Added pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pages" />
   </component>
 </project>

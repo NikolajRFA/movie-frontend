@@ -4,9 +4,9 @@ import NavBar from "../components/NavBar";
 const Home = () => {
     return (
         <div style={{display: 'flex', marginTop: '40px'}}>
+            <NavBar />
             <div style={{flex: 1}}>
                 <TitlesForFrontpage />
-                <NavBar />
             </div>
         </div>
     )
