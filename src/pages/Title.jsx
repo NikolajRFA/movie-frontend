@@ -3,7 +3,8 @@ import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
-import TitleCrew from "../components/TitleCrew";
+import TitleCrew from "../components/title/TitleCrew";
+import TitleEpisodes from "../components/title/TitleEpisodes";
 
 export default function Title({titleUrl}) {
     const [title, setTitle] = useState(null);
@@ -49,6 +50,11 @@ export default function Title({titleUrl}) {
                                 <TitleCrew crewUrl={title.crew}/>
                             </div>
                         </Col>
+                    </Row>
+                    <Row>
+                        <div className="py-2">
+                            <TitleEpisodes episodesUrl={title.episodes}/>
+                        </div>
                     </Row>
                 </Container>
             </div>

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import CrewEntry from "./CrewEntry";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 import {Button, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
@@ -57,16 +57,18 @@ export default function TitleCrew({crewUrl}) {
         <div>
             {!loading
                 ? <Card>
-                    <Card.Header>
-                        <h4>Crew</h4>
-                    </Card.Header>
-                    <Row xs={1} md={2} lg={4} style={{minHeight: '180px'}}>
-                        {crew.map(member => (
-                            <Col key={member.url}>
-                                <CrewEntry crew={member}/>
-                            </Col>
-                        ))}
-                    </Row>
+                    <Card.Body>
+                        <Card.Title>
+                            <h4>Crew</h4>
+                        </Card.Title>
+                        <Row xs={1} md={2} lg={4} style={{minHeight: '180px'}}>
+                            {crew.map(member => (
+                                <Col key={member.url}>
+                                    <CrewEntry crew={member}/>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Card.Body>
                     <Card.Footer className="text-end">
                         <p>Page {pageNo + 1} of {pagingMetaData.numberOfPages}</p>
                         <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage} disabled={!prevPage}>
