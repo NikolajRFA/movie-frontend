@@ -5,14 +5,16 @@ import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
 import TitleCrew from "../components/title/TitleCrew";
 import TitleEpisodes from "../components/title/TitleEpisodes";
+import {useParams} from 'react-router-dom';
 
-export default function Title({titleUrl}) {
+export default function Title() {
+    const {tconst} = useParams();
     const [title, setTitle] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(titleUrl)
+        axios.get(`http://localhost:5011/api/titles/${tconst}`)
             .then(res => {
                 setTitle(res.data);
                 setLoading(false);

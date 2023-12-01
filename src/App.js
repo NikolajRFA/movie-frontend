@@ -6,6 +6,7 @@ import AccountDetails from "./pages/AccountDetails";
 import UpdateUser from "./pages/UpdateUser";
 import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
+import Title from "./pages/Title";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/users/:id/bookmarks" element={<UserBookmarks/>}/>
                 <Route path="/users/:id/update" element={<UpdateUser/>}/>
                 <Route path="/users/:id/delete" element={<DeleteUser/>}/>
+                <Route path="/titles/:tconst" element={<Title />}/>
             </Routes>
         </BrowserRouter>
     );
