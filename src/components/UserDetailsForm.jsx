@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css"
 import StdButton from "./StdButton";
+import User from "../data_objects/User";
 
 function UserDetailsForm({ id }) {
-    const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [user, setUser] = useState(new User(id));
 
     // State variables for form inputs
     const [newUsername, setNewUsername] = useState("");
@@ -17,16 +16,17 @@ function UserDetailsForm({ id }) {
     const [confirmUpdate, setConfirmUpdate] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5011/api/users/${id}`)
-            .then(res => {
-                setUser(res.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, [id]);
+        const getData = async () => {
+            try {
+                await user.fetchData(id);
+                setUser({ ...user });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        getData();
+    }, [id, user]);
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -47,8 +47,8 @@ function UserDetailsForm({ id }) {
         // Prepare the data for the PUT request
         const updatedUserData = {
             id: id,
-            username: newUsername || user.username,
-            email: newEmail || user.email,
+            username: newUsername || user.data.username,
+            email: newEmail || user.data.email,
             password: newPassword,
             role: "User"
         };
@@ -66,18 +66,18 @@ function UserDetailsForm({ id }) {
         window.location.replace(`/users/${id}/details`)
     };
 
-    if (loading) {
+    if (user.loading) {
         return <p>Loading...</p>;
     }
 
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    if (user.error) {
+        return <p>Error: {user.error.message}</p>;
     }
 
     return (
         <Form onSubmit={handleUpdate} style={{padding: "10px", borderRadius:"10px",border:"1px solid black"}}>
             <Form.Group className="mb-3" controlId="formUsername">
-                <Form.Label>Current username: "{user.username}"</Form.Label>
+                <Form.Label>Current username: "{user.data.username}"</Form.Label>
                 <Form.Control
                     type="username"
                     placeholder="Enter new username"
@@ -86,7 +86,7 @@ function UserDetailsForm({ id }) {
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Current email address: "{user.email}"</Form.Label>
+                <Form.Label>Current email address: "{user.data.email}"</Form.Label>
                 <Form.Control
                     type="email"
                     placeholder="Enter new email"
