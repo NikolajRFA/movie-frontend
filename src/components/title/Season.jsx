@@ -59,7 +59,7 @@ export default function Season({seasonNumber, episodesUrl}) {
         if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
             setNextPage(false);
         }
-    })
+    }, [])
 
     return (
         <div>

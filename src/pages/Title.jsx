@@ -33,7 +33,6 @@ export default function Title() {
                         <Col>
                             <h1>{title.title}</h1>
                             <p>{title.titleType} | {title.startYear} {title.endYear && ' - ' + title.endYear} | {title.runTimeMinutes} min</p>
-
                         </Col>
                         <Col className="text-end">
                             <h2>Rating - {title.averageRating}/10</h2>
@@ -54,9 +53,10 @@ export default function Title() {
                         </Col>
                     </Row>
                     <Row>
-                        <div className="py-2">
-                            <TitleEpisodes episodesUrl={title.episodes}/>
-                        </div>
+                        {title.episodes &&
+                            <div className="py-2">
+                                <TitleEpisodes episodesUrl={title.episodes}/>
+                            </div>}
                     </Row>
                 </Container>
             </div>

@@ -53,6 +53,13 @@ export default function TitleCrew({crewUrl}) {
             });
     }, [pageNo]);
 
+    useEffect(() => {
+        // Check if there is only one page.
+        if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
+            setNextPage(false);
+        }
+    }, [])
+
     return (
         <div>
             {!loading
