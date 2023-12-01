@@ -43,7 +43,7 @@ function SignInModal() {
         }));
     };
     const handleSignInSubmit = async () => {
-            const apiUrl = 'https://localhost:5011/api/signin'; // Replace with your Sign In API endpoint
+            const apiUrl = 'https://localhost:5011/api/users/login';
 
             try {
                 const response = await axios.post(apiUrl, {
@@ -57,7 +57,6 @@ function SignInModal() {
 
                 console.log('Sign In API Response:', response.data);
 
-                // Additional logic for successful Sign In
 
             } catch (error) {
                 console.error('Sign In Error:', error);
