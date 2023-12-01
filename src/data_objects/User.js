@@ -2,7 +2,6 @@ import axios from "axios";
 
 class User {
     apiUrl = "http://localhost:5011/api/users/";
-
     constructor() {
         this.data = null;
         this.loading = true;
@@ -19,7 +18,7 @@ class User {
         }
     }
 
-    async updateUser(id, updatedUserData) {
+    updateUser = async (id, updatedUserData) => {
         try {
             const res = await axios.put(this.apiUrl+id, updatedUserData);
             this.data = res.data;
@@ -27,6 +26,8 @@ class User {
             this.error = error;
         }
     }
+
+
 }
 
 export default User;

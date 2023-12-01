@@ -7,7 +7,7 @@ import StdButton from "./StdButton";
 import User from "../data_objects/User";
 
 function UserDetailsForm({ id }) {
-    const [user, setUser] = useState(new User(id));
+    const [user, setUser] = useState(() => new User());
 
     // State variables for form inputs
     const [newUsername, setNewUsername] = useState("");
@@ -54,16 +54,8 @@ function UserDetailsForm({ id }) {
         };
 
         // Send the PUT request
-        axios.put(`http://localhost:5011/api/users/${id}`, updatedUserData)
-            .then(res => {
-                // Handle the response if needed
-                console.log("Update successful", res.data);
-            })
-            .catch(error => {
-                // Handle the error if needed
-                console.error("Update failed", error);
-            });
-        window.location.replace(`/users/${id}/details`)
+        user.updateUser(id, updatedUserData);
+        //window.location.replace(`/users/${id}/details`)
     };
 
     if (user.loading) {
