@@ -12,6 +12,10 @@ const StdButton = ({ to, text, type, onClick }) => {
         minHeight: '35px',
     };
 
+    if(!to){
+        to ="#"
+    }
+
     return (
         <Button
             href={to}
