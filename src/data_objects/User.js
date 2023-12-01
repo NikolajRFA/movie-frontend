@@ -8,14 +8,15 @@ class User {
         this.loading = true;
         this.error = null;
     }
-    fetchData(id){
-        axios.get(this.apiUrl+id).then(res=>{
+    async fetchData(id) {
+        try {
+            const res = await axios.get(this.apiUrl + id);
             this.data = res.data;
             this.loading = false;
-            console.log("test")
-        }).catch(error => {
+        } catch (error) {
             this.error = error;
-        })
+            this.loading = false;
+        }
     }
 
     async updateUser(id, updatedUserData) {

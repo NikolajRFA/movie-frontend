@@ -8,8 +8,14 @@ const UserDetails = ({id}) => {
     const [user, setUser] = useState(new User(id))
 
     useEffect(() => {
-        user.fetchData(id)
-    }, [id, user]);
+        const fetchData = async () => {
+            const newUser = new User(); // create a new User instance
+            await newUser.fetchData(id); // fetch data for the specific user
+            setUser({ ...newUser }); // update state with the new user data
+        };
+
+        fetchData();
+    }, [id]);
 
     if (user.loading) {
         return <p>Loading...</p>;
