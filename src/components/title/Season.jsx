@@ -11,6 +11,7 @@ export default function Season({seasonNumber, episodesUrl}) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const episodesPerPage = 6;
     const [pageNo, setPageNo] = useState(0);
     const [prevPage, setPrevPage] = useState(false);
     const [nextPage, setNextPage] = useState(true);
@@ -41,7 +42,7 @@ export default function Season({seasonNumber, episodesUrl}) {
     }
 
     useEffect(() => {
-        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=10&season=${seasonNumber}`)
+        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=${episodesPerPage}&season=${seasonNumber}`)
             .then(res => {
                 setPagingMetaData(res.data)
                 setEpisodes(res.data.items);
@@ -53,6 +54,13 @@ export default function Season({seasonNumber, episodesUrl}) {
             });
     }, [pageNo]);
 
+    useEffect(() => {
+        // Check if there is only one page.
+        if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
+            setNextPage(false);
+        }
+    })
+
     return (
         <div>
             {!loading
@@ -63,7 +71,7 @@ export default function Season({seasonNumber, episodesUrl}) {
                     <Accordion.Body>
                         <Card>
                             <Card.Body>
-                                <Row xs={1} md={2} lg={4}>
+                                <Row xs={1} md={2} lg={3}>
                                     {episodes.map(episode => (
                                         <Col>
                                             <EpisodeEntry episode={episode}/>

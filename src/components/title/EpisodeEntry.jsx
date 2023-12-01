@@ -19,7 +19,13 @@ export default function EpisodeEntry({episode}) {
                 setError(error);
                 setLoading(false);
             });
-    }, []);
+    }, [episode]);
+
+    function truncatePlot(plot) {
+        const plotLength = 120;
+        if (plot.length > plotLength) return plot.substring(0, plotLength) + '...';
+        return plot;
+    }
 
     return (
         <Card className="p-1 m-2">
@@ -33,16 +39,11 @@ export default function EpisodeEntry({episode}) {
                         <Card.Subtitle>Episode {episode.episode}</Card.Subtitle>
                     </Col>
                 </Row>
-                {/*<Row>
-                    <Col>
-                        <Card.Title><a href={episode.episodeUrl}>{episode.title}</a></Card.Title>
-                        <Card.Subtitle>Episode {episode.episode}</Card.Subtitle>
-                    </Col>
-                    <Col>
-                        <Card.Text>{episodeData.plot}</Card.Text>
-                    </Col>
-                </Row>*/}
-
+                <Row>
+                    <Card.Text>
+                        {episodeData ? truncatePlot(episodeData.plot) : <LoadingSpinner/>}
+                    </Card.Text>
+                </Row>
             </Card.Body>
         </Card>
     )
