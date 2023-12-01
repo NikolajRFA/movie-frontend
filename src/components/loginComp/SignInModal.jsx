@@ -4,6 +4,8 @@ import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal'; // Add this import
 import axios from "axios";
 import StdButton from "../StdButton";
+import Cookies from 'js-cookie';
+
 
 function SignInModal() {
     const separatorStyle = {
@@ -11,12 +13,13 @@ function SignInModal() {
         width: '100%',
         textAlign: 'center',
         lineHeight: '0.1em',
-        margin: '12px 0 6px',
+        margin: '10px 0 14px',
     };
 
     const [modalShow, setModalShow] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
     const [showCreateAccModal, setShowCreateAccModal] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [signInFormData, setSignInFormData] = useState({
         username: '',
         password: '',
@@ -43,7 +46,7 @@ function SignInModal() {
         }));
     };
     const handleSignInSubmit = async () => {
-            const apiUrl = 'https://localhost:5011/api/users/login';
+            const apiUrl = 'http://localhost:5011/api/users/login';
 
             try {
                 const response = await axios.post(apiUrl, {
@@ -56,12 +59,30 @@ function SignInModal() {
                 });
 
                 console.log('Sign In API Response:', response.data);
+                const {id, token} = response.data
+                //TODO Handle user and give it it's id, so it can be sent  to details page
+                Cookies.set('token', token, {expires: 1});
+                Cookies.set('id', id, {expires: 1});
+                setSignInFormData({
+                    username: '',
+                    password: ''
+                })
+
+                //Get the user's cookies
+                const tokenFromCookie = Cookies.get('token');
+                const IdFromCookie = Cookies.get('id')
+
+                if (tokenFromCookie && IdFromCookie) {
+                    setIsLoggedIn(true);
+                }
+
 
 
             } catch (error) {
                 console.error('Sign In Error:', error);
             }
         };
+
     const handleCreateAccSubmit = async () => {
             const apiUrl = 'http://localhost:5011/api/users';
             try {
@@ -75,9 +96,7 @@ function SignInModal() {
                         'Content-Type': 'application/json',
                     },
                 });
-
-                console.log('API Response:', response.data);
-
+                //Logic for succesful login
                 setCreateAccFormData({
                     username: '',
                     email: '',
@@ -92,8 +111,9 @@ function SignInModal() {
 
     return (
         <div>
-            <StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
-            </StdButton>
+            {isLoggedIn ? ( <p>you are logged in</p>) :
+                (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
+            </StdButton>)}
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
                 <Modal.Body className="d-flex flex-column align-items-center">
                     <StdButton text="Sign in" onClick={() => {setShowSignInModal(true); setModalShow(false) }}>
@@ -101,10 +121,11 @@ function SignInModal() {
                     <div className="mx-auto" style={separatorStyle}>
                         <span style={{ background: 'white', padding: '0 10px' }}>or</span>
                     </div>
-                    <StdButton text="Create a new Account" onClick={() => setShowCreateAccModal(true)} className="mt-2">
+                    <StdButton text="Create a new Account" onClick={() => {setShowCreateAccModal(true); setModalShow(false);}} className="mt-2">
                     </StdButton>
                 </Modal.Body>
             </Modal>
+
             <Modal
                 size="sm"
                 show={showSignInModal}
@@ -115,7 +136,11 @@ function SignInModal() {
                 centered
             >
                 <Modal.Body className="d-flex flex-column align-items-center">
-                    <SignInForm formData={signInFormData} onChange={handleSignInFormChange} onSubmit={handleSignInSubmit} />
+                    <SignInForm formData={signInFormData} onChange={handleSignInFormChange} onSubmit={(e) => {
+                        handleSignInSubmit(e).then(r => setShowSignInModal(false));
+
+
+                    }} />
                 </Modal.Body>
             </Modal>
 
