@@ -1,33 +1,32 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useEffect, useState } from "react";
-import axios from "axios";
-import {Badge, Button} from "react-bootstrap";
 import StdButton from "./StdButton";
+import User from "../data_objects/User"
+import {useEffect, useState} from "react";
 
 const UserDetails = ({id}) => {
-    const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [user, setUser] = useState(new User(id))
 
     useEffect(() => {
-        axios.get(`http://localhost:5011/api/users/${id}`)
-            .then(res => {
-                setUser(res.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, []);
+        const fetchData = async () => {
+            try {
+                await user.fetchData(id);
+                setUser({ ...user });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
 
-    if (loading) {
+        fetchData();
+    }, [id, user]);
+
+    if (user.loading) {
         return <p>Loading...</p>;
     }
 
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    if (user.error) {
+        return <p>Error: {user.error.message}</p>;
     }
+
 
     return (
         <ListGroup as="ol">
@@ -37,7 +36,7 @@ const UserDetails = ({id}) => {
             >
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">Username:</div>
-                    {user.username}
+                    {user.data.username}
                 </div>
             </ListGroup.Item>
             <ListGroup.Item
@@ -45,8 +44,8 @@ const UserDetails = ({id}) => {
                 className="d-flex justify-content-between align-items-start"
             >
                 <div className="ms-2 me-auto">
-                    <div className="fw-bold">Email: </div>
-                    {user.email}
+                    <div className="fw-bold">Email:</div>
+                    {user.data.email}
                 </div>
             </ListGroup.Item>
             <ListGroup.Item as="li">
