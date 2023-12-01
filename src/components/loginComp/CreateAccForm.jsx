@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import StdButton from "../StdButton";
 function CreateAccForm({ formData, onChange, onSubmit }) {
     return (
         <Form>
@@ -37,9 +37,7 @@ function CreateAccForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <Button variant="primary" onClick={onSubmit}>
-                Create Account
-            </Button>
+            <StdButton text="Create Account" onClick={onSubmit}></StdButton>
         </Form>
     );
 }
