@@ -7,24 +7,30 @@ import UpdateUser from "./pages/UpdateUser";
 import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
+import NavBar from "./components/NavBar";
 
 function App() {
 
 
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Home />}
-                />
-                <Route path="/users/:id/details" element={<AccountDetails/>}/>
-                <Route path="/users/:id/bookmarks" element={<UserBookmarks/>}/>
-                <Route path="/users/:id/update" element={<UpdateUser/>}/>
-                <Route path="/users/:id/delete" element={<DeleteUser/>}/>
-                <Route path="/titles/:tconst" element={<Title />}/>
-            </Routes>
-        </BrowserRouter>
+        <>
+            <NavBar/>
+            <div style={{paddingTop: '90px'}}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={<Home/>}
+                        />
+                        <Route path="/users/:id/details" element={<AccountDetails/>}/>
+                        <Route path="/users/:id/bookmarks" element={<UserBookmarks/>}/>
+                        <Route path="/users/:id/update" element={<UpdateUser/>}/>
+                        <Route path="/users/:id/delete" element={<DeleteUser/>}/>
+                        <Route path="/titles/:tconst" element={<Title/>}/>
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        </>
     );
 }
 
