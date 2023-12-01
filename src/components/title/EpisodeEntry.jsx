@@ -1,8 +1,9 @@
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Col, Row, Image} from "react-bootstrap";
+import {Col, Row, Image, NavLink} from "react-bootstrap";
 import LoadingSpinner from "../LoadingSpinner";
+import {Link} from "react-router-dom";
 
 export default function EpisodeEntry({episode}) {
     const [episodeData, setEpisodeData] = useState(null);
@@ -35,8 +36,21 @@ export default function EpisodeEntry({episode}) {
                         {!loading ? <Image src={episodeData.poster} width="100px"/> : <LoadingSpinner/>}
                     </Col>
                     <Col>
-                        <Card.Title><a href={episode.episodeUrl}>{episode.title}</a></Card.Title>
+                        <Card.Title><Link reloadDocument to={`/titles/${episode.episodeUrl.split('/').pop()}`}>
+                            {episode.title}
+                        </Link></Card.Title>
                         <Card.Subtitle>Episode {episode.episode}</Card.Subtitle>
+                    </Col>
+                    <Col style={{}}>
+                        {!loading
+                            ? <>
+                                <h6>
+                                    {episodeData.averageRating}
+                                    <Image src="/rating_star.svg" fluid style={{width: '30px', paddingLeft: '10px'}}/>
+                                </h6>
+                                <p>{episodeData.numVotes} votes</p>
+                            </>
+                            : <LoadingSpinner/>}
                     </Col>
                 </Row>
                 <Row>
