@@ -73,7 +73,7 @@ export default function Season({seasonNumber, episodesUrl}) {
                             <Card.Body>
                                 <Row xs={1} md={2} lg={3}>
                                     {episodes.map(episode => (
-                                        <Col>
+                                        <Col key={episode.episodeUrl}>
                                             <EpisodeEntry episode={episode}/>
                                         </Col>
                                     ))}

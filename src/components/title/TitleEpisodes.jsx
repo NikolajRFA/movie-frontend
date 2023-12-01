@@ -44,7 +44,7 @@ export default function TitleEpisodes({episodesUrl}) {
                 <Accordion>
                     {Array.from({length: numberOfSeasons}, (_, index) => index + 1)
                         .map(seasonNumber => (
-                            <Season seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
+                            <Season key={seasonNumber} seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
                         ))}
                 </Accordion>
             </Card.Body>
