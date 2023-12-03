@@ -12,7 +12,12 @@ export default function TwoHighestOrderedCrew({crewUrl}) {
 
         axios.get(fullCrewUrl)
             .then(res => {
-                setTopOrderedCrew(res.data.items);
+                // Handle duplicates
+                const uniquePeople = [];
+                res.data.items.forEach(item => {
+                    if (!uniquePeople.some(inner => inner.personName === item.personName)) uniquePeople.push(item);
+                })
+                setTopOrderedCrew(uniquePeople);
                 setLoading(false);
             })
             .catch(error => {
