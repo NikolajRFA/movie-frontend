@@ -19,4 +19,17 @@ export default class TitleObj {
             this.loading = false;
         }
     }
+
+    async fetchDropdownTitles(searchPhrase, dropdownSize = 5){
+        const apiUrl = `${this.apiUrlBase}dropdown?=${searchPhrase}&dropdown=${dropdownSize}`;
+
+        try {
+            const res = await axios.get(apiUrl);
+            this.data = res.data;
+            this.loading = false;
+        } catch (error) {
+            this.error = error;
+            this.loading = false;
+        }
+    }
 }

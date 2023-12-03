@@ -7,7 +7,7 @@ import UpdateUser from "./pages/UpdateUser";
 import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 
 function App() {
 
