@@ -2,22 +2,20 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import StdButton from "./StdButton";
 import User from "../data_objects/User"
 import {useEffect, useState} from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 const UserDetails = ({id}) => {
     const [user, setUser] = useState(new User(id))
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                await user.fetchData(id);
-                setUser({ ...user });
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
+            const newUser = new User(); // create a new User instance
+            await newUser.fetchData(id); // fetch data for the specific user
+            setUser({ ...newUser }); // update state with the new user data
         };
 
         fetchData();
-    }, [id, user]);
+    }, [id]);
 
     if (user.loading) {
         return <p>Loading...</p>;

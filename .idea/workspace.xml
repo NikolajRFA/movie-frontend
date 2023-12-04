@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added titles route">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TwoHighestOrderedCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TwoHighestOrderedCrew.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="title-business-layer" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lanoth&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8a6eedae-eebf-40ce-a543-ae494477615a" />
+        <option name="url" value="https://github.com/NikolajRFA/movie-frontend.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2Yc1BaGxaWcuslOEeOHLcOnMyjO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src" />
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\components" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="" />
+      <created>1700809918288</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700809918288</updated>
+      <workItem from="1700809920126" duration="11067000" />
+      <workItem from="1701005053477" duration="590000" />
+      <workItem from="1701244001621" duration="684000" />
+      <workItem from="1701244723915" duration="4586000" />
+      <workItem from="1701251342167" duration="837000" />
+      <workItem from="1701252207551" duration="162000" />
+      <workItem from="1701252390461" duration="1768000" />
+      <workItem from="1701336309256" duration="15558000" />
+      <workItem from="1701356643646" duration="264000" />
+      <workItem from="1701416023844" duration="3605000" />
+      <workItem from="1701420141712" duration="17688000" />
+      <workItem from="1701618653927" duration="2771000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added navbar">
+      <option name="closed" value="true" />
+      <created>1700818351100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700818351100</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added .active css">
+      <option name="closed" value="true" />
+      <created>1700823946995</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700823946995</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Sidebar.jsx">
+      <option name="closed" value="true" />
+      <created>1700823999092</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700823999092</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixing idea files">
+      <option name="closed" value="true" />
+      <created>1701246034346</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701246034346</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Moved components">
+      <option name="closed" value="true" />
+      <created>1701254538935</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701254538935</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added pages">
+      <option name="closed" value="true" />
+      <created>1701269512155</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701269512155</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update sidebar styling">
+      <option name="closed" value="true" />
+      <created>1701337932453</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701337932453</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added rating_star.svg">
+      <option name="closed" value="true" />
+      <created>1701338026835</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701338026835</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added not_rated + rated .svg">
+      <option name="closed" value="true" />
+      <created>1701338540054</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701338540054</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed import statement">
+      <option name="closed" value="true" />
+      <created>1701353652115</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353652115</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added delete alert">
+      <option name="closed" value="true" />
+      <created>1701356400141</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701356400141</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Trying to fix commits">
+      <option name="closed" value="true" />
+      <created>1701356527244</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701356527244</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Trying to fix commits">
+      <option name="closed" value="true" />
+      <created>1701356589295</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701356589295</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Trying to fix commits">
+      <option name="closed" value="true" />
+      <created>1701356608692</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701356608692</updated>
+    </task>
+    <task id="LOCAL-00015" summary="First look at business layer">
+      <option name="closed" value="true" />
+      <created>1701423821599</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701423821599</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added titles route">
+      <option name="closed" value="true" />
+      <created>1701424230956</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701424230956</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added titles route">
+      <option name="closed" value="true" />
+      <created>1701436332275</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701436332291</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added navbar" />
+    <MESSAGE value="Added .active css" />
+    <MESSAGE value="Added Sidebar.jsx" />
+    <MESSAGE value="Fixing idea files" />
+    <MESSAGE value="Moved components" />
+    <MESSAGE value="Added pages" />
+    <MESSAGE value="Update sidebar styling" />
+    <MESSAGE value="Added rating_star.svg" />
+    <MESSAGE value="Added not_rated + rated .svg" />
+    <MESSAGE value="Fixed import statement" />
+    <MESSAGE value="Added delete alert" />
+    <MESSAGE value="Trying to fix commits" />
+    <MESSAGE value="First look at business layer" />
+    <MESSAGE value="Added titles route" />
+    <MESSAGE value="Fixed x is not a function bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed x is not a function bugs" />
+  </component>
+</project>

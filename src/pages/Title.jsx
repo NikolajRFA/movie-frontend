@@ -6,56 +6,56 @@ import {Col, Image, Row} from "react-bootstrap";
 import TitleCrew from "../components/title/TitleCrew";
 import TitleEpisodes from "../components/title/TitleEpisodes";
 import {useParams} from 'react-router-dom';
+import TitleObj from "../data_objects/TitleObj";
 
 export default function Title() {
     const {tconst} = useParams();
-    const [title, setTitle] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [title, setTitle] = useState(() => new TitleObj());
 
     useEffect(() => {
-        axios.get(`http://localhost:5011/api/titles/${tconst}`)
-            .then(res => {
-                setTitle(res.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, []);
+        const getData = async () => {
+            try {
+                const updatedTitle = new TitleObj();
+                await updatedTitle.getTitle(tconst);
+                setTitle(updatedTitle);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        getData();
+    }, [tconst]);
 
     return (
-        (!loading)
+        (!title.loading)
             ? <div>
                 <Container>
                     <Row>
                         <Col>
-                            <h1>{title.title}</h1>
-                            <p>{title.titleType} | {title.startYear} {title.endYear && ' - ' + title.endYear} | {title.runTimeMinutes} min</p>
+                            <h1>{title.data.title}</h1>
+                            <p>{title.data.titleType} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
                         <Col className="text-end">
-                            <h2>Rating - {title.averageRating}/10</h2>
-                            <h5>Total ratings: {title.numVotes}</h5>
+                            <h2>Rating - {title.data.averageRating}/10</h2>
+                            <h5>Total ratings: {title.data.numVotes}</h5>
                         </Col>
                     </Row>
                     <Row>
                         <Col md="auto">
-                            <Image src={title.poster} width="220px"/>
+                            <Image src={title.data.poster} width="220px"/>
                         </Col>
                         <Col>
                             <div>
-                                {title.plot}
+                                {title.data.plot}
                             </div>
                             <div className="pt-2">
-                                <TitleCrew crewUrl={title.crew}/>
+                                <TitleCrew crewUrl={title.data.crew}/>
                             </div>
                         </Col>
                     </Row>
                     <Row>
-                        {title.episodes &&
+                        {title.data.episodes &&
                             <div className="py-2">
-                                <TitleEpisodes episodesUrl={title.episodes}/>
+                                <TitleEpisodes episodesUrl={title.data.episodes}/>
                             </div>}
                     </Row>
                 </Container>
