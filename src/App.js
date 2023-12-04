@@ -8,6 +8,7 @@ import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
 import NavBar from "./components/NavBar";
+import SignInModal from "./components/loginComp/SignInModal";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                         <Route path="/users/:id/update" element={<UpdateUser/>}/>
                         <Route path="/users/:id/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
+
                     </Routes>
                 </BrowserRouter>
             </div>

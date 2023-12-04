@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import SignInForm from './SignInForm';
-import CreateAccountModal from './CreateAccountModal'; // Add this import
+import CreateAccountModal from './CreateAccountModal';
 import axios from "axios";
 import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
+import {Link} from "react-router-dom";
 
 
 function SignInModal() {
@@ -45,6 +46,16 @@ function SignInModal() {
             [name]: value,
         }));
     };
+
+    useEffect(() => {
+        const tokenFromCookie = Cookies.get('token');
+        const IdFromCookie = Cookies.get('id');
+
+        if (tokenFromCookie && IdFromCookie) {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
     const handleSignInSubmit = async () => {
             const apiUrl = 'http://localhost:5011/api/users/login';
 
@@ -60,17 +71,16 @@ function SignInModal() {
 
                 console.log('Sign In API Response:', response.data);
                 const {id, token} = response.data
-                //TODO Handle user and give it it's id, so it can be sent  to details page
-                Cookies.set('token', token, {expires: 1});
-                Cookies.set('id', id, {expires: 1});
+
+                Cookies.set('token', token, {expires: 100});
+                Cookies.set('id', id, {expires: 100});
                 setSignInFormData({
                     username: '',
                     password: ''
                 })
 
-                //Get the user's cookies
                 const tokenFromCookie = Cookies.get('token');
-                const IdFromCookie = Cookies.get('id')
+                const IdFromCookie = Cookies.get('id');
 
                 if (tokenFromCookie && IdFromCookie) {
                     setIsLoggedIn(true);
@@ -111,7 +121,9 @@ function SignInModal() {
 
     return (
         <div>
-            {isLoggedIn ? ( <p>you are logged in</p>) :
+            {isLoggedIn ? (<a href={`/users/${Cookies.get('id')}/update`}>
+                    <img src="/profile_picture.png" alt="LoginBubble" width={'50px'} />
+                </a>) :
                 (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
             </StdButton>)}
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
