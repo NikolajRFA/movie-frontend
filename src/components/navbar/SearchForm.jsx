@@ -3,9 +3,10 @@ import DropdownCard from "../DropdownCard";
 import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
+import TitleObj from "../../data_objects/TitleObj";
 
 export default function SearchForm() {
-    const [titles, setTitles] = useState([]);
+    const [title, setTitle] = useState(() => new TitleObj());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState('');
@@ -47,8 +48,20 @@ export default function SearchForm() {
     }, []);
 
     function handleSearchChange(event) {
-        setSearchPhrase(event.target.value);
+        const newSearchPhrase = event.target.value;
+        setSearchPhrase(newSearchPhrase);
         setShowDropdown(true);
+        const getData = async () => {
+            try {
+                const updatedTitle = new TitleObj();
+                await updatedTitle.fetchDropdownTitles(newSearchPhrase);
+                setTitle(updatedTitle);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        getData();
+
     }
 
     function handleSearchFocus() {

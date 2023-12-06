@@ -26,6 +26,7 @@ export default class TitleObj {
         try {
             const res = await axios.get(apiUrl);
             this.data = res.data;
+            this.title = res.data.title;
             this.loading = false;
         } catch (error) {
             this.error = error;
