@@ -4,9 +4,12 @@ import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import TitleObj from "../../data_objects/TitleObj";
+import DropdownTitles from "../../data_objects/DropdownTitles";
+import dropdown from "bootstrap/js/src/dropdown";
+import LoadingSpinner from "../LoadingSpinner";
 
 export default function SearchForm() {
-    const [title, setTitle] = useState(() => new TitleObj());
+    const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState('');
@@ -35,34 +38,22 @@ export default function SearchForm() {
         };
     }, [searchPhrase, showDropdown]);
 
-    useEffect(() => {
-        axios.get(`http://localhost:5011/api/titles?page=0&pageSize=10`)
-            .then(res => {
-                setTitles(res.data.items);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, []);
-
+    // TODO: set loading spinner on new search.
     function handleSearchChange(event) {
         const newSearchPhrase = event.target.value;
         setSearchPhrase(newSearchPhrase);
         setShowDropdown(true);
         const getData = async () => {
             try {
-                const updatedTitle = new TitleObj();
-                await updatedTitle.fetchDropdownTitles(newSearchPhrase);
-                setTitle(updatedTitle);
+                DropdownTitles.fetchDropdown(newSearchPhrase)
+                    .then(res => setDropdownTitles(res));
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
-        getData();
-
+        if (newSearchPhrase) getData();
     }
+
 
     function handleSearchFocus() {
         setShowDropdown(true);
@@ -98,12 +89,11 @@ export default function SearchForm() {
             }}
                  onBlur={handleSearchBlur}>
                 <Dropdown.Menu id="searchDropdownMenu" show={showDropdown}>
-                    <Dropdown.Item href="#/action-1">
-                        {searchPhrase}
+                    <Dropdown.Item>
+                        {searchPhrase && (!dropdownTitles.loading
+                        ? dropdownTitles.data.map(title => <DropdownCard key={title.url} title={title}/>)
+                    : <LoadingSpinner/>)}
                     </Dropdown.Item>
-                    {titles.map(title => <DropdownCard key={title.url} title={title}/>)}
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                 </Dropdown.Menu>
             </div>
         </Form>
