@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 class User {
     apiUrl = "http://localhost:5011/api/users/";
@@ -6,6 +7,7 @@ class User {
         this.data = null;
         this.loading = true;
         this.error = null;
+        this.id = Cookies.get('id');
     }
     async fetchData(id) {
         try {
@@ -18,14 +20,23 @@ class User {
         }
     }
 
-    updateUser = async (id, updatedUserData) => {
+    updateUser = async (id, updatedUserData, jwt) => {
         try {
-            const res = await axios.put(this.apiUrl+id, updatedUserData);
+            const res = await axios.put(
+                this.apiUrl + id,
+                updatedUserData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    },
+                }
+            );
+
             this.data = res.data;
         } catch (error) {
             this.error = error;
         }
-    }
+    };
 
 
 }

@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { Navbar, Container } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Navbar, Container} from 'react-bootstrap';
+import {Link, useLocation, useParams} from 'react-router-dom';
 import '../App.css';
 
 function Sidebar() {
+    const { id } = useParams();
     const location = useLocation();
     const [activeMenuItem, setActiveMenuItem] = useState('');
 
     const menuItems = [
-        { title: 'Bookmarks', link: `bookmarks` },
-        { title: 'Account details', link: `details` }, // Update the link to match your user ID pattern
-        { title: 'Update account', link: `update` },
-        { title: 'Delete account', link: `delete` },
+        {title: 'Bookmarks', link: `bookmarks`},
+        {title: 'Account details', link: `details`}, // Update the link to match your user ID pattern
+        {title: 'Update account', link: `update`},
+        {title: 'Delete account', link: `delete`},
     ];
 
     // Set the active menu item based on the current URL
@@ -32,14 +33,13 @@ function Sidebar() {
                     key={index}
                     className={`bg-body-primary ${activeMenuItem === item.title ? 'active' : ''}`}
                 >
-                    <Container
+                    <Link
                         as="a"
-                        href={item.link}
                         className="menuItem d-flex align-items-center justify-content-center"
                         onClick={() => setActiveMenuItem(item.title)}
-                    >
+                        to={`/users/${id}/${item.link}`}>
                         {item.title}
-                    </Container>
+                    </Link>
                 </Navbar>
             ))}
         </div>

@@ -32,7 +32,7 @@
     position: fixed;
     left: 0;
     height: 100%;
-    width: 11vw;
+    width: 13vw;
     overflow-x: hidden;
     padding-top: 75px;
     padding-left: 10px;
@@ -42,6 +42,8 @@
 
 .menuItem {
     background-color: #ffe920;
+    min-height: 50px;
+    min-width: 200px;
     padding: 20px;
     border-radius: 25px;
     text-decoration: none; /* Remove underlining */

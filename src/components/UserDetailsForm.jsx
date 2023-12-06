@@ -5,20 +5,24 @@ import axios from "axios";
 import "../App.css"
 import StdButton from "./StdButton";
 import User from "../data_objects/User";
+import Cookies from "js-cookie";
+import {useNavigate} from "react-router-dom";
 
-function UserDetailsForm({ id }) {
+function UserDetailsForm() {
     const [user, setUser] = useState(() => new User());
+    const jwt = Cookies.get('token');
 
     // State variables for form inputs
     const [newUsername, setNewUsername] = useState("");
     const [newEmail, setNewEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmUpdate, setConfirmUpdate] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
             try {
-                await user.fetchData(id);
+                await user.fetchData(user.id);
                 setUser({ ...user });
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -26,7 +30,7 @@ function UserDetailsForm({ id }) {
         };
 
         getData();
-    }, [id, user]);
+    }, [user.id, user]);
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -46,7 +50,7 @@ function UserDetailsForm({ id }) {
 
         // Prepare the data for the PUT request
         const updatedUserData = {
-            id: id,
+            id: user.id,
             username: newUsername || user.data.username,
             email: newEmail || user.data.email,
             password: newPassword,
@@ -54,8 +58,8 @@ function UserDetailsForm({ id }) {
         };
 
         // Send the PUT request
-        user.updateUser(id, updatedUserData);
-        //window.location.replace(`/users/${id}/details`)
+        user.updateUser(user.id, updatedUserData, jwt);
+        navigate(`/users/${user.id}/details`)
     };
 
     if (user.loading) {
