@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 
-const StdButton = ({ text, type, onClick, dynamicPath }) => {
+const StdButton = ({ text, type, onClick, dynamicPath, style}) => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ const StdButton = ({ text, type, onClick, dynamicPath }) => {
         borderRadius: '10px',
         minHeight: '35px',
         cursor: 'pointer',
+        ...style,
     };
 
     return (
