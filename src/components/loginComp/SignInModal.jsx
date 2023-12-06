@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import {Button, Modal, NavLink} from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal';
 import axios from "axios";
 import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 function SignInModal() {
@@ -30,6 +30,7 @@ function SignInModal() {
         email: '',
         password: '',
     });
+    const navigate = useNavigate();
 
     const handleSignInFormChange = (e) => {
         const { name, value } = e.target;
@@ -106,7 +107,7 @@ function SignInModal() {
                         'Content-Type': 'application/json',
                     },
                 });
-                //Logic for succesful login
+
                 setCreateAccFormData({
                     username: '',
                     email: '',
@@ -119,11 +120,12 @@ function SignInModal() {
             }
         };
 
+
+
     return (
         <div>
-            {isLoggedIn ? (<a href={`/users/${Cookies.get('id')}/update`}>
-                    <img src="/profile_picture.png" alt="LoginBubble" width={'50px'} />
-                </a>) :
+            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'} onClick={()=>navigate(`/users/${Cookies.get('id')}/details`)}/>
+                ) :
                 (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
             </StdButton>)}
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
