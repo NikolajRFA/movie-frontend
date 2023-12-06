@@ -6,7 +6,7 @@ const UserBookmarks = () => {
     const { id } = useParams();
 
     return (
-        <div style={{display: 'flex', marginTop: '50px'}}>
+        <div style={{display: 'flex'}}>
             <Sidebar id={id}/>
             <div style={{flex: 1, marginLeft: '250px'}}>
                 <NavBar/>

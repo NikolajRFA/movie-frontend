@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 
-const StdButton = ({ to, text, type, onClick }) => {
+const StdButton = ({ text, type, onClick, dynamicPath }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
 
     const buttonStyle = {
         backgroundColor: isHovered ? '#ffb925' : '#FFE920',
@@ -10,18 +12,23 @@ const StdButton = ({ to, text, type, onClick }) => {
         border: 'none',
         borderRadius: '10px',
         minHeight: '35px',
+        cursor: 'pointer',
     };
-
-    if(!to){
-        to ="#"
-    }
 
     return (
         <Button
-            href={to}
             style={buttonStyle}
             type={type}
-            onClick={onClick}
+            onClick={() => {
+                if (onClick) {
+                    onClick();
+                }
+
+                // Check if dynamicPath is provided before navigating
+                if (dynamicPath) {
+                    navigate(dynamicPath);
+                }
+            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

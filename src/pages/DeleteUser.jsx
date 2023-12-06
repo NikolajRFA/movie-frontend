@@ -7,7 +7,7 @@ const DeleteUser = () => {
     const { id } = useParams();
 
     return (
-        <div style={{display: 'flex', maxWidth: '1000px', marginTop: '50px'}}>
+        <div style={{display: 'flex', maxWidth: '1000px'}}>
             <Sidebar id={id}/>
             <div style={{flex: 1}}>
                 <NavBar/>
