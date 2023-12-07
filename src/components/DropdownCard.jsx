@@ -16,7 +16,13 @@ function DropdownCard({title}) {
                         <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
                         <Card.Subtitle>{title.startYear}</Card.Subtitle>
                         <Card.Text>
-                            <TwoHighestOrderedCrew crewUrl={title.crew}/>
+                            {title.personDtos
+                            .map((person, index, arr) => (
+                            <span key={person.url}>
+                                <a href={person.url}>{person.name}</a>
+                                {/*create the comma separation*/}
+                                {index !== arr.length - 1 && ', '}
+                            </span>))}
                         </Card.Text>
                     </Col>
                 </Row>
