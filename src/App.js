@@ -14,9 +14,10 @@ function App() {
 
     return (
         <>
-            <NavBar/>
-            <div style={{paddingTop: '90px'}}>
-                <BrowserRouter>
+            <BrowserRouter>
+                <NavBar/>
+                <div style={{paddingTop: '90px'}}>
+
                     <Routes>
                         <Route
                             path="/"
@@ -28,10 +29,12 @@ function App() {
                         <Route path="/users/:id/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
                     </Routes>
-                </BrowserRouter>
-            </div>
+                </div>
+            </BrowserRouter>
+
         </>
-    );
+    )
+        ;
 }
 
 export default App;

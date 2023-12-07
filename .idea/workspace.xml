@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Handled duplicates in TwoHighestOrderedCrew.jsx">
-      <change afterPath="$PROJECT_DIR$/src/data_objects/ApiHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data_objects/DropdownTitles.js" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Refactored search form into standalone component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DropdownCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropdownCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoadingSpinner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoadingSpinner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="title-business-layer" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,7 +109,9 @@
       <workItem from="1701416023844" duration="3605000" />
       <workItem from="1701420141712" duration="17688000" />
       <workItem from="1701618653927" duration="2771000" />
-      <workItem from="1701637568428" duration="2883000" />
+      <workItem from="1701637568428" duration="3151000" />
+      <workItem from="1701719753932" duration="846000" />
+      <workItem from="1701936069902" duration="2943000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -257,13 +257,13 @@
       <option name="project" value="LOCAL" />
       <updated>1701628592337</updated>
     </task>
-    <task id="LOCAL-00019" summary="commit">
+    <task id="LOCAL-00019" summary="Refactored search form into standalone component">
       <option name="closed" value="true" />
-      <created>1701854467888</created>
+      <created>1701640743989</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1701854467888</updated>
+      <updated>1701640743989</updated>
     </task>
     <option name="localTasksCounter" value="20" />
     <servers />
@@ -299,7 +299,7 @@
     <MESSAGE value="Added titles route" />
     <MESSAGE value="Fixed x is not a function bugs" />
     <MESSAGE value="Handled duplicates in TwoHighestOrderedCrew.jsx" />
-    <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="Refactored search form into standalone component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored search form into standalone component" />
   </component>
 </project>

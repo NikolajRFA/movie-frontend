@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export default class TitleObj {
+    apiUrlBase = 'http://localhost:5011/api/titles/'
     constructor() {
+        this.data = null;
         this.loading = true;
         this.error = null;
     }

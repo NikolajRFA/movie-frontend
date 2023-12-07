@@ -7,6 +7,7 @@ import TitleObj from "../../data_objects/TitleObj";
 import DropdownTitles from "../../data_objects/DropdownTitles";
 import dropdown from "bootstrap/js/src/dropdown";
 import LoadingSpinner from "../LoadingSpinner";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
@@ -15,6 +16,7 @@ export default function SearchForm() {
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         function handleResize() {
@@ -38,7 +40,6 @@ export default function SearchForm() {
         };
     }, [searchPhrase, showDropdown]);
 
-    // TODO: set loading spinner on new search.
     function handleSearchChange(event) {
         const newSearchPhrase = event.target.value;
         setSearchPhrase(newSearchPhrase);
@@ -89,11 +90,15 @@ export default function SearchForm() {
             }}
                  onBlur={handleSearchBlur}>
                 <Dropdown.Menu id="searchDropdownMenu" show={showDropdown}>
-                    <Dropdown.Item>
-                        {searchPhrase && (!dropdownTitles.loading
-                        ? dropdownTitles.data.map(title => <DropdownCard key={title.url} title={title}/>)
-                    : <LoadingSpinner/>)}
-                    </Dropdown.Item>
+
+                    {searchPhrase && (!dropdownTitles.loading
+                        ? dropdownTitles.data.map(title =>
+                            <Dropdown.Item
+                                onClick={() => navigate(`/titles/${title.url.split('/').pop()}`)}>
+                                <DropdownCard key={title.url} title={title}/>
+                            </Dropdown.Item>)
+                        : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>)}
+
                 </Dropdown.Menu>
             </div>
         </Form>
