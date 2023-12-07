@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added navigate hook to userdetails">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StdButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StdButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

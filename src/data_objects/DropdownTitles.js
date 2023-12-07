@@ -39,7 +39,6 @@ export default class DropdownTitles extends ApiHandler {
 
     static async fetchDropdown(searchPhrase, dropdownSize = 3) {
         const apiUrl = `${this.apiUrlBase}dropdown?q=${searchPhrase}&dropdownSize=${dropdownSize}`;
-        console.log(apiUrl);
         const res = await axios.get(apiUrl);
 
         return new DropdownTitles(res.data);
