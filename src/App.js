@@ -8,6 +8,7 @@ import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
 import NavBar from "./components/navbar/NavBar";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/user/update" element={<UpdateUser/>}/>
                         <Route path="/user/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
+                        <Route path="/results" element={<SearchResults/>} />
                     </Routes>
                 </div>
             </BrowserRouter>
