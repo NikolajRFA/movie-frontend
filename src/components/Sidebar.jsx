@@ -37,7 +37,7 @@ function Sidebar() {
                         as="a"
                         className="menuItem d-flex align-items-center justify-content-center"
                         onClick={() => setActiveMenuItem(item.title)}
-                        to={`/users/${id}/${item.link}`}>
+                        to={`/user/${item.link}`}>
                         {item.title}
                     </Link>
                 </Navbar>

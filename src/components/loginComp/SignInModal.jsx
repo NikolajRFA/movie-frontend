@@ -124,7 +124,7 @@ function SignInModal() {
 
     return (
         <div>
-            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'} onClick={()=>navigate(`/users/${Cookies.get('id')}/details`)}/>
+            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'} onClick={()=>navigate(`/user/details`)}/>
                 ) :
                 (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
             </StdButton>)}

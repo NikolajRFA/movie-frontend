@@ -2,20 +2,19 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import StdButton from "./StdButton";
 import User from "../data_objects/User"
 import {useEffect, useState} from "react";
-import LoadingSpinner from "./LoadingSpinner";
 
-const UserDetails = ({id}) => {
-    const [user, setUser] = useState(new User(id))
+const UserDetails = () => {
+    const [user, setUser] = useState(() => new User())
 
     useEffect(() => {
         const fetchData = async () => {
             const newUser = new User(); // create a new User instance
-            await newUser.fetchData(id); // fetch data for the specific user
+            await newUser.fetchData(user.id); // fetch data for the specific user
             setUser({ ...newUser }); // update state with the new user data
         };
 
         fetchData();
-    }, [id]);
+    }, [user.id]);
 
     if (user.loading) {
         return <p>Loading...</p>;
@@ -47,7 +46,7 @@ const UserDetails = ({id}) => {
                 </div>
             </ListGroup.Item>
             <ListGroup.Item as="li">
-                <StdButton dynamicPath={`/users/${id}/update`} text="Update details"></StdButton>
+                <StdButton dynamicPath={`/users/${user.id}/update`} text="Update details"></StdButton>
             </ListGroup.Item>
         </ListGroup>
     );

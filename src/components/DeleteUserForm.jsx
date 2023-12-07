@@ -1,32 +1,29 @@
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css"
 import StdButton from "./StdButton";
+import User from "../data_objects/User";
 
-function DeleteUserForm({ id }) {
-    const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+function DeleteUserForm() {
+    const [user, setUser] = useState(() => new User());
 
     // State variables for form inputs
     const [newPassword, setNewPassword] = useState("");
     const [confirmDeletion, setConfirmDeletion] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5011/api/users/${id}`)
-            .then(res => {
-                setUser(res.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, [id]);
+        const fetchData = async () => {
+            const newUser = new User(); // create a new User instance
+            await newUser.fetchData(user.id); // fetch data for the specific user
+            setUser({ ...newUser }); // update state with the new user data
+        };
+
+        fetchData();
+    }, [user.id]);
 
     const handleDeletion = (event) => {
+        // TODO: The password isn't checked - should assert that the correct password is input before deletion
         event.preventDefault();
 
         // Check if the update is confirmed
@@ -37,7 +34,7 @@ function DeleteUserForm({ id }) {
         }
 
         // Prepare the data for the DELETE request
-        axios.delete(`http://localhost:5011/api/users/${id}`)
+        axios.delete(`http://localhost:5011/api/users/${user.id}`)
             .then(res => {
                 // Handle the response if needed
                 console.log("Deletion successful", res.data);
@@ -50,12 +47,12 @@ function DeleteUserForm({ id }) {
         alert("Account deleted!")
     };
 
-    if (loading) {
+    if (user.loading) {
         return <p>Loading...</p>;
     }
 
-    if (error) {
-        return <p>Error: {error.message}</p>;
+    if (user.error) {
+        return <p>Error: {user.error.message}</p>;
     }
 
     return (

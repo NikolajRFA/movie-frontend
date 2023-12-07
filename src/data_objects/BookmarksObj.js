@@ -9,12 +9,18 @@ export default class BookmarksObj {
         this.error = null;
     }
 
-    async getBookmarks(id) {
+    async getBookmarks(id, jwt) {
         try {
-            const res = await axios.get(this.apiUrlBase + id + "/bookmarks");
+            const res = await axios.get(this.apiUrlBase + id + "/bookmarks",
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    }
+                });
             this.data = res.data;
             this.loading = false;
-        } catch (error) {
+        } catch
+            (error) {
             this.error = error;
             this.loading = false;
         }

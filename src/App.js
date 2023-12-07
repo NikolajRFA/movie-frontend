@@ -23,10 +23,10 @@ function App() {
                             path="/"
                             element={<Home/>}
                         />
-                        <Route path="/users/:id/details" element={<AccountDetails/>}/>
-                        <Route path="/users/:id/bookmarks" element={<UserBookmarks/>}/>
-                        <Route path="/users/:id/update" element={<UpdateUser/>}/>
-                        <Route path="/users/:id/delete" element={<DeleteUser/>}/>
+                        <Route path="/user/details" element={<AccountDetails/>}/>
+                        <Route path="/user/bookmarks" element={<UserBookmarks/>}/>
+                        <Route path="/user/update" element={<UpdateUser/>}/>
+                        <Route path="/user/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
 
                     </Routes>

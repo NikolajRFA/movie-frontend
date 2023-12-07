@@ -8,6 +8,7 @@ class User {
         this.loading = true;
         this.error = null;
         this.id = Cookies.get('id');
+        this.jwt = Cookies.get('token');
     }
     async fetchData(id) {
         try {

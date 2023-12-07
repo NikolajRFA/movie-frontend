@@ -1,14 +1,13 @@
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "../App.css"
 import StdButton from "./StdButton";
 import User from "../data_objects/User";
 import Cookies from "js-cookie";
 import {useNavigate} from "react-router-dom";
 
-function UserDetailsForm() {
+function
+UserDetailsForm() {
     const [user, setUser] = useState(() => new User());
     const jwt = Cookies.get('token');
 
@@ -20,17 +19,14 @@ function UserDetailsForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const getData = async () => {
-            try {
-                await user.fetchData(user.id);
-                setUser({ ...user });
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
+        const fetchData = async () => {
+            const newUser = new User(); // create a new User instance
+            await newUser.fetchData(user.id); // fetch data for the specific user
+            setUser({ ...newUser }); // update state with the new user data
         };
 
-        getData();
-    }, [user.id, user]);
+        fetchData();
+    }, [user.id]);
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -59,7 +55,7 @@ function UserDetailsForm() {
 
         // Send the PUT request
         user.updateUser(user.id, updatedUserData, jwt);
-        navigate(`/users/${user.id}/details`)
+        navigate(`/users/details`)
     };
 
     if (user.loading) {
