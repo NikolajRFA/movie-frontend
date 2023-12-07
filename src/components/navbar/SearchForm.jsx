@@ -46,7 +46,7 @@ export default function SearchForm() {
         setShowDropdown(true);
         const getData = async () => {
             try {
-                DropdownTitles.fetchDropdown(newSearchPhrase.toLowerCase())
+                DropdownTitles.fetchDropdown(newSearchPhrase)
                     .then(res => setDropdownTitles(res));
             } catch (error) {
                 console.error("Error fetching data:", error);
