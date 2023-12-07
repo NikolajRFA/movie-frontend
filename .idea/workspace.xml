@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Updated updateUser()">
-      <change afterPath="$PROJECT_DIR$/src/components/title/Bookmarks.jsx" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added BookmarksObj.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DeleteUserForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DeleteUserForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserDetailsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserDetailsForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/UserBookmarks.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/BookmarksObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/BookmarksObj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
     </list>
@@ -118,7 +107,7 @@
       <workItem from="1701416023844" duration="3605000" />
       <workItem from="1701420141712" duration="17688000" />
       <workItem from="1701618653927" duration="2771000" />
-      <workItem from="1701934186053" duration="10352000" />
+      <workItem from="1701934186053" duration="10732000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -272,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701871537360</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added BookmarksObj.js">
+      <option name="closed" value="true" />
+      <created>1701946036690</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701946036690</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +304,7 @@
     <MESSAGE value="Fixed x is not a function bugs" />
     <MESSAGE value="Updated stdbutton to useNavigate" />
     <MESSAGE value="Updated updateUser()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated updateUser()" />
+    <MESSAGE value="Added BookmarksObj.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added BookmarksObj.js" />
   </component>
 </project>

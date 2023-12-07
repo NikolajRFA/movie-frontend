@@ -1,5 +1,5 @@
 import Sidebar from "../components/Sidebar";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/navbar/NavBar";
 import UserDetails from "../components/UserDetails";
 
 const AccountDetails = () => {
