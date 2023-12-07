@@ -56,68 +56,83 @@ function SignInModal() {
         }
     }, []);
 
+    const handleSignIn = async (username, password) => {
+        const apiUrl = 'http://localhost:5011/api/users/login';
+
+        try {
+            const response = await axios.post(apiUrl, {
+                username,
+                password,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            console.log('Sign In API Response:', response.data);
+            const { id, token } = response.data;
+
+            Cookies.set('token', token, { expires: 1 });
+            Cookies.set('id', id, { expires: 1 });
+
+            return { token, id };
+
+        } catch (error) {
+            console.error('Sign In Error:', error);
+            throw error; // Re-throw the error to be caught by the caller
+        }
+    };
+
     const handleSignInSubmit = async () => {
-            const apiUrl = 'http://localhost:5011/api/users/login';
+        try {
+            const { token, id } = await handleSignIn(signInFormData.username, signInFormData.password);
 
-            try {
-                const response = await axios.post(apiUrl, {
-                    username: signInFormData.username,
-                    password: signInFormData.password,
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
+            setSignInFormData({
+                username: '',
+                password: ''
+            });
 
-                console.log('Sign In API Response:', response.data);
-                const {id, token} = response.data
+            const tokenFromCookie = Cookies.get('token');
+            const IdFromCookie = Cookies.get('id');
 
-                Cookies.set('token', token, {expires: 100});
-                Cookies.set('id', id, {expires: 100});
-                setSignInFormData({
-                    username: '',
-                    password: ''
-                })
-
-                const tokenFromCookie = Cookies.get('token');
-                const IdFromCookie = Cookies.get('id');
-
-                if (tokenFromCookie && IdFromCookie) {
-                    setIsLoggedIn(true);
-                }
-
-
-
-            } catch (error) {
-                console.error('Sign In Error:', error);
+            if (tokenFromCookie && IdFromCookie) {
+                setIsLoggedIn(true);
             }
-        };
+
+        } catch (error) {
+            console.error('Sign In Error:', error);
+        }
+    };
 
     const handleCreateAccSubmit = async () => {
-            const apiUrl = 'http://localhost:5011/api/users';
-            try {
-                const response = await axios.post(apiUrl, {
-                    username: createAccFormData.username,
-                    email: createAccFormData.email,
-                    password: createAccFormData.password,
-                    role: 'User',
-                }, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
+        const apiUrl = 'http://localhost:5011/api/users';
 
-                setCreateAccFormData({
-                    username: '',
-                    email: '',
-                    password: '',
-                });
+        try {
+            const response = await axios.post(apiUrl, {
+                username: createAccFormData.username,
+                email: createAccFormData.email,
+                password: createAccFormData.password,
+                role: 'User',
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-            } catch (error) {
-                //Error Handling
-                console.error('Error:', error);
-            }
-        };
+            setCreateAccFormData({
+                username: '',
+                email: '',
+                password: '',
+            });
+
+            // Call the login function after successful account creation
+            await handleSignIn(createAccFormData.username, createAccFormData.password);
+
+        } catch (error) {
+            // Error Handling
+            console.error('Error:', error);
+        }
+    };
 
 
 

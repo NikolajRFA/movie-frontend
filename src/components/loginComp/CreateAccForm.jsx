@@ -37,7 +37,7 @@ function CreateAccForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <StdButton text="Create Account" onClick={onSubmit} style={{margin: '10px'}}></StdButton>
+            <StdButton text="Create Account" onClick={onSubmit} style={{margin: '12px'}} ></StdButton>
         </Form>
     );
 }

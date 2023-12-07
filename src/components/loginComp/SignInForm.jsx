@@ -27,7 +27,7 @@ function SignInForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <StdButton text="Sign in" onClick={onSubmit}>
+            <StdButton text="Sign in" onClick={onSubmit} style={{margin: '12px', display: 'flex', justifyContent: 'center'}}>
             </StdButton>
         </Form>
     );

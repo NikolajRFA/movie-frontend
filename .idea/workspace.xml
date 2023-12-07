@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added BookmarksObj.js">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added extra style prop to StdButton">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="title-business-layer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,7 +83,7 @@
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
-      <node-interpreter value="project" />
+      <node-interpreter value="$APPLICATION_CONFIG_DIR$/node/node-v18.15.0-win-x64/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -107,7 +108,7 @@
       <workItem from="1701416023844" duration="3605000" />
       <workItem from="1701420141712" duration="17688000" />
       <workItem from="1701618653927" duration="2771000" />
-      <workItem from="1701934186053" duration="10732000" />
+      <workItem from="1701851763943" duration="23304000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -245,31 +246,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701436332291</updated>
     </task>
-    <task id="LOCAL-00018" summary="Updated stdbutton to useNavigate">
+    <task id="LOCAL-00018" summary="Added navigate hook to userdetails">
       <option name="closed" value="true" />
-      <created>1701867649892</created>
+      <created>1701870304473</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1701867649892</updated>
+      <updated>1701870304473</updated>
     </task>
-    <task id="LOCAL-00019" summary="Updated updateUser()">
+    <task id="LOCAL-00019" summary="Added extra style prop to StdButton">
       <option name="closed" value="true" />
-      <created>1701871537360</created>
+      <created>1701873564941</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1701871537360</updated>
+      <updated>1701873564941</updated>
     </task>
-    <task id="LOCAL-00020" summary="Added BookmarksObj.js">
-      <option name="closed" value="true" />
-      <created>1701946036690</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1701946036690</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,9 +295,8 @@
     <MESSAGE value="First look at business layer" />
     <MESSAGE value="Added titles route" />
     <MESSAGE value="Fixed x is not a function bugs" />
-    <MESSAGE value="Updated stdbutton to useNavigate" />
-    <MESSAGE value="Updated updateUser()" />
-    <MESSAGE value="Added BookmarksObj.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added BookmarksObj.js" />
+    <MESSAGE value="Added navigate hook to userdetails" />
+    <MESSAGE value="Added extra style prop to StdButton" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added extra style prop to StdButton" />
   </component>
 </project>
