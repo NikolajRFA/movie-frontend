@@ -36,7 +36,7 @@ export default function EpisodeEntry({episode}) {
                         {!loading ? <Image src={episodeData.poster} width="100px"/> : <LoadingSpinner/>}
                     </Col>
                     <Col>
-                        <Card.Title><Link reloadDocument to={`/titles/${episode.episodeUrl.split('/').pop()}`}>
+                        <Card.Title><Link to={`/titles/${episode.episodeUrl.split('/').pop()}`}>
                             {episode.title}
                         </Link></Card.Title>
                         <Card.Subtitle>Episode {episode.episode}</Card.Subtitle>

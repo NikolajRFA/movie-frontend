@@ -7,8 +7,7 @@ import UpdateUser from "./pages/UpdateUser";
 import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
-import NavBar from "./components/NavBar";
-import SignInModal from "./components/loginComp/SignInModal";
+import NavBar from "./components/navbar/NavBar";
 
 function App() {
 
@@ -17,7 +16,8 @@ function App() {
         <>
             <BrowserRouter>
                 <NavBar/>
-                <div style={{paddingTop: '77px'}}>
+                <div style={{paddingTop: '90px'}}>
+
                     <Routes>
                         <Route
                             path="/"
@@ -28,12 +28,13 @@ function App() {
                         <Route path="/user/update" element={<UpdateUser/>}/>
                         <Route path="/user/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
-
                     </Routes>
                 </div>
             </BrowserRouter>
+
         </>
-    );
+    )
+        ;
 }
 
 export default App;

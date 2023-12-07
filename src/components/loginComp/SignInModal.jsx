@@ -15,8 +15,7 @@ function SignInModal() {
         textAlign: 'center',
         lineHeight: '0.1em',
         margin: '10px 0 14px',
-    };
-
+    }
     const [modalShow, setModalShow] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
     const [showCreateAccModal, setShowCreateAccModal] = useState(false);
@@ -135,7 +134,7 @@ function SignInModal() {
                     <div className="mx-auto" style={separatorStyle}>
                         <span style={{ background: 'white', padding: '0 10px' }}>or</span>
                     </div>
-                    <StdButton text="Create a new Account" onClick={() => {setShowCreateAccModal(true); setModalShow(false);}} className="mt-2">
+                    <StdButton text="Create a new Account" onClick={() => {setShowCreateAccModal(true); setModalShow(false);}}>
                     </StdButton>
                 </Modal.Body>
             </Modal>
