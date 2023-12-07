@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added navigate hook to userdetails">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Removed a log statement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701870304473</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Removed a log statement">
+      <option name="closed" value="true" />
+      <created>1701940574790</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701940574790</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +294,7 @@
     <MESSAGE value="Added titles route" />
     <MESSAGE value="Fixed x is not a function bugs" />
     <MESSAGE value="Added navigate hook to userdetails" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added navigate hook to userdetails" />
+    <MESSAGE value="Removed a log statement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed a log statement" />
   </component>
 </project>
