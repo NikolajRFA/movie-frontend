@@ -55,6 +55,24 @@
     font-weight: bold;
 }
 
+/* NotFound.css */
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error-message {
+    text-align: center;
+    color: #ff0000; /* Red color for the text */
+}
+
+.alert-triangle {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
 .menuItem:hover {
     font-weight: bold; /* Make the text bold on hover */
 }

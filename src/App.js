@@ -8,6 +8,7 @@ import UserBookmarks from "./pages/UserBookmarks";
 import DeleteUser from "./pages/DeleteUser";
 import Title from "./pages/Title";
 import NavBar from "./components/navbar/NavBar";
+import NotFound from "./components/NotFound";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <>
             <BrowserRouter>
                 <NavBar/>
-                <div style={{paddingTop: '90px'}}>
+                <div style={{paddingTop: '77px'}}>
 
                     <Routes>
                         <Route
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/user/update" element={<UpdateUser/>}/>
                         <Route path="/user/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
+                        <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
