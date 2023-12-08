@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import NavBar from "../components/navbar/NavBar";
-import UserDetails from "../components/UserDetails";
+import UserDetails from "../components/userComponents/UserDetails";
 
 const AccountDetails = () => {
 

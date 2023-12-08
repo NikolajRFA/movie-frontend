@@ -1,6 +1,6 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import StdButton from "./StdButton";
-import User from "../data_objects/User"
+import StdButton from "../StdButton";
+import User from "../../data_objects/User"
 import {useEffect, useState} from "react";
 
 const UserDetails = () => {

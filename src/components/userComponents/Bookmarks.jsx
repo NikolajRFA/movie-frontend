@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import BookmarksObj from "../../data_objects/BookmarksObj";
-import User from "../../data_objects/User";
+import User from "#data_objects/User.js"
 
 const Bookmarks = () => {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());

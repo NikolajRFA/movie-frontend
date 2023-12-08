@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import NavBar from "../components/navbar/NavBar";
-import DeleteUserForm from "../components/DeleteUserForm";
+import DeleteUserForm from "../components/userComponents/DeleteUserForm";
 
 const DeleteUser = () => {
     return (
