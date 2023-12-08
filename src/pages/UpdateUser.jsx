@@ -1,6 +1,6 @@
-import Sidebar from "../components/Sidebar";
-import NavBar from "../components/navbar/NavBar";
-import UserDetailsForm from "../components/userComponents/UserDetailsForm";
+import Sidebar from "#components/Sidebar";
+import NavBar from "#components/navbar/NavBar";
+import UserDetailsForm from "#components/userComponents/UserDetailsForm.jsx"
 
 const UpdateUser = () => {
     return (

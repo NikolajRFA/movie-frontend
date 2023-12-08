@@ -1,5 +1,5 @@
-import Sidebar from "../components/Sidebar";
-import NavBar from "../components/navbar/NavBar";
+import Sidebar from "#components/Sidebar";
+import NavBar from "#components/navbar/NavBar";
 import Bookmarks from "#components/userComponents/Bookmarks.jsx"
 
 const UserBookmarks = () => {

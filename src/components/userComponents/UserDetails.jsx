@@ -46,7 +46,7 @@ const UserDetails = () => {
                 </div>
             </ListGroup.Item>
             <ListGroup.Item as="li">
-                <StdButton dynamicPath={`/users/${user.id}/update`} text="Update details"></StdButton>
+                <StdButton dynamicPath={`/user/update`} text="Update details"></StdButton>
             </ListGroup.Item>
         </ListGroup>
     );

@@ -1,9 +1,9 @@
 import Form from 'react-bootstrap/Form';
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import "../../App.css"
 import StdButton from "../StdButton";
-import User from "../../data_objects/User";
+import User from "#data_objects/User";
 
 function DeleteUserForm() {
     const [user, setUser] = useState(() => new User());
