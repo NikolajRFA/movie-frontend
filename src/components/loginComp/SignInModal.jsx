@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Modal, NavLink} from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal';
 import axios from "axios";
 import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 function SignInModal() {
