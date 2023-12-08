@@ -1,10 +1,16 @@
+// SignInForm.js
 import React from 'react';
-import {Form} from 'react-bootstrap';
-import StdButton from "../StdButton";
+import { Form } from 'react-bootstrap';
+import StdButton from '../StdButton';
 
 function SignInForm({ formData, onChange, onSubmit }) {
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents the default form submission behavior
+        onSubmit(); // Calls the provided onSubmit function
+    };
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formSignInUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -27,7 +33,7 @@ function SignInForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <StdButton text="Sign in" onClick={onSubmit} style={{margin: '12px', display: 'flex', justifyContent: 'center'}}>
+            <StdButton text="Sign in" type="submit" style={{ margin: '12px', display: 'flex', justifyContent: 'center' }}>
             </StdButton>
         </Form>
     );

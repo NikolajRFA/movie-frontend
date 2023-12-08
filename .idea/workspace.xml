@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="import settings + file restructure">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Optimized imports for login comps">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DropdownCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropdownCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/userComponents/DeleteUserForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/DeleteUserForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/userComponents/UserDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/UserDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/NavBar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +111,7 @@
       <workItem from="1701618653927" duration="2771000" />
       <workItem from="1701934186053" duration="10732000" />
       <workItem from="1702022989777" duration="1783000" />
-      <workItem from="1702024812599" duration="3044000" />
+      <workItem from="1702024812599" duration="6089000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -303,7 +297,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702025718848</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="imports">
+      <option name="closed" value="true" />
+      <created>1702029976456</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1702029976456</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Optimized imports for login comps">
+      <option name="closed" value="true" />
+      <created>1702030061154</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702030061154</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +352,8 @@
     <MESSAGE value="Notfound + gitignore" />
     <MESSAGE value="workspace" />
     <MESSAGE value="import settings + file restructure" />
-    <option name="LAST_COMMIT_MESSAGE" value="import settings + file restructure" />
+    <MESSAGE value="imports" />
+    <MESSAGE value="Optimized imports for login comps" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized imports for login comps" />
   </component>
 </project>

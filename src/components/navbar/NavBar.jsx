@@ -8,6 +8,7 @@ import DropdownCard from "../DropdownCard";
 import SignInModal from "../loginComp/SignInModal";
 import axios from "axios";
 import SearchForm from "./SearchForm";
+import {Link} from "react-router-dom";
 
 function NavBar() {
     const [smShow, setSmShow] = useState(false);
@@ -18,8 +19,9 @@ function NavBar() {
     return (
         <Navbar expand="lg" className="bg-dark" variant="dark" fixed="top">
             <Container>
-                <Navbar.Brand href="/" style={{width: '100px'}}><Image src="/imdb_logo.svg" fluid
-                                                                       alt="Logo"/></Navbar.Brand>
+                <Navbar.Brand style={{width: '100px'}}>
+                    <Link to={"/"} ><Image src="/imdb_logo.svg" fluid alt="Logo"/></Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
 

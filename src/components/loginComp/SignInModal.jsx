@@ -32,7 +32,7 @@ function SignInModal() {
     const navigate = useNavigate();
 
     const handleSignInFormChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setSignInFormData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -40,7 +40,7 @@ function SignInModal() {
     };
 
     const handleCreateAccFormChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setCreateAccFormData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -70,12 +70,12 @@ function SignInModal() {
             });
 
             console.log('Sign In API Response:', response.data);
-            const { id, token } = response.data;
+            const {id, token} = response.data;
 
-            Cookies.set('token', token, { expires: 1 });
-            Cookies.set('id', id, { expires: 1 });
+            Cookies.set('token', token, {expires: 1});
+            Cookies.set('id', id, {expires: 1});
 
-            return { token, id };
+            return {token, id};
 
         } catch (error) {
             console.error('Sign In Error:', error);
@@ -85,7 +85,7 @@ function SignInModal() {
 
     const handleSignInSubmit = async () => {
         try {
-            const { token, id } = await handleSignIn(signInFormData.username, signInFormData.password);
+            const {token, id} = await handleSignIn(signInFormData.username, signInFormData.password);
 
             setSignInFormData({
                 username: '',
@@ -98,6 +98,8 @@ function SignInModal() {
             if (tokenFromCookie && IdFromCookie) {
                 setIsLoggedIn(true);
             }
+
+            setShowSignInModal(false); // Close the SignInModal after successful login
 
         } catch (error) {
             console.error('Sign In Error:', error);
@@ -128,6 +130,13 @@ function SignInModal() {
             // Call the login function after successful account creation
             await handleSignIn(createAccFormData.username, createAccFormData.password);
 
+            const tokenFromCookie = Cookies.get('token');
+            const IdFromCookie = Cookies.get('id');
+
+            if (tokenFromCookie && IdFromCookie) {
+                setIsLoggedIn(true);
+            }
+
         } catch (error) {
             // Error Handling
             console.error('Error:', error);
@@ -135,21 +144,27 @@ function SignInModal() {
     };
 
 
-
     return (
         <div>
-            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'} onClick={()=>navigate(`/user/details`)}/>
+            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'}
+                                onClick={() => navigate(`/user/details`)}/>
                 ) :
                 (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
-            </StdButton>)}
+                </StdButton>)}
             <Modal size="sm" show={modalShow} onHide={() => setModalShow(false)} centered>
                 <Modal.Body className="d-flex flex-column align-items-center">
-                    <StdButton text="Sign in" onClick={() => {setShowSignInModal(true); setModalShow(false) }}>
+                    <StdButton text="Sign in" onClick={() => {
+                        setShowSignInModal(true);
+                        setModalShow(false)
+                    }}>
                     </StdButton>
                     <div className="mx-auto" style={separatorStyle}>
-                        <span style={{ background: 'white', padding: '0 10px' }}>or</span>
+                        <span style={{background: 'white', padding: '0 10px'}}>or</span>
                     </div>
-                    <StdButton text="Create a new Account" onClick={() => {setShowCreateAccModal(true); setModalShow(false);}}>
+                    <StdButton text="Create a new Account" onClick={() => {
+                        setShowCreateAccModal(true);
+                        setModalShow(false);
+                    }}>
                     </StdButton>
                 </Modal.Body>
             </Modal>
@@ -166,9 +181,7 @@ function SignInModal() {
                 <Modal.Body className="d-flex flex-column align-items-center">
                     <SignInForm formData={signInFormData} onChange={handleSignInFormChange} onSubmit={(e) => {
                         handleSignInSubmit(e).then(r => setShowSignInModal(false));
-
-
-                    }} />
+                    }}/>
                 </Modal.Body>
             </Modal>
 
@@ -180,7 +193,9 @@ function SignInModal() {
                 }}
                 formData={createAccFormData}
                 onChange={handleCreateAccFormChange}
-                onSubmit={handleCreateAccSubmit}
+                onSubmit={(e) => {
+                    handleCreateAccSubmit(e).then(r => setShowCreateAccModal(false));
+                }}
             />
         </div>
     );

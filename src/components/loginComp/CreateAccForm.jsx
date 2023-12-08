@@ -3,8 +3,14 @@ import {Form} from 'react-bootstrap';
 import StdButton from "../StdButton";
 
 function CreateAccForm({ formData, onChange, onSubmit }) {
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevents the default form submission behavior
+        onSubmit(); // Calls the provided onSubmit function
+    };
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formCreateAccUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -38,7 +44,7 @@ function CreateAccForm({ formData, onChange, onSubmit }) {
                 />
             </Form.Group>
 
-            <StdButton text="Create Account" onClick={onSubmit} style={{margin: '12px'}} ></StdButton>
+            <StdButton text="Create Account" type="submit" style={{margin: '12px'}} ></StdButton>
         </Form>
     );
 }
