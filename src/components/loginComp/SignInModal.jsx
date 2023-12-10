@@ -6,7 +6,7 @@ import axios from "axios";
 import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
 import {useNavigate} from "react-router-dom";
-
+import LoginDropdown from '#components/loginComp/LoginDropdown';
 
 function SignInModal() {
     const separatorStyle = {
@@ -63,10 +63,6 @@ function SignInModal() {
             const response = await axios.post(apiUrl, {
                 username,
                 password,
-            }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             });
 
             console.log('Sign In API Response:', response.data);
@@ -115,10 +111,6 @@ function SignInModal() {
                 email: createAccFormData.email,
                 password: createAccFormData.password,
                 role: 'User',
-            }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             });
 
             setCreateAccFormData({
@@ -146,8 +138,7 @@ function SignInModal() {
 
     return (
         <div>
-            {isLoggedIn ? (<img src="/profile_picture.png" alt="LoginBubble" width={'50px'}
-                                onClick={() => navigate(`/user/details`)}/>
+            {isLoggedIn ? (<LoginDropdown/>
                 ) :
                 (<StdButton text="Login" onClick={() => setModalShow(true)} className="me-2">
                 </StdButton>)}
