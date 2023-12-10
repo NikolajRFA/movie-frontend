@@ -69,3 +69,7 @@
     }
 }
 
+.searchResult:hover .searchCard-title {
+    color: #808080; /* Change to the desired color */
+}
+

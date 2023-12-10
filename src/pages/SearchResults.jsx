@@ -50,25 +50,26 @@ export default function SearchResults() {
 
     return (
         searchParams.has('q')
-            ? <div className='mx-auto w-75'>
-                <h1>Search: '{searchParams.get('q')}'</h1>
+            ? <div className='mx-auto w-50'>
+                <h3 className='mb-5'>Your search for '{searchParams.get('q')}' matches the following titles:</h3>
                 {!results.loading
-                    ? results.data.items.map(title => <div key={title.url}
-                    className='my-2'>
-                        <SearchResultCard resultTitle={title}/>
-                    </div>)
+                    ? results.data.items.map(title =>
+                        <div key={title.url} style={{minHeight: `${160}px`}}
+                             className='my-2'>
+                            <SearchResultCard resultTitle={title}/>
+                        </div>)
                     : <LoadingSpinner/>}
-            <Row className='text-end'>
-                <Col>
-                    <p>Page {pageNo + 1} of {!results.loading ? results.data.numberOfPages : <LoadingSpinner/>}</p>
-                    <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage} disabled={!prevPage}>
-                        Prev
-                    </Button>
-                    <Button style={buttonStyle} onClick={handleNextPage} disabled={!nextPage}>
-                        Next
-                    </Button>
-                </Col>
-            </Row>
+                <Row className='my-3 text-end'>
+                    <Col>
+                        <p>Page {pageNo + 1} of {!results.loading ? results.data.numberOfPages : <LoadingSpinner/>}</p>
+                        <Button className='mx-2' style={buttonStyle} onClick={handlePrevPage} disabled={!prevPage}>
+                            Prev
+                        </Button>
+                        <Button style={buttonStyle} onClick={handleNextPage} disabled={!nextPage}>
+                            Next
+                        </Button>
+                    </Col>
+                </Row>
             </div>
             : <h1>Search for movies using the search bar!</h1>
     )
