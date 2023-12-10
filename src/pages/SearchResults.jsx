@@ -1,6 +1,5 @@
 import SearchResultCard from "../components/SearchResultCard";
 import {useSearchParams} from "react-router-dom";
-import Container from "react-bootstrap/Container";
 import {useEffect, useState} from "react";
 import SearchResultsObj from "../data_objects/SearchResultsObj";
 import LoadingSpinner from "../components/LoadingSpinner";

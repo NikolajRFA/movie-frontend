@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image"
 import {Col, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
@@ -15,7 +14,7 @@ export default function SearchResultCard({resultTitle}) {
                     <Col>
                         <Image style={{maxHeight: '120px', maxWidth: '175px'}} src={resultTitle.poster}/>
                     </Col>
-                    <Col xs={10}>
+                    <Col xs={9}>
                         <Card.Title className='searchCard-title'>
                             {resultTitle.title}
                         </Card.Title>
