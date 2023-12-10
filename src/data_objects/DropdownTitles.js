@@ -10,23 +10,13 @@ export default class DropdownTitles extends ApiHandler {
     }
 
     mapData(jsonData) {
-        let personUrls = [];
+        let personNames = [];
         if (Array.isArray(jsonData)) {
             this.data = jsonData.map(movie => ({
                 url: movie.url,
                 title: movie.title,
                 startYear: movie.startYear,
-                personDtos: movie.personDtos
-                    .filter(person => {
-                        if (!personUrls.some(inner => inner === person.url)) {
-                            personUrls.push(person.url);
-                            return true;
-                        }
-                    })
-                    .map(person => ({
-                    url: person.url,
-                    name: person.name
-                })),
+                personDtos: [...new Map(movie.personDtos.map(person => [person.name, person])).values()],
                 poster: movie.poster
             }));
             this.loading = false;

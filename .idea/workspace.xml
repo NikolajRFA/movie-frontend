@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed dropdown behaviour">
-      <change beforePath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Removed toLowerCase() call on search string">
+      <change afterPath="$PROJECT_DIR$/src/data_objects/SearchResultsObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DropdownCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DropdownCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchResultCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResultCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/DropdownTitles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/DropdownTitles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SearchResults.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701989218155</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Removed toLowerCase() call on search string">
+      <option name="closed" value="true" />
+      <created>1701989510958</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701989510958</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +325,7 @@
     <MESSAGE value="Added extra style prop to StdButton" />
     <MESSAGE value="Updated gitignore" />
     <MESSAGE value="Fixed dropdown behaviour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed dropdown behaviour" />
+    <MESSAGE value="Removed toLowerCase() call on search string" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed toLowerCase() call on search string" />
   </component>
 </project>
