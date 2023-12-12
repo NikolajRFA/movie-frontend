@@ -8,6 +8,7 @@ import DropdownTitles from "../../data_objects/DropdownTitles";
 import dropdown from "bootstrap/js/src/dropdown";
 import LoadingSpinner from "../LoadingSpinner";
 import {Link, useNavigate} from "react-router-dom";
+import RecentSearches from "../RecentSearches";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
@@ -96,19 +97,21 @@ export default function SearchForm() {
             }}
                  onBlur={handleSearchBlur}>
                 <Dropdown.Menu id="searchDropdownMenu" show={showDropdown}>
-
-                    {searchPhrase && (!dropdownTitles.loading
-                        ? dropdownTitles.data.map(title =>
-                            <Dropdown.Item
-                                onClick={(e) => {
-                                    navigate(`/titles/${title.url.split('/').pop()}`);
-                                    handleSearchBlur(e);
-                                }
-                                }>
-                                <DropdownCard key={title.url} title={title}/>
-                            </Dropdown.Item>)
-                        : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>)}
-
+                    {searchPhrase ? (
+                        !dropdownTitles.loading
+                            ? dropdownTitles.data.map(title =>
+                                <Dropdown.Item
+                                    key={title.url}
+                                    onClick={(e) => {
+                                        navigate(`/titles/${title.url.split('/').pop()}`);
+                                        handleSearchBlur(e);
+                                    }}>
+                                    <DropdownCard title={title}/>
+                                </Dropdown.Item>)
+                            : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>
+                    ) : (
+                        <RecentSearches/>
+                    )}
                 </Dropdown.Menu>
             </div>
         </Form>
