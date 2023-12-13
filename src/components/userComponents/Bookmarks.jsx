@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import BookmarksObj from "../../data_objects/BookmarksObj";
 import User from "#data_objects/User.js"
+import {Link} from "react-router-dom";
+import {Col, Container, Row} from "react-bootstrap";
 
 const Bookmarks = () => {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
@@ -25,15 +27,38 @@ const Bookmarks = () => {
     }
 
     return (
-        <div>
-            <ul>
-                {Object.values(bookmarks.data.items).map((item, index) => (
-                    <li key={index}>
-                        {item.title} - {item.url} - {item.person}
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <Container>
+            <Row>
+                <Col style={{padding: "10px", borderRadius:"10px",border:"1px solid black", margin: "10px"}}>
+                    <h5>Bookmarked titles</h5>
+                    <ul>
+                        {Object.values(bookmarks.data.items)
+                            .filter(item => item.tconst !== 'Not specified')
+                            .map((item, index) => (
+                                <li key={index}>
+                                    <Link to={item.tconst}>
+                                        {item.title}
+                                    </Link>
+                                </li>
+                            ))}
+                    </ul>
+                </Col>
+                <Col style={{padding: "10px", borderRadius:"10px",border:"1px solid black", margin: "10px"}}>
+                    <h5>Bookmarked persons</h5>
+                    <ul>
+                        {Object.values(bookmarks.data.items)
+                            .filter(item => item.nconst !== 'Not specified')
+                            .map((item, index) =>
+                                <li key={index}>
+                                    <Link to={item.nconst}>
+                                        {item.personName}
+                                    </Link>
+                                </li>
+                            )}
+                    </ul>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
