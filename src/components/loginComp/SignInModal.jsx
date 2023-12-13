@@ -68,8 +68,8 @@ function SignInModal() {
             console.log('Sign In API Response:', response.data);
             const {id, token} = response.data;
 
-            Cookies.set('token', token, {expires: 1});
-            Cookies.set('id', id, {expires: 1});
+            Cookies.set('token', token, {expires: 1/12});
+            Cookies.set('id', id, {expires: 1/12});
 
             return {token, id};
 

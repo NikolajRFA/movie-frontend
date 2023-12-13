@@ -4,6 +4,7 @@ import axios from "axios";
 import "../../App.css"
 import StdButton from "../StdButton";
 import User from "#data_objects/User";
+import Cookies from "js-cookie";
 
 function DeleteUserForm() {
     const [user, setUser] = useState(() => new User());
@@ -34,10 +35,13 @@ function DeleteUserForm() {
         }
 
         // Prepare the data for the DELETE request
-        axios.delete(`http://localhost:5011/api/users/${user.id}`)
-            .then(res => {
-                // Handle the response if needed
-                console.log("Deletion successful", res.data);
+        axios.delete(`http://localhost:5011/api/users/${user.id}`, {
+            headers: {
+                Authorization: `Bearer ${user.jwt}`,
+            }})
+            .then(() => {
+                Cookies.remove("id");
+                Cookies.remove("token");
             })
             .catch(error => {
                 // Handle the error if needed
@@ -56,15 +60,10 @@ function DeleteUserForm() {
     }
 
     return (
-        <Form onSubmit={handleDeletion}  style={{padding: "10px", borderRadius:"10px",border:"1px solid black"}}>
-            <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Enter password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                />
+        <Form onSubmit={handleDeletion}
+              style={{padding: "10px", borderRadius:"10px",border:"1px solid black", maxWidth: "300px"}}>
+            <Form.Group className="mb-3">
+                <Form.Label>Delete account?</Form.Label>
             </Form.Group>
             <Form.Group className="mb-3" controlId="checkbox">
                 <Form.Check

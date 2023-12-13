@@ -5,9 +5,15 @@ import Bookmarks from "#components/userComponents/Bookmarks.jsx"
 const UserBookmarks = () => {
     return (
         <div style={{display: 'flex'}}>
-                <Sidebar/>
-                <NavBar/>
-            <div style={{flex: 2, marginTop: '75px', marginLeft: "200px"}}>
+            <Sidebar/>
+            <NavBar/>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flex: 2,
+                marginTop: '75px',
+            }}>
                 <Bookmarks/>
             </div>
         </div>

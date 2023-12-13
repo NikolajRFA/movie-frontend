@@ -4,13 +4,17 @@ import DeleteUserForm from "#components/userComponents/DeleteUserForm";
 
 const DeleteUser = () => {
     return (
-        <div style={{display: 'flex', maxWidth: '1000px'}}>
-            <Sidebar />
-            <div style={{flex: 1}}>
-                <NavBar/>
-            </div>
-            <div style={{flex: 2, marginTop: '75px', marginLeft: '250px'}}>
-                <DeleteUserForm />
+        <div style={{display: 'flex'}}>
+            <Sidebar/>
+            <NavBar/>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flex: 2,
+                marginTop: '75px',
+            }}>
+                <DeleteUserForm/>
             </div>
         </div>
     );
