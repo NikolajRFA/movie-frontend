@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
-import LoadingSpinner from "./LoadingSpinner";
-import {Link, useNavigate} from "react-router-dom"; // Ensure js-cookie is installed
+import LoadingSpinner from "../LoadingSpinner";
+import RecentSearchesEntry from "./RecentSearchesEntry"; // Make sure to import your new component
 
 function RecentSearches() {
     const [recentSearches, setRecentSearches] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const userId = Cookies.get('id');
-        if (userId) {
-            axios.get(`http://localhost:5011/api/users/${userId}/searches?page=0&pageSize=10`, {
+
+            axios.get(`http://localhost:5011/api/users/${Cookies.get('id')}/searches?page=0&pageSize=10`, {
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('token')}`
                 }
@@ -22,7 +21,6 @@ function RecentSearches() {
                         setRecentSearches(response.data.items);
                     } else {
                         console.error('Items array not found in response', response.data);
-
                     }
                     setLoading(false);
                 })
@@ -30,20 +28,30 @@ function RecentSearches() {
                     console.error('Error fetching recent searches', error);
                     setLoading(false);
                 });
-        }
     }, []);
-    if (loading) {
-        return <LoadingSpinner/>;
-    }
 
+    if (loading) {
+        return <LoadingSpinner />;
+    }
+    const deleteSearch = (searchPhrase) => {
+        // Call API to delete the search entry
+        axios.delete(`http://localhost:5011/api/users/${Cookies.get('id')}/searches/searches?q=${searchPhrase}`, {
+            headers: {
+                'Authorization': `Bearer ${Cookies.get('token')}`
+            }
+        })
+            .then(() => {
+                // Update state to remove the deleted search
+                setRecentSearches(recentSearches.filter(search => search.searchPhrase !== searchPhrase));
+            })
+            .catch(error => {
+                console.error('Error deleting search', error);
+            });
+    };
     return (
         <div>
             {recentSearches.map((search, index) => (
-                <div key={index}>
-                    <Link to={`/results?q=${(search.searchPhrase)}`} style={{ cursor: 'pointer' }}>
-                        {search.searchPhrase}
-                    </Link>
-                </div>
+                <RecentSearchesEntry key={index} searchPhrase={search.searchPhrase} onDelete={deleteSearch} />
             ))}
         </div>
     );

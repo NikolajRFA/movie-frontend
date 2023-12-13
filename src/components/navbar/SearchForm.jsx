@@ -8,7 +8,7 @@ import DropdownTitles from "../../data_objects/DropdownTitles";
 import dropdown from "bootstrap/js/src/dropdown";
 import LoadingSpinner from "../LoadingSpinner";
 import {Link, useNavigate} from "react-router-dom";
-import RecentSearches from "../RecentSearches";
+import RecentSearches from "../recentSearches/RecentSearches";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
