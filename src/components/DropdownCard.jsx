@@ -1,6 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import {Col, Row, Image} from 'react-bootstrap';
+import TwoHighestOrderedCrew from "./TwoHighestOrderedCrew";
+
+function truncTitle(title) {
+    const maxLength = 40;
+    if (title.length > maxLength) return title.substring(0, maxLength) + '...';
+    return title;
+}
+
 
 function DropdownCard({title}) {
     return (
@@ -11,7 +19,7 @@ function DropdownCard({title}) {
                         <Image src={title.poster} fluid/>
                     </Col>
                     <Col xs={9}>
-                        <Card.Title><a href={title.url}>{title.title}</a></Card.Title>
+                        <Card.Title><a href={title.url}>{truncTitle(title.title)}</a></Card.Title>
                         <Card.Subtitle>{title.startYear}</Card.Subtitle>
                         <Card.Text>
                             {title.personDtos

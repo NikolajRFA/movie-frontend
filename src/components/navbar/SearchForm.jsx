@@ -71,8 +71,14 @@ export default function SearchForm() {
         setShowDropdown(false);
     }
 
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        navigate(`/results?q=${searchPhrase}`);
+        handleSearchBlur(event);
+    }
+
     return (
-        <Form className="w-75">
+        <Form className="w-75" onSubmit={handleFormSubmit}>
             <Form.Control
                 type="text"
                 placeholder="Search"
@@ -94,7 +100,11 @@ export default function SearchForm() {
                     {searchPhrase && (!dropdownTitles.loading
                         ? dropdownTitles.data.map(title =>
                             <Dropdown.Item
-                                onClick={() => navigate(`/titles/${title.url.split('/').pop()}`)}>
+                                onClick={(e) => {
+                                    navigate(`/titles/${title.url.split('/').pop()}`);
+                                    handleSearchBlur(e);
+                                }
+                                }>
                                 <DropdownCard key={title.url} title={title}/>
                             </Dropdown.Item>)
                         : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>)}
