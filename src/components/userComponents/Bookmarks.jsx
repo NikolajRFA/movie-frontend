@@ -10,7 +10,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 const Bookmarks = () => {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
-    const [user, setUser] = useState(() => new User());
+    const user = useState(() => new User());
 
     useEffect(() => {
         const fetchData = async () => {

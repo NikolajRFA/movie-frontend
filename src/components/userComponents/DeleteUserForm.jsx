@@ -10,7 +10,6 @@ function DeleteUserForm() {
     const [user, setUser] = useState(() => new User());
 
     // State variables for form inputs
-    const [newPassword, setNewPassword] = useState("");
     const [confirmDeletion, setConfirmDeletion] = useState(false);
 
     useEffect(() => {
