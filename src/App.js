@@ -10,6 +10,7 @@ import Title from "#pages/Title";
 import NavBar from "#components/navbar/NavBar";
 import NotFound from "#components/NotFound";
 import Person from "#pages/Person";
+import SearchResults from "#pages/SearchResults";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                         <Route path="/user/update" element={<UpdateUser/>}/>
                         <Route path="/user/delete" element={<DeleteUser/>}/>
                         <Route path="/titles/:tconst" element={<Title/>}/>
+                        <Route path="/results" element={<SearchResults/>}/>
                         <Route path="/persons/:nconst" element={<Person/>}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>

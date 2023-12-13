@@ -1,17 +1,27 @@
 import ApiHandler from "#data_objects/ApiHandler";
 import axios, {Axios} from "axios";
+import TitleListObj from "#data_objects/TitleListObj";
 
-export default class PersonObj extends ApiHandler{
+export default class PersonObj extends ApiHandler {
     apiBase = "http://localhost:5011/api/persons/";
-    constructor() {
+
+    constructor(data = null) {
         super();
-        this.getPerson = nconst => {
-            axios.get(this.apiBase + nconst)
-                .then(res => this.mapData(res.data))
-                .catch(err => this.error = err);
+        if (data) this.mapData(data);
+    }
+
+    getPerson = async (nconst) => {
+        let res;
+        try {
+            res = await axios.get(this.apiBase + nconst);
+        } catch (error) {
+            this.error = error;
             this.loading = false;
         }
+
+        return new PersonObj(res.data);
     }
+
 
     mapData(jsonData) {
         this.data = {
@@ -23,5 +33,10 @@ export default class PersonObj extends ApiHandler{
             professions: jsonData.professions.map(item => item.profession),
             titlesUrl: jsonData.titlesUrl
         }
+        this.loading = false;
+    }
+
+    getTitles() {
+        return TitleListObj.getTitleList(this.data.titlesUrl);
     }
 }
