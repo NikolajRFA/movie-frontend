@@ -6,8 +6,6 @@ import Cookies from "js-cookie"; // Import Dropdown from react-bootstrap if need
 
 function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
     const handleDelete = () => {
-
-
         axios.delete(deleteUrl, {
             headers: {
                 'Authorization': `Bearer ${Cookies.get('token')}`

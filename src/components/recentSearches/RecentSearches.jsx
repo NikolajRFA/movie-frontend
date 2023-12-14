@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
 import LoadingSpinner from "../LoadingSpinner";
-import RecentSearchesEntry from "./RecentSearchesEntry"; // Make sure to import your new component
+import RecentSearchesEntry from "./RecentSearchesEntry";
 
 function RecentSearches() {
     const [recentSearches, setRecentSearches] = useState([]);
