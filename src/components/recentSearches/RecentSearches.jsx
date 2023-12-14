@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import LoadingSpinner from "../LoadingSpinner";
 import RecentSearchesEntry from "./RecentSearchesEntry";
+import SearchService from "../../data_objects/Searches";
 
 function RecentSearches() {
     const [recentSearches, setRecentSearches] = useState([]);
@@ -11,17 +12,9 @@ function RecentSearches() {
     const fetchRecentSearches = () => {
         const userId = Cookies.get('id');
 
-        axios.get(`http://localhost:5011/api/users/${userId}/searches?page=0&pageSize=10`, {
-            headers: {
-                'Authorization': `Bearer ${Cookies.get('token')}`
-            }
-        })
-            .then(response => {
-                if (response.data && Array.isArray(response.data.items)) {
-                    setRecentSearches(response.data.items);
-                } else {
-                    console.error('Items array not found in response', response.data);
-                }
+        SearchService.getRecentSearches(userId)
+                .then(items => {
+                setRecentSearches(items);
                 setLoading(false);
             })
             .catch(error => {

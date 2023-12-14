@@ -22,8 +22,8 @@ function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
         <Dropdown.Item>
             <Link to={`/results?q=${(searchPhrase)}`} style={{ cursor: 'pointer' }}>
                 {searchPhrase}
-                <CloseButton onClick={handleDelete} style={{float: "right" }}></CloseButton>
             </Link>
+            <CloseButton onClick={handleDelete} style={{float: "right" }}></CloseButton>
         </Dropdown.Item>
     );
 }
