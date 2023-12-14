@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Optimized imports for login comps">
-      <change afterPath="$PROJECT_DIR$/src/data_objects/TitleListObj.js" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Created business layer for person titles">
+      <change afterPath="$PROJECT_DIR$/src/data_objects/Utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TitleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TitleCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_objects/PersonObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/PersonObj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Person.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Person.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702030061154</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Created business layer for person titles">
+      <option name="closed" value="true" />
+      <created>1702508117138</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1702508117138</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,6 +366,7 @@
     <MESSAGE value="import settings + file restructure" />
     <MESSAGE value="imports" />
     <MESSAGE value="Optimized imports for login comps" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimized imports for login comps" />
+    <MESSAGE value="Created business layer for person titles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created business layer for person titles" />
   </component>
 </project>

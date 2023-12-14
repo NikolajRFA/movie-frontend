@@ -36,7 +36,8 @@ export default class PersonObj extends ApiHandler {
         this.loading = false;
     }
 
-    getTitles() {
-        return TitleListObj.getTitleList(this.data.titlesUrl);
+    getTitles(url = null) {
+        if (url) return TitleListObj.getTitleList(url);
+        return TitleListObj.getTitleList(this.data.titlesUrl + '?pageSize=4');
     }
 }
