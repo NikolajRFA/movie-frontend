@@ -32,14 +32,17 @@ export default function Title() {
                     <Row>
                         <Col>
                             <h1>{title.data.title}</h1>
-                            <p>{title.data.titleType} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
+                            <p className='my-0'>{title.data.titleType} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
                         <Col className="text-end">
                             <h2>Rating - {title.data.averageRating}/10</h2>
                             <h5>Total ratings: {title.data.numVotes}</h5>
                         </Col>
+                        <Col xs={'auto'} className='d-flex justify-content-center align-items-center'>
+                            <Image className='my-auto' height='40px' src='/rating_star.svg'/>
+                        </Col>
                     </Row>
-                    <Row>
+                    <Row className='my-2'>
                         <Col md="auto">
                             <Image src={title.data.poster} width="220px"/>
                         </Col>
