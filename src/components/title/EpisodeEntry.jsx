@@ -4,6 +4,7 @@ import axios from "axios";
 import {Col, Row, Image, NavLink} from "react-bootstrap";
 import LoadingSpinner from "../LoadingSpinner";
 import {Link, useNavigate} from "react-router-dom";
+import Utils from "#data_objects/Utils";
 
 export default function EpisodeEntry({episode}) {
     const [episodeData, setEpisodeData] = useState(null);
@@ -23,12 +24,6 @@ export default function EpisodeEntry({episode}) {
                 setLoading(false);
             });
     }, [episode]);
-
-    function truncatePlot(plot) {
-        const plotLength = 120;
-        if (plot.length > plotLength) return plot.substring(0, plotLength) + '...';
-        return plot;
-    }
 
     return (
         <Card className="p-1 m-2 searchResult" style={{cursor: 'pointer'}} onClick={() => navigate(`/titles/${episode.episodeUrl.split('/').pop()}`)}>
@@ -57,7 +52,7 @@ export default function EpisodeEntry({episode}) {
                 </Row>
                 <Row>
                     <Card.Text>
-                        {episodeData ? truncatePlot(episodeData.plot) : <LoadingSpinner/>}
+                        {episodeData ? Utils.truncateText(episodeData.plot, 120) : <LoadingSpinner/>}
                     </Card.Text>
                 </Row>
             </Card.Body>
