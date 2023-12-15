@@ -1,22 +1,14 @@
 import Button from "react-bootstrap/Button";
 import User from "#data_objects/User";
 import {useState} from "react";
-import axios from "axios";
+import BookmarksObj from "#data_objects/BookmarksObj";
 
-export default function AddBookmark({id, style, onUpdate}) {
+export default function AddBookmark({id, style, onUpdate, isPerson}) {
     const [user] = useState(() => new User());
-    const url = `http://localhost:5011/api/users/${user.id}/bookmarks/title`;
 
     const handleAddBookmark = async () => {
-        await axios.post(
-            url,
-            { TitlePersonId: id },
-            {
-                headers: {
-                    Authorization: `Bearer ${user.jwt}`,
-                },
-            }
-        );
+        const newBookmark = new BookmarksObj();
+        await newBookmark.addBookmark(id, user.id, user.jwt, isPerson)
         onUpdate();
     }
 

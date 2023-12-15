@@ -4,6 +4,7 @@ import User from "#data_objects/User";
 import RemoveBookmark from "#components/bookmarkBtnComponents/RemoveBookmark";
 import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import Cookies from "js-cookie";
+import LoadingSpinner from "#components/LoadingSpinner";
 
 export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, onUpdate}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
@@ -26,10 +27,15 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, o
     }
 
     return (
-        <>
-            {bookmarks.data === "No bookmark found"
-                ? <AddBookmark style={addStyle} url={url} id={nconst}/>
-                : <RemoveBookmark style={removeStyle} url={url} onUpdate={handleUpdateBookmark}/>}
-        </>
+        (bookmarks.data)
+            ?
+            <>
+                {
+                    bookmarks.data === "No bookmark found"
+                        ? <AddBookmark style={addStyle} url={bookmarks.data.url} id={nconst} isPerson={true} onUpdate={handleUpdateBookmark}/>
+                        : <RemoveBookmark  style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>}
+            </>
+            :
+            <LoadingSpinner/>
     );
 }

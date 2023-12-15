@@ -30,7 +30,7 @@ function Sidebar() {
         <div className="sidebar">
             {menuItems.map((item, index) => (
                 <Navbar
-                    key={index}
+                    key={item.title}
                     className={`bg-body-primary ${activeMenuItem === item.title ? 'active' : ''}`}
                 >
                     <Link
