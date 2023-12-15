@@ -7,6 +7,7 @@ import TitleCrew from "../components/title/TitleCrew";
 import TitleEpisodes from "../components/title/TitleEpisodes";
 import {useParams} from 'react-router-dom';
 import TitleObj from "../data_objects/TitleObj";
+import Utils from "#data_objects/Utils";
 
 export default function Title() {
     const {tconst} = useParams();
@@ -32,7 +33,7 @@ export default function Title() {
                     <Row>
                         <Col>
                             <h1>{title.data.title}</h1>
-                            <p className='my-0'>{title.data.titleType} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
+                            <p className='my-0'>{Utils.capitalize(title.data.titleType)} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
                         <Col className="text-end">
                             <h2>Rating - {title.data.averageRating}/10</h2>
