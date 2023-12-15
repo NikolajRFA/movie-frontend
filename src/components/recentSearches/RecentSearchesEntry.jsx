@@ -2,16 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import {CloseButton, Dropdown} from "react-bootstrap";
 import axios from "axios";
-import Cookies from "js-cookie"; // Import Dropdown from react-bootstrap if needed
+import Cookies from "js-cookie";
+import SearchService from "#data_objects/Searches"; // Import Dropdown from react-bootstrap if needed
 
 function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
     const handleDelete = () => {
-        axios.delete(deleteUrl, {
-            headers: {
-                'Authorization': `Bearer ${Cookies.get('token')}`
-            }
-        })
-            .then(response => {
+        SearchService.deleteSearch(deleteUrl)
+                .then(response => {
                 onDeleted();
             })
             .catch(error => {
@@ -20,7 +17,7 @@ function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
     };
     return (
         <Dropdown.Item>
-            <Link to={`/results?q=${(searchPhrase)}`} style={{ cursor: 'pointer' }}>
+            <Link to={`/results?q=${(searchPhrase)}`} className={"recent-search-link"} style={{ cursor: 'pointer' }}>
                 {searchPhrase}
             </Link>
             <CloseButton onClick={handleDelete} style={{float: "right" }}></CloseButton>
