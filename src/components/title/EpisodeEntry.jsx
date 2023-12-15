@@ -3,12 +3,15 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {Col, Row, Image, NavLink} from "react-bootstrap";
 import LoadingSpinner from "../LoadingSpinner";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import Utils from "#data_objects/Utils";
 
 export default function EpisodeEntry({episode}) {
     const [episodeData, setEpisodeData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         axios.get(episode.episodeUrl)
@@ -22,23 +25,17 @@ export default function EpisodeEntry({episode}) {
             });
     }, [episode]);
 
-    function truncatePlot(plot) {
-        const plotLength = 120;
-        if (plot.length > plotLength) return plot.substring(0, plotLength) + '...';
-        return plot;
-    }
-
     return (
-        <Card className="p-1 m-2">
+        <Card className="p-1 m-2 searchResult" style={{cursor: 'pointer'}} onClick={() => navigate(`/titles/${episode.episodeUrl.split('/').pop()}`)}>
             <Card.Body>
                 <Row>
                     <Col>
                         {!loading ? <Image src={episodeData.poster} width="100px"/> : <LoadingSpinner/>}
                     </Col>
                     <Col>
-                        <Card.Title><Link to={`/titles/${episode.episodeUrl.split('/').pop()}`}>
+                        <Card.Title className='searchCard-title'>
                             {episode.title}
-                        </Link></Card.Title>
+                        </Card.Title>
                         <Card.Subtitle>Episode {episode.episode}</Card.Subtitle>
                     </Col>
                     <Col style={{}}>
@@ -55,7 +52,7 @@ export default function EpisodeEntry({episode}) {
                 </Row>
                 <Row>
                     <Card.Text>
-                        {episodeData ? truncatePlot(episodeData.plot) : <LoadingSpinner/>}
+                        {episodeData ? Utils.truncateText(episodeData.plot, 120) : <LoadingSpinner/>}
                     </Card.Text>
                 </Row>
             </Card.Body>

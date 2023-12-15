@@ -3,8 +3,9 @@ import ApiHandler from "./ApiHandler";
 
 export default class TitleObj extends ApiHandler {
     apiUrlBase = 'http://localhost:5011/api/titles/'
-    constructor() {
+    constructor(data) {
         super();
+        if (data) this.mapData(data);
     }
 
     mapData(jsonData) {
@@ -25,6 +26,7 @@ export default class TitleObj extends ApiHandler {
             genres: jsonData.genres.map(genre => genre.genre),
             crew: jsonData.crew
         };
+        this.loading = false;
     }
 
     async getTitle(tconst) {
