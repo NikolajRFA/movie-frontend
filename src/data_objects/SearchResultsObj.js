@@ -1,8 +1,10 @@
 import ApiHandler from "./ApiHandler";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default class SearchResultsObj extends ApiHandler {
     static apiUrlBase = 'http://localhost:5011/api/titles/'
+
     constructor(data = null) {
         super();
         if (data) this.mapData(data);
@@ -28,11 +30,21 @@ export default class SearchResultsObj extends ApiHandler {
         };
         this.loading = false;
     }
+
     static async fetchResults(searchPhrase, page = 0, pageSize = 10) {
         const apiUrl = `${this.apiUrlBase}results?q=${searchPhrase}&page=${page}&pageSize=${pageSize}`;
-        const res = await axios.get(apiUrl);
+        let res;
+        // User is logged in
+        if (Cookies.get('token')) {
+            res = await axios.get(apiUrl, {
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('token')}`
+                }
+            });
+        } else {
+            res = await axios.get(apiUrl);
+        }
 
         return new SearchResultsObj(res.data);
     }
-
 }
