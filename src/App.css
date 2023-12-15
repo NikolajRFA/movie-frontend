@@ -98,3 +98,11 @@
     color: #808080; /* Change to the desired color */
 }
 
+.recent-search-link {
+    color: black;
+    text-decoration: none;
+}
+
+.recent-search-link:hover {
+    color: #808080;
+}

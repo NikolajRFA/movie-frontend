@@ -14,7 +14,7 @@ function RecentSearches() {
 
         SearchService.getRecentSearches(userId)
                 .then(items => {
-                setRecentSearches(items);
+                setRecentSearches(items.reverse());
                 setLoading(false);
             })
             .catch(error => {
