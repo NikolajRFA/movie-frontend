@@ -25,4 +25,37 @@ export default class BookmarksObj {
             this.loading = false;
         }
     }
+
+    async getBookmarkPerson(nconst, user_id, jwt) {
+        try {
+            const res = await axios.get(this.apiUrlBase + user_id + "/bookmarks/person/" + nconst,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    }
+                })
+            this.data = res.data;
+            this.loading = false;
+        } catch (error) {
+            this.error = error;
+            this.loading = false;
+        }
+    }
+
+    async getBookmarkTitle(tconst, user_id, jwt) {
+        try {
+            const res = await axios.get(this.apiUrlBase + user_id + "/bookmarks/title/" + tconst,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`,
+                    }
+                })
+            this.data = res.data;
+            this.loading = false;
+        } catch (error) {
+            this.error = error;
+            this.loading = false;
+        }
+    }
+
 }

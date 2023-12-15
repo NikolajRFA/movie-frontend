@@ -7,6 +7,7 @@ import TitleEpisodes from "../components/title/TitleEpisodes";
 import {useParams} from 'react-router-dom';
 import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
+import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 
 export default function Title() {
     const {tconst} = useParams();
@@ -31,6 +32,10 @@ export default function Title() {
                 <Container>
                     <Row>
                         <Col>
+                            <BookmarkTitleBtn
+                                tconst={title.data.url.split('/').pop()}
+                                url={title.data.url}
+                            />
                             <h1>{title.data.title}</h1>
                             <p className='my-0'>{Utils.capitalize(title.data.titleType)} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
