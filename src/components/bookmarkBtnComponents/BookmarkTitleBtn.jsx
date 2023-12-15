@@ -18,20 +18,20 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
             newUser.getCookies();
             setUser(newUser)
         }
-    }, [isLoggedIn, user.id, user.jwt]);
+    }, [isLoggedIn]);
 
     useEffect(() => {
-        if(Cookies.get('id') == null) return;
+        if(user.id == null) return;
         const assertBookmark = async () => {
             const bookmarks = new BookmarksObj();
-            await bookmarks.getBookmarkTitle(tconst, Cookies.get('id'), Cookies.get('jwt'));
+            await bookmarks.getBookmarkTitle(tconst, user.id, user.jwt);
             setBookmarks({...bookmarks})
         };
 
         assertBookmark();
-    }, [tconst]);
+    }, [tconst, user.id, user.jwt]);
 
-    if(Cookies.get('id') == null){
+    if(user.id == null){
         console.log(!user.id);
         return (<></>);
     }

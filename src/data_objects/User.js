@@ -7,8 +7,7 @@ class User {
         this.data = null;
         this.loading = true;
         this.error = null;
-        this.id = null
-        this.jwt = null
+        this.getCookies();
     }
 
     getCookies() {
