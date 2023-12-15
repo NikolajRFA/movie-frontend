@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {useEffect, useState} from "react";
 import Cookies from 'js-cookie';
 import LoadingSpinner from "../LoadingSpinner";
 import RecentSearchesEntry from "./RecentSearchesEntry";
 import SearchService from "../../data_objects/Searches";
+import {Dropdown} from "react-bootstrap";
 
 function RecentSearches() {
     const [recentSearches, setRecentSearches] = useState([]);
@@ -13,7 +13,7 @@ function RecentSearches() {
         const userId = Cookies.get('id');
 
         SearchService.getRecentSearches(userId)
-                .then(items => {
+            .then(items => {
                 setRecentSearches(items.reverse());
                 setLoading(false);
             })
@@ -26,28 +26,34 @@ function RecentSearches() {
     useEffect(() => {
         fetchRecentSearches();
     }, []);
-    const handleDeleted = () =>{
+    const handleDeleted = () => {
         fetchRecentSearches();
+        if (recentSearches.length === 0) {
+            onBlur();
+        }
     }
-
 
 
     if (loading) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner/>;
     }
 
     return (
-        <div>
-            {recentSearches.map((search, index) => (
-                <RecentSearchesEntry
-                    key={index}
-                    searchPhrase={search.searchPhrase}
-                    deleteUrl={search.deleteUrl}
-                    onDeleted={handleDeleted}
-                    />
+        !(recentSearches.length === 0)
+            ? recentSearches.map((search, index) => (
+                <Dropdown.Item className='searchResult' key={search.searchPhrase}>
+                    <RecentSearchesEntry
 
-            ))}
-        </div>
+                        searchPhrase={search.searchPhrase.replaceAll(',', ' ')}
+                        deleteUrl={search.deleteUrl}
+                        onDeleted={handleDeleted}
+                    />
+                </Dropdown.Item>
+            ))
+            : <Dropdown.Item style={{pointerEvents: 'none'}}>
+                You have no recent searches!
+            </Dropdown.Item>
+
     );
 }
 

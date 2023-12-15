@@ -20,14 +20,17 @@ export default function SearchForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log(`search width: ${inputRef.current.offsetWidth}`)
+        console.log('useEffect');
         function handleResize() {
             if (inputRef.current) {
+                console.log('inside if')
                 const inputWidth = inputRef.current.offsetWidth;
                 const dropdownMenu = document.getElementById('searchDropdownMenu');
                 if (dropdownMenu) {
                     // Ensure the dropdown has the same width as the search bar.
-                    dropdownMenu.style.minWidth = `${inputWidth}px`;
-                    dropdownMenu.style.maxWidth = `${inputWidth}px`;
+                    dropdownMenu.style.width = `${inputWidth}px`;
+                   // dropdownMenu.style.maxWidth = `${inputWidth}px`;
                 }
             }
         }
@@ -55,7 +58,6 @@ export default function SearchForm() {
         }
         if (newSearchPhrase) getData();
     }
-
 
     function handleSearchFocus() {
         setShowDropdown(true);
