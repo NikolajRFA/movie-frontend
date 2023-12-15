@@ -7,6 +7,10 @@ class User {
         this.data = null;
         this.loading = true;
         this.error = null;
+        this.getCookies();
+    }
+
+    getCookies() {
         this.id = Cookies.get('id');
         this.jwt = Cookies.get('token');
     }

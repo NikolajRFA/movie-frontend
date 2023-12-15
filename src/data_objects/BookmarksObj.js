@@ -78,5 +78,4 @@ export default class BookmarksObj extends ApiHandler{
         }
     }
 
-
 }
