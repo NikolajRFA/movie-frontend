@@ -38,7 +38,7 @@ export default function Title() {
             ? <div>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col xs={9}>
                             <h1>
                                 {title.data.title}
                                 <BookmarkTitleBtn
