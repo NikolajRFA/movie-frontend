@@ -3,7 +3,7 @@ import { CloseButton } from "react-bootstrap";
 import { useState } from "react";
 import User from "#data_objects/User";
 
-export default function RemoveBookmark({ style, url, onRemove }) {
+export default function RemoveBookmark({ style, url, onUpdate }) {
     const [user] = useState(() => new User());
 
     const handleDeleteClick = async () => {
@@ -14,7 +14,7 @@ export default function RemoveBookmark({ style, url, onRemove }) {
             },
         });
 
-        onRemove();
+        onUpdate();
     };
 
     return (

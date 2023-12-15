@@ -10,10 +10,12 @@ import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 import Cookies from "js-cookie";
 import user from "#data_objects/User";
+import BookmarksObj from "#data_objects/BookmarksObj";
 
 export default function Title() {
     const {tconst} = useParams();
     const [title, setTitle] = useState(() => new TitleObj());
+    const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
 
     // TODO: Make sure title page is reloaded when a user logs in while on a title page.
     useEffect(() => {
@@ -27,7 +29,9 @@ export default function Title() {
             }
         }
         getData();
-    }, [tconst]);
+    }, [tconst, bookmarks]);
+
+
 
     return (
         (!title.loading)
@@ -38,6 +42,8 @@ export default function Title() {
                             <h1>
                                 {title.data.title}
                                 <BookmarkTitleBtn
+                                    addStyle={{marginLeft: "5px"}}
+                                    removeStyle={{ fontSize: '1.5rem', width: '2rem', height: '1.25rem'}}
                                     tconst={title.data.url.split('/').pop()}
                                 />
                             </h1>

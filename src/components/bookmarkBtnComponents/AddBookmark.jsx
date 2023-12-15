@@ -3,7 +3,7 @@ import User from "#data_objects/User";
 import {useState} from "react";
 import axios from "axios";
 
-export default function AddBookmark({id, style, onAdd}) {
+export default function AddBookmark({id, style, onUpdate}) {
     const [user] = useState(() => new User());
     const url = `http://localhost:5011/api/users/${user.id}/bookmarks/title`;
 
@@ -17,6 +17,7 @@ export default function AddBookmark({id, style, onAdd}) {
                 },
             }
         );
+        onUpdate();
     }
 
     return (

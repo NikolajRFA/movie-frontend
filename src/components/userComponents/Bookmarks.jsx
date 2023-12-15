@@ -20,7 +20,7 @@ const Bookmarks = () => {
         };
 
         fetchData();
-    }, [user.id, user.jwt]);
+    }, [user.id, user.jwt, bookmarks]);
 
     if (bookmarks.loading) {
         return <p>Loading...</p>;
@@ -30,19 +30,13 @@ const Bookmarks = () => {
         return <p>You currently have nothing bookmarked! Get to it.</p>;
     }
 
-    const handleRemoveBookmark = async () => {
-        const newBookmarks = new BookmarksObj();
-        await newBookmarks.getBookmarks(user.id, user.jwt);
-        setBookmarks({...newBookmarks});
-    }
-
     return (
         <Container>
             <Row>
                 <Col className="mx-auto bookmarkColumn" style={{maxWidth: "500px"}}>
                     <h5>Bookmarked titles</h5>
                     <ListGroup>
-                        {Object.values(bookmarks.data.items)
+                        {(bookmarks.data.items)
                             .filter(item => item.tconst !== 'Not specified')
                             .map((item, index) => (
                                 <ListGroup.Item key={index}>
@@ -51,10 +45,9 @@ const Bookmarks = () => {
                                         {item.title}
                                     </Link>
                                     <BookmarkTitleBtn
-                                        style={{float: "right"}}
+                                        removeStyle={{float: "right"}}
                                         url={item.url}
                                         tconst={item.tconst.split('/').pop()}
-                                        onRemove={handleRemoveBookmark}
                                     />
                                 </ListGroup.Item>
                             ))}
@@ -63,7 +56,7 @@ const Bookmarks = () => {
                 <Col className="bookmarkColumn" style={{maxWidth: "500px"}}>
                     <h5>Bookmarked persons</h5>
                     <ListGroup>
-                        {Object.values(bookmarks.data.items)
+                        {(bookmarks.data.items)
                             .filter(item => item.nconst !== 'Not specified')
                             .map((item, index) =>
                                 <ListGroup.Item key={index}>
@@ -72,10 +65,9 @@ const Bookmarks = () => {
                                         {item.personName}
                                     </Link>
                                     <BookmarkPersonBtn
-                                        style={{float: "right"}}
+                                        removeStyle={{float: "right"}}
                                         url={item.url}
                                         nconst={item.nconst.split('/').pop()}
-                                        onRemove={handleRemoveBookmark}
                                     />
                                 </ListGroup.Item>
                             )}

@@ -1,12 +1,26 @@
 import axios from "axios";
+import data from "bootstrap/js/src/dom/data";
+import ApiHandler from "#data_objects/ApiHandler";
 
-export default class BookmarksObj {
+export default class BookmarksObj extends ApiHandler{
     apiUrlBase = 'http://localhost:5011/api/users/'
 
-    constructor() {
-        this.data = null;
-        this.loading = true;
-        this.error = null;
+    constructor(data) {
+        super();
+        if (data) this.mapData(data);
+    }
+
+    mapData(jsonData) {
+        this.data = {
+            url: jsonData.url,
+            user: jsonData.user,
+            tconst: jsonData.tconst,
+            nconst: jsonData.nconst,
+            title: jsonData.title,
+            personName: jsonData.personName,
+
+        };
+        this.loading = false;
     }
 
     async getBookmarks(id, jwt) {
@@ -63,5 +77,6 @@ export default class BookmarksObj {
             this.loading = false;
         }
     }
+
 
 }

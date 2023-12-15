@@ -4,8 +4,9 @@ import User from "#data_objects/User";
 import RemoveBookmark from "#components/bookmarkBtnComponents/RemoveBookmark";
 import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import LoadingSpinner from "#components/LoadingSpinner";
+import Cookies from "js-cookie";
 
-export default function BookmarkTitleBtn({tconst, style, onRemove}) {
+export default function BookmarkTitleBtn({tconst, addStyle, removeStyle}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user] = useState(() => new User());
 
@@ -20,6 +21,12 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
         assertBookmark();
     }, [user.id, user.jwt, tconst]);
 
+    const handleUpdateBookmark = async () => {
+        const newBookmarks = new BookmarksObj();
+        await newBookmarks.getBookmarkTitle(tconst, Cookies.get("id"), Cookies.get("token"));
+        setBookmarks(newBookmarks);
+    }
+
     if(!user.id){
         return (<></>);
     }
@@ -30,8 +37,8 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
         <>
             {
                 bookmarks.data === "No bookmark found"
-                ? <AddBookmark style={style} url={bookmarks.data.url} id={tconst}/>
-                : <RemoveBookmark style={style} url={bookmarks.data.url} onRemove={onRemove}/>}
+                ? <AddBookmark style={addStyle} url={bookmarks.data.url} id={tconst} onUpdate={handleUpdateBookmark}/>
+                : <RemoveBookmark  style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>}
         </>
             :
             <LoadingSpinner/>
