@@ -44,16 +44,22 @@ export default class BookmarksObj {
 
     async getBookmarkTitle(tconst, user_id, jwt) {
         try {
-            const res = await axios.get(this.apiUrlBase + user_id + "/bookmarks/title/" + tconst,
-                {
-                    headers: {
-                        Authorization: `Bearer ${jwt}`,
-                    }
-                })
+            const res = await axios.get(this.apiUrlBase + user_id + "/bookmarks/title/" + tconst, {
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                }
+            });
+
             this.data = res.data;
             this.loading = false;
         } catch (error) {
-            this.error = error;
+            if (error.response && error.response.status === 404) {
+                // Bookmark not found, handle it gracefully
+                this.data = null; // or another appropriate value
+            } else {
+                // Other errors
+                this.error = error;
+            }
             this.loading = false;
         }
     }

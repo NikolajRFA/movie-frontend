@@ -8,11 +8,14 @@ import {useParams} from 'react-router-dom';
 import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
+import Cookies from "js-cookie";
+import user from "#data_objects/User";
 
 export default function Title() {
     const {tconst} = useParams();
     const [title, setTitle] = useState(() => new TitleObj());
 
+    // TODO: Make sure title page is reloaded when a user logs in while on a title page.
     useEffect(() => {
         const getData = async () => {
             try {
@@ -32,11 +35,12 @@ export default function Title() {
                 <Container>
                     <Row>
                         <Col>
-                            <BookmarkTitleBtn
-                                tconst={title.data.url.split('/').pop()}
-                                url={title.data.url}
-                            />
-                            <h1>{title.data.title}</h1>
+                            <h1>
+                                {title.data.title}
+                                <BookmarkTitleBtn
+                                    tconst={title.data.url.split('/').pop()}
+                                />
+                            </h1>
                             <p className='my-0'>{Utils.capitalize(title.data.titleType)} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
                         <Col className="text-end">

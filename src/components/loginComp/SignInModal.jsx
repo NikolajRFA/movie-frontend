@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 import {useNavigate} from "react-router-dom";
 import LoginDropdown from '#components/loginComp/LoginDropdown';
 
-function SignInModal() {
+function SignInModal({setLoggedIn}) {
     const separatorStyle = {
         borderBottom: '2px solid black',
         width: '100%',

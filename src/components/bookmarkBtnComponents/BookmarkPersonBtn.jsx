@@ -20,9 +20,9 @@ export default function BookmarkPersonBtn({nconst, style, url, onRemove}) {
 
     return (
         <>
-            {bookmarks
-                ? <RemoveBookmark style={style} url={url} onRemove={onRemove}/>
-                : <AddBookmark style={style}/>}
+            {bookmarks.data === "No bookmark found"
+                ? <AddBookmark style={style} url={url} id={nconst}/>
+                : <RemoveBookmark style={style} url={url} onRemove={onRemove}/>}
         </>
     );
 }
