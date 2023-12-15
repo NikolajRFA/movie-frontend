@@ -2,15 +2,20 @@ import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
+import {AuthContext} from "#AuthContext";
+import {useContext} from "react";
 
 
 
 function LoginDropdown(){
     const navigate = useNavigate();
+    const { handle } = useContext(AuthContext)
 
     const handleLogout = () =>{
         Cookies.remove('id')
         Cookies.remove('token')
+
+
 
         navigate('/');
 

@@ -5,7 +5,6 @@ import Utils from "#data_objects/Utils";
 import {Link, useNavigate} from "react-router-dom";
 
 function TitleCard({title, plotLength}) {
-    const maxCharacters = 200;
     const navigate = useNavigate();
 
     return (

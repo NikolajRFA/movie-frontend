@@ -13,27 +13,25 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
     const { isLoggedIn } = useContext(AuthContext)
 
     useEffect(() => {
-        console.log(`userId = ${user.id}, userJwt = ${user.jwt}`)
         if (isLoggedIn) {
-            console.log('user logged in')
             let newUser = new User();
             newUser.getCookies();
             setUser(newUser)
         }
-    }, [isLoggedIn]);
+    }, [isLoggedIn, user.id, user.jwt]);
 
     useEffect(() => {
-        if(!user.id) return;
+        if(Cookies.get('id') == null) return;
         const assertBookmark = async () => {
             const bookmarks = new BookmarksObj();
-            await bookmarks.getBookmarkTitle(tconst, user.id, user.jwt);
+            await bookmarks.getBookmarkTitle(tconst, Cookies.get('id'), Cookies.get('jwt'));
             setBookmarks({...bookmarks})
         };
 
         assertBookmark();
-    }, [user.id, user.jwt, tconst]);
+    }, [tconst]);
 
-    if(user.id == null){
+    if(Cookies.get('id') == null){
         console.log(!user.id);
         return (<></>);
     }
