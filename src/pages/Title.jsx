@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";

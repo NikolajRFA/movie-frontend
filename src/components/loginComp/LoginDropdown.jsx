@@ -32,7 +32,7 @@ function LoginDropdown(){
                     <img src="/profile_picture.png" alt="LoginBubble" width={'50px'} />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu style={{marginTop: '7px'}}>
                     {dropdownItems.map((item, index) => (
                         <Dropdown.Item key={index} onClick={() => navigate(`/user/${item.link}`)}>
                             {item.title}
