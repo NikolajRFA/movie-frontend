@@ -5,7 +5,7 @@ import RecentSearchesEntry from "./RecentSearchesEntry";
 import SearchService from "../../data_objects/Searches";
 import {Dropdown} from "react-bootstrap";
 
-function RecentSearches() {
+function RecentSearches({inputRef}) {
     const [recentSearches, setRecentSearches] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -25,12 +25,12 @@ function RecentSearches() {
 
     useEffect(() => {
         fetchRecentSearches();
-    }, []);
+        if (recentSearches.length === 0) {
+            inputRef.current.focus();
+        }
+    }, [inputRef, recentSearches.length]);
     const handleDeleted = () => {
         fetchRecentSearches();
-        if (recentSearches.length === 0) {
-            onBlur();
-        }
     }
 
 

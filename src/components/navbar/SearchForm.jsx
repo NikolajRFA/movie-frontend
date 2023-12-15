@@ -20,11 +20,8 @@ export default function SearchForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(`search width: ${inputRef.current.offsetWidth}`)
-        console.log('useEffect');
         function handleResize() {
             if (inputRef.current) {
-                console.log('inside if')
                 const inputWidth = inputRef.current.offsetWidth;
                 const dropdownMenu = document.getElementById('searchDropdownMenu');
                 if (dropdownMenu) {
@@ -112,7 +109,7 @@ export default function SearchForm() {
                                 </Dropdown.Item>)
                             : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>
                     ) : (
-                        <RecentSearches/>
+                        <RecentSearches inputRef={inputRef}/>
                     )}
                 </Dropdown.Menu>
             </div>
