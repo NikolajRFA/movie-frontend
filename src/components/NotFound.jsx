@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 
 const NotFound = () => {
     return (
@@ -11,6 +12,7 @@ const NotFound = () => {
                     <h4>
                         Go to home page
                     </h4>
+                    <AddBookmark/>
                 </Link>
             </div>
         </div>

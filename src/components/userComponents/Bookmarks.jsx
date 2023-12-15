@@ -4,9 +4,9 @@ import User from "#data_objects/User.js"
 import {Link} from "react-router-dom";
 import {Col, Container, Image, Row} from "react-bootstrap";
 import "../../App.css";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
 import ListGroup from "react-bootstrap/ListGroup";
+import BookmarkPersonBtn from "#components/bookmarkBtnComponents/BookmarkPersonBtn";
+import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 
 const Bookmarks = () => {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
@@ -30,21 +30,7 @@ const Bookmarks = () => {
         return <p>You currently have nothing bookmarked! Get to it.</p>;
     }
 
-    const handleDeleteClick = async (url) => {
-        // Perform the delete request with the extracted digits from the URL
-        const match = url.match(/\/bookmarks\/(\d+)/);
-        const id = match ? match[1] : null;
-
-        if (id) {
-            // Assuming you have a function to handle the delete request
-            await axios.delete(`http://localhost:5011/api/users/${user.id}/bookmarks/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${user.jwt}`,
-                }
-            })
-        }
-
-        // After the delete request, fetch the updated bookmarks
+    const handleRemoveBookmark = async () => {
         const newBookmarks = new BookmarksObj();
         await newBookmarks.getBookmarks(user.id, user.jwt);
         setBookmarks({...newBookmarks});
@@ -64,18 +50,12 @@ const Bookmarks = () => {
                                     <Link to={item.tconst}>
                                         {item.title}
                                     </Link>
-                                    <Button
-                                        variant=""
-                                        style={{
-                                            fontSize: '0.8rem',
-                                            float: "right",
-                                            color: "red",
-                                            textDecoration: "none"
-                                        }}
-                                        onClick={() => handleDeleteClick(item.url)}
-                                    >
-                                        Remove bookmark
-                                    </Button>
+                                    <BookmarkTitleBtn
+                                        style={{float: "right"}}
+                                        url={item.url}
+                                        tconst={item.tconst.split('/').pop()}
+                                        onRemove={handleRemoveBookmark}
+                                    />
                                 </ListGroup.Item>
                             ))}
                     </ListGroup>
@@ -91,18 +71,12 @@ const Bookmarks = () => {
                                     <Link to={item.nconst}>
                                         {item.personName}
                                     </Link>
-                                    <Button
-                                        variant=""
-                                        style={{
-                                            fontSize: '0.8rem',
-                                            float: "right",
-                                            color: "red",
-                                            textDecoration: "none"
-                                        }}
-                                        onClick={() => handleDeleteClick(item.url)}
-                                    >
-                                        Remove bookmark
-                                    </Button>
+                                    <BookmarkPersonBtn
+                                        style={{float: "right"}}
+                                        url={item.url}
+                                        nconst={item.nconst.split('/').pop()}
+                                        onRemove={handleRemoveBookmark}
+                                    />
                                 </ListGroup.Item>
                             )}
                     </ListGroup>

@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Removed unused vars">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed bug in bookmark">
+      <change afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/AddBookmark.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkTitleBtn.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/RemoveBookmark.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotFound.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/userComponents/Bookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/Bookmarks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/BookmarksObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/BookmarksObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +56,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
@@ -113,7 +120,8 @@
       <workItem from="1701934186053" duration="10732000" />
       <workItem from="1702022989777" duration="1783000" />
       <workItem from="1702024812599" duration="6089000" />
-      <workItem from="1702466419850" duration="8969000" />
+      <workItem from="1702466419850" duration="10329000" />
+      <workItem from="1702540430854" duration="20126000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -331,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702478061784</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixed bug in bookmark">
+      <option name="closed" value="true" />
+      <created>1702478162263</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1702478162263</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +365,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added navbar" />
     <MESSAGE value="Added .active css" />
     <MESSAGE value="Added Sidebar.jsx" />
     <MESSAGE value="Fixing idea files" />
@@ -374,6 +389,7 @@
     <MESSAGE value="Optimized imports for login comps" />
     <MESSAGE value="Added bookmarks functionality" />
     <MESSAGE value="Removed unused vars" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused vars" />
+    <MESSAGE value="Fixed bug in bookmark" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in bookmark" />
   </component>
 </project>
