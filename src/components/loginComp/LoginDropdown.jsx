@@ -9,19 +9,15 @@ import {useContext} from "react";
 
 function LoginDropdown(){
     const navigate = useNavigate();
-    const { handle } = useContext(AuthContext)
+    const { setLogout } = useContext(AuthContext)
 
     const handleLogout = () =>{
         Cookies.remove('id')
         Cookies.remove('token')
 
-
+        setLogout();
 
         navigate('/');
-
-        if(window.location.pathname=== '/') {
-            window.location.reload();
-        }
     }
     const dropdownItems = [
         { title: 'Bookmarks', link: 'bookmarks' },

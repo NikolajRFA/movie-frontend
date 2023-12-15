@@ -5,9 +5,8 @@ import CreateAccountModal from './CreateAccountModal';
 import axios from "axios";
 import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
-import {useNavigate} from "react-router-dom";
 import LoginDropdown from '#components/loginComp/LoginDropdown';
-import {AuthContext} from "../../AuthContext";
+import {AuthContext} from "#AuthContext";
 
 function SignInModal() {
     const separatorStyle = {
@@ -20,7 +19,7 @@ function SignInModal() {
     const [modalShow, setModalShow] = useState(false);
     const [showSignInModal, setShowSignInModal] = useState(false);
     const [showCreateAccModal, setShowCreateAccModal] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [signInFormData, setSignInFormData] = useState({
         username: '',
         password: '',
@@ -31,7 +30,7 @@ function SignInModal() {
         password: '',
     });
 
-    const { handleLogin } = useContext(AuthContext)
+    const { isLoggedIn, handleLogin } = useContext(AuthContext)
 
     const handleSignInFormChange = (e) => {
         const {name, value} = e.target;
@@ -54,7 +53,8 @@ function SignInModal() {
         const IdFromCookie = Cookies.get('id');
 
         if (tokenFromCookie && IdFromCookie) {
-            setIsLoggedIn(true);
+            //setIsLoggedIn(true);
+            handleLogin();
         }
     }, [isLoggedIn]);
 
@@ -95,7 +95,8 @@ function SignInModal() {
             const IdFromCookie = Cookies.get('id');
 
             if (tokenFromCookie && IdFromCookie) {
-                setIsLoggedIn(true);
+                //setIsLoggedIn(true);
+                handleLogin();
             }
 
             setShowSignInModal(false); // Close the SignInModal after successful login
@@ -129,7 +130,8 @@ function SignInModal() {
             const IdFromCookie = Cookies.get('id');
 
             if (tokenFromCookie && IdFromCookie) {
-                setIsLoggedIn(true);
+                //setIsLoggedIn(true);
+                handleLogin();
             }
 
         } catch (error) {

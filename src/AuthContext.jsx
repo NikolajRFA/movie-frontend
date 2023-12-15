@@ -10,14 +10,14 @@ const AuthProvider = ({ children }) => {
         setIsLoggedIn(true);
     };
 
-    const handleLogout = () => {
+    const setLogout = () => {
         setIsLoggedIn(false);
     }
 
     const contextValues = {
         isLoggedIn,
         handleLogin,
-        handleLogout,
+        setLogout,
     };
 
     return (

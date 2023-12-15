@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 export default function BookmarkTitleBtn({tconst, style, onRemove}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user, setUser] = useState(() => new User());
-    const { isLoggedIn } = useContext(AuthContext)
+    const {isLoggedIn} = useContext(AuthContext)
 
     useEffect(() => {
         if (isLoggedIn) {
@@ -21,7 +21,7 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
     }, [isLoggedIn]);
 
     useEffect(() => {
-        if(user.id == null) return;
+        if (user.id == null) return;
         const assertBookmark = async () => {
             const bookmarks = new BookmarksObj();
             await bookmarks.getBookmarkTitle(tconst, user.id, user.jwt);
@@ -31,21 +31,16 @@ export default function BookmarkTitleBtn({tconst, style, onRemove}) {
         assertBookmark();
     }, [tconst, user.id, user.jwt]);
 
-    if(user.id == null){
+    if (user.id == null) {
         console.log(!user.id);
         return (<></>);
     }
 
     return (
         (bookmarks.data)
-        ?
-        <>
-            {
-                bookmarks.data === "No bookmark found"
+            ? bookmarks.data === "No bookmark found"
                 ? <AddBookmark style={style} url={bookmarks.data.url} id={tconst}/>
-                : <RemoveBookmark style={style} url={bookmarks.data.url} onRemove={onRemove}/>}
-        </>
-            :
-            <LoadingSpinner/>
+                : <RemoveBookmark style={style} url={bookmarks.data.url} onRemove={onRemove}/>
+            : <LoadingSpinner/>
     );
 }
