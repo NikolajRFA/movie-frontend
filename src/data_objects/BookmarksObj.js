@@ -1,12 +1,12 @@
 import axios from "axios";
+import ApiHandler from "#data_objects/ApiHandler";
 
-export default class BookmarksObj {
+export default class BookmarksObj extends ApiHandler {
     apiUrlBase = 'http://localhost:5011/api/users/'
 
     constructor() {
-        this.data = null;
-        this.loading = true;
-        this.error = null;
+        super();
+        this.bookmarkFound = false;
     }
 
     async getBookmarks(id, jwt) {

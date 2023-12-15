@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Modal} from 'react-bootstrap';
 import SignInForm from './SignInForm';
 import CreateAccountModal from './CreateAccountModal';
@@ -7,8 +7,9 @@ import StdButton from "../StdButton";
 import Cookies from 'js-cookie';
 import {useNavigate} from "react-router-dom";
 import LoginDropdown from '#components/loginComp/LoginDropdown';
+import {AuthContext} from "../../AuthContext";
 
-function SignInModal({setLoggedIn}) {
+function SignInModal() {
     const separatorStyle = {
         borderBottom: '2px solid black',
         width: '100%',
@@ -29,7 +30,8 @@ function SignInModal({setLoggedIn}) {
         email: '',
         password: '',
     });
-    const navigate = useNavigate();
+
+    const { handleLogin } = useContext(AuthContext)
 
     const handleSignInFormChange = (e) => {
         const {name, value} = e.target;
@@ -54,7 +56,7 @@ function SignInModal({setLoggedIn}) {
         if (tokenFromCookie && IdFromCookie) {
             setIsLoggedIn(true);
         }
-    }, []);
+    }, [isLoggedIn]);
 
     const handleSignIn = async (username, password) => {
         const apiUrl = 'http://localhost:5011/api/users/login';
@@ -71,6 +73,7 @@ function SignInModal({setLoggedIn}) {
             Cookies.set('token', token, {expires: 1/12});
             Cookies.set('id', id, {expires: 1/12});
 
+            handleLogin();
             return {token, id};
 
         } catch (error) {
