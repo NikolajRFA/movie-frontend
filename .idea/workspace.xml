@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Removed unused imports">
-      <change afterPath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data_objects/ListObj.js" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed unblurable dropdown after deletion of last recent search">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/title/Season.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/Season.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/TitleEpisodes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleEpisodes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/ApiHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/ApiHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="person-page" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +39,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -54,27 +53,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "smart-business-layers",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
@@ -118,8 +117,10 @@
       <workItem from="1701934186053" duration="10732000" />
       <workItem from="1702022989777" duration="1783000" />
       <workItem from="1702024812599" duration="6089000" />
-      <workItem from="1702466419850" duration="8969000" />
-      <workItem from="1702738039319" duration="12875000" />
+      <workItem from="1702466419850" duration="10329000" />
+      <workItem from="1702540430854" duration="20126000" />
+      <workItem from="1702662937730" duration="2962000" />
+      <workItem from="1702761479082" duration="4517000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -337,23 +338,47 @@
       <option name="project" value="LOCAL" />
       <updated>1702478061784</updated>
     </task>
-    <task id="LOCAL-00028" summary="Swapped document.getElementById with useRef">
+    <task id="LOCAL-00028" summary="Fixed bug in bookmark">
       <option name="closed" value="true" />
-      <created>1702742353711</created>
+      <created>1702478162263</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1702742353711</updated>
+      <updated>1702478162263</updated>
     </task>
-    <task id="LOCAL-00029" summary="Removed unused imports">
+    <task id="LOCAL-00029" summary="More bookmark functionality">
       <option name="closed" value="true" />
-      <created>1702742446960</created>
+      <created>1702646229498</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1702742446960</updated>
+      <updated>1702646229498</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Changed column width">
+      <option name="closed" value="true" />
+      <created>1702666408605</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1702666408605</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Fixed search dropdown">
+      <option name="closed" value="true" />
+      <created>1702676962962</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1702676962962</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Fixed unblurable dropdown after deletion of last recent search">
+      <option name="closed" value="true" />
+      <created>1702677392436</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1702677392436</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,22 +389,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="TEXT_FILTER_SETTINGS">
-                <TextFilterSettings>
-                  <option name="REGEX" value="true" />
-                </TextFilterSettings>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Sidebar.jsx" />
-    <MESSAGE value="Fixing idea files" />
-    <MESSAGE value="Moved components" />
     <MESSAGE value="Added pages" />
     <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
@@ -400,8 +416,11 @@
     <MESSAGE value="Optimized imports for login comps" />
     <MESSAGE value="Added bookmarks functionality" />
     <MESSAGE value="Removed unused vars" />
-    <MESSAGE value="Swapped document.getElementById with useRef" />
-    <MESSAGE value="Removed unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused imports" />
+    <MESSAGE value="Fixed bug in bookmark" />
+    <MESSAGE value="More bookmark functionality" />
+    <MESSAGE value="Changed column width" />
+    <MESSAGE value="Fixed search dropdown" />
+    <MESSAGE value="Fixed unblurable dropdown after deletion of last recent search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed unblurable dropdown after deletion of last recent search" />
   </component>
 </project>

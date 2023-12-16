@@ -7,9 +7,7 @@ import LoadingSpinner from "../LoadingSpinner";
 import EpisodeObj from "#data_objects/EpisodeObj";
 
 export default function Season({seasonNumber, episodesUrl}) {
-    const [episodes, setEpisodes] = useState(() => EpisodeObj());
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [episodes, setEpisodes] = useState(() => new EpisodeObj());
 
     const episodesPerPage = 6;
     const [pageNo, setPageNo] = useState(0);
@@ -17,21 +15,29 @@ export default function Season({seasonNumber, episodesUrl}) {
     const [nextPage, setNextPage] = useState(true);
 
     function handleNextPage() {
-        setPrevPage(true);
-        const nextPageNo = pageNo + 1;
-        setPageNo(nextPageNo);
-        if (nextPageNo + 1 === pagingMetaData.numberOfPages) {
-            setNextPage(false);
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.getNext(episodes);
+            setEpisodes(newEpisodes);
+            if (newEpisodes.data.next == null) {
+                setNextPage(false);
+            }
         }
+        setPrevPage(true);
+        fetchEpisodes();
+        setPageNo(pageNo + 1);
     }
 
     function handlePrevPage() {
-        setNextPage(true);
-        const prevPageNo = pageNo - 1
-        setPageNo(prevPageNo);
-        if (prevPageNo + 1 === 1) {
-            setPrevPage(false);
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.getPrev(episodes);
+            setEpisodes(newEpisodes);
+            if (newEpisodes.data.prev == null) {
+                setPrevPage(false);
+            }
         }
+        setNextPage(true);
+        fetchEpisodes();
+        setPageNo(pageNo - 1);
     }
 
     const buttonStyle = {
@@ -42,22 +48,24 @@ export default function Season({seasonNumber, episodesUrl}) {
     }
 
     useEffect(() => {
-        const fetchEpisodes = async () =>  {
-            setEpisodes(await EpisodeObj.get(episodesUrl))
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.get(episodesUrl, pageNo, episodesPerPage, seasonNumber)
+            setEpisodes(newEpisodes);
         }
         fetchEpisodes();
-    }, [pageNo]);
+
+    }, [episodesUrl, pageNo, seasonNumber]);
 
     useEffect(() => {
         // Check if there is only one page.
-        if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
+        if (!episodes.loading && episodes.data.numberOfPages === 1) {
             setNextPage(false);
         }
-    }, [pagingMetaData])
+    }, [episodes])
 
     return (
         <div>
-            {!loading
+            {!episodes.loading
                 ? <Accordion.Item eventKey={seasonNumber}>
                     <Accordion.Header>
                         Season {seasonNumber}
@@ -66,7 +74,7 @@ export default function Season({seasonNumber, episodesUrl}) {
                         <Card>
                             <Card.Body>
                                 <Row xs={1} md={2} lg={3}>
-                                    {episodes.map(episode => (
+                                    {episodes.data.items.map(episode => (
                                         <Col key={episode.episodeUrl}>
                                             <EpisodeEntry episode={episode}/>
                                         </Col>
@@ -75,7 +83,7 @@ export default function Season({seasonNumber, episodesUrl}) {
 
                             </Card.Body>
                             <Card.Footer className="text-end">
-                                <p>Page {pageNo + 1} of {pagingMetaData.numberOfPages}</p>
+                                <p>Page {pageNo + 1} of {episodes.data.numberOfPages}</p>
                                 <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage}
                                         disabled={!prevPage}>
                                     Prev
