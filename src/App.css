@@ -94,9 +94,18 @@
     }
 }
 
-.searchResult:hover .searchCard-title {
+.searchResult{
+    margin: 5px;
+}
+
+.searchResult:hover {
+    border: 3px solid #ffe920;
+}
+
+.searchCard-title:hover{
     color: #808080; /* Change to the desired color */
 }
+
 
 .recent-search-link {
     color: black;

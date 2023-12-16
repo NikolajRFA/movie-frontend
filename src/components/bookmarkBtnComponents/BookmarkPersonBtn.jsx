@@ -1,14 +1,25 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import BookmarksObj from "#data_objects/BookmarksObj";
 import User from "#data_objects/User";
 import RemoveBookmark from "#components/bookmarkBtnComponents/RemoveBookmark";
 import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import Cookies from "js-cookie";
 import LoadingSpinner from "#components/LoadingSpinner";
+import {AuthContext} from "#AuthContext";
 
 export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, onUpdate}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
-    const [user] = useState(() => new User());
+    const [user, setUser] = useState(() => new User());
+
+    const {isLoggedIn} = useContext(AuthContext)
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            let newUser = new User();
+            newUser.getCookies();
+            setUser(newUser)
+        }
+    }, [isLoggedIn]);
 
     useEffect(() => {
         const assertBookmark = async () => {
@@ -32,10 +43,14 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, o
             <>
                 {
                     bookmarks.data === "No bookmark found"
-                        ? <AddBookmark style={addStyle} url={bookmarks.data.url} id={nconst} isPerson={true} onUpdate={handleUpdateBookmark}/>
-                        : <RemoveBookmark  style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>}
+                        ? <AddBookmark style={addStyle} url={bookmarks.data.url} id={nconst} isPerson={true}
+                                       onUpdate={handleUpdateBookmark}/>
+                        :
+                        <RemoveBookmark style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>}
             </>
             :
-            <LoadingSpinner/>
+            (user.id)
+                ? <LoadingSpinner/>
+                : <></>
     );
 }
