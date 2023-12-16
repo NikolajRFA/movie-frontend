@@ -10,8 +10,6 @@ import {AuthContext} from "#AuthContext";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
