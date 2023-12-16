@@ -4,10 +4,10 @@ import EpisodeEntry from "./EpisodeEntry";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner";
+import EpisodeObj from "#data_objects/EpisodeObj";
 
 export default function Season({seasonNumber, episodesUrl}) {
-    const [episodes, setEpisodes] = useState([]);
-    const [pagingMetaData, setPagingMetaData] = useState(null);
+    const [episodes, setEpisodes] = useState(() => EpisodeObj());
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -42,16 +42,10 @@ export default function Season({seasonNumber, episodesUrl}) {
     }
 
     useEffect(() => {
-        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=${episodesPerPage}&season=${seasonNumber}`)
-            .then(res => {
-                setPagingMetaData(res.data)
-                setEpisodes(res.data.items);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
+        const fetchEpisodes = async () =>  {
+            setEpisodes(await EpisodeObj.get(episodesUrl))
+        }
+        fetchEpisodes();
     }, [pageNo]);
 
     useEffect(() => {

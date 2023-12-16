@@ -4,36 +4,20 @@ import Card from "react-bootstrap/Card";
 import {Accordion, Col, Row} from "react-bootstrap";
 import EpisodeEntry from "./EpisodeEntry";
 import Season from "./Season";
+import EpisodeObj from "#data_objects/EpisodeObj";
 
 export default function TitleEpisodes({episodesUrl}) {
-    const [pagingMetaData, setPagingMetaData] = useState(null);
     const [numberOfSeasons, setNumberOfSeasons] = useState(0);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    const [pageNo, setPageNo] = useState(0);
+    const [episodes, setEpisodes] = useState(() => new EpisodeObj());
 
     useEffect(() => {
-        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=10`)
-            .then(res => {
-                setPagingMetaData(res.data)
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, []);
-
-    // Fetch total number of seasons
-    useEffect(() => {
-        if (!loading) {
-            axios.get(`${episodesUrl}?page=${pagingMetaData.numberOfPages - 1}&pageSize=10`)
-                .then(res => {
-                    setNumberOfSeasons(res.data.items[res.data.items.length - 1].season);
-                })
+        const fetchEpisodes = async () =>  {
+            const newEpisodes = await EpisodeObj.get(episodesUrl);
+            setNumberOfSeasons(await EpisodeObj.getNumberOfSeasons(newEpisodes));
         }
-    }, [pagingMetaData])
+        fetchEpisodes();
+
+    }, []);
 
     return (
         <Card>
@@ -44,7 +28,7 @@ export default function TitleEpisodes({episodesUrl}) {
                 <Accordion>
                     {Array.from({length: numberOfSeasons}, (_, index) => index + 1)
                         .map(seasonNumber => (
-                            <Season key={seasonNumber} seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
+                            <Season key={seasonNumber} episodes={episodes} seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
                         ))}
                 </Accordion>
             </Card.Body>

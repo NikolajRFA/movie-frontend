@@ -2,7 +2,7 @@ import axios from "axios";
 import ApiHandler from "./ApiHandler";
 
 export default class TitleObj extends ApiHandler {
-    apiUrlBase = 'http://localhost:5011/api/titles/'
+    apiUrlBase = `${ApiHandler.url}titles/`
     constructor(data) {
         super();
         if (data) this.mapData(data);
