@@ -6,11 +6,9 @@ import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import Cookies from "js-cookie";
 import LoadingSpinner from "#components/LoadingSpinner";
 import {AuthContext} from "#AuthContext";
-
 export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, onUpdate}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user, setUser] = useState(() => new User());
-
     const {isLoggedIn} = useContext(AuthContext)
 
     useEffect(() => {
@@ -22,14 +20,15 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, o
     }, [isLoggedIn]);
 
     useEffect(() => {
-        const assertBookmark = async () => {
-            const bookmarks = new BookmarksObj();
-            await bookmarks.getBookmarkPerson(nconst, user.id, user.jwt);
-            setBookmarks({...bookmarks})
-        };
-
-        assertBookmark();
-    }, [user.id, user.jwt, nconst]);
+        if (isLoggedIn) {
+            const assertBookmark = async () => {
+                const bookmarks = new BookmarksObj();
+                await bookmarks.getBookmarkPerson(nconst, user.id, user.jwt);
+                setBookmarks({...bookmarks})
+            };
+            assertBookmark();
+        }
+    }, [isLoggedIn, user.id, user.jwt, nconst]);
 
     const handleUpdateBookmark = async () => {
         const newBookmarks = new BookmarksObj();
