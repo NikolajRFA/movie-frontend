@@ -24,8 +24,8 @@ function LoginMain() {
         <>
             {isLoggedIn ?(<LoginDropdown/>
             ) :
-            (<StdButton text={"Login"} onClick={() => setShowInitialModal(true)} />)}
-            <Modal size={'sm'} centered show={showInitialModal}>
+            (<StdButton text={"Login"} onClick={() => setShowInitialModal(true)}/>)}
+            <Modal size={'sm'} centered show={showInitialModal} onHide={()=> setShowInitialModal(false)}>
                 <Modal.Body className={"d-flex flex-column align-items-center"}>
                     <StdButton text={"Sign in"} onClick={()=> {
                         setShowSignInModal(true)
@@ -40,8 +40,16 @@ function LoginMain() {
                     }}/>
                 </Modal.Body>
             </Modal>
-            {/*<CreateAccountModal show={showCreateAccModal} onHide{()=> setShowCreateAccountModal(false)}*/}
-            <SignInModal show={showSignInModal} onHide={() => setShowSignInModal(false)}/>
+            <CreateAccountModal
+                show={showCreateAccModal}
+                onCreateClose={() =>setShowCreateAccountModal(false)}
+                onHide={()=> setShowCreateAccountModal(false)}
+            />
+            <SignInModal
+                show={showSignInModal}
+                onLoginClose={()=> setShowSignInModal(false)}
+                onHide={() => setShowSignInModal(false)}
+            />
         </>
     );
 }

@@ -4,7 +4,7 @@ import StdButton from "#components/StdButton";
 import Login from "#data_objects/Login.js";
 import {AuthContext} from "#AuthContext";
 
-function SignInForm() {
+function SignInForm({onLoginClose}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const {handleLogin } = useContext(AuthContext)
@@ -13,6 +13,7 @@ function SignInForm() {
         try {
             await Login.performLogin(username, password);
             handleLogin();
+            onLoginClose();
         } catch (error) {
         }
     };

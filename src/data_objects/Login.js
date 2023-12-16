@@ -1,18 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import {useContext} from "react";
-import {AuthContext} from "#AuthContext";
-
 
 class Login {
-
     static async performLogin(username, password) {
         try {
             const response = await axios.post('http://localhost:5011/api/users/login', {
                 username,
                 password
             });
-
 
             const { token, id } = response.data;
 
@@ -21,8 +16,25 @@ class Login {
 
             return response.data;
         } catch (error) {
-
             console.error('Login failed:', error);
+            throw error; // Rethrow to handle it in the component
+        }
+    }
+
+    static async createAccount(username, email, password) {
+        try {
+            const response = await axios.post('http://localhost:5011/api/users', {
+                username,
+                email,
+                password,
+                role: 'User' // Default user role
+            });
+
+            await Login.performLogin(username, password);
+            return response.data;
+        } catch (error) {
+            console.error('Account creation failed:', error);
+            throw error;
         }
     }
 }
