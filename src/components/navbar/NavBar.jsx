@@ -5,17 +5,12 @@ import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
 import {Dropdown, Image} from "react-bootstrap";
 import DropdownCard from "../DropdownCard";
-import SignInModal from "../loginComp/SignInModal";
+import LoginMain from "../loginComp/LoginMain";
 import axios from "axios";
 import SearchForm from "./SearchForm";
 import {Link} from "react-router-dom";
 
 function NavBar() {
-    const [smShow, setSmShow] = useState(false);
-    const handleClose = () => {
-        setSmShow(false);
-    };
-
     return (
         <Navbar expand="lg" className="bg-dark" variant="dark" fixed="top">
             <Container>
@@ -29,7 +24,7 @@ function NavBar() {
                         <SearchForm/>
                     </Nav>
                     <Nav className="mx-right" style={{width: '80px'}}>
-                        <SignInModal show={smShow} onHide={handleClose}/>
+                        <LoginMain/>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
