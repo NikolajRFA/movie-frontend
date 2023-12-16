@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed unblurable dropdown after deletion of last recent search">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Moved season data fetching to business layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/title/Season.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/Season.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +122,7 @@
       <workItem from="1702466419850" duration="10329000" />
       <workItem from="1702540430854" duration="20126000" />
       <workItem from="1702662937730" duration="2962000" />
-      <workItem from="1702761479082" duration="4517000" />
+      <workItem from="1702761479082" duration="6231000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -378,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702677392436</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Moved season data fetching to business layer">
+      <option name="closed" value="true" />
+      <created>1702768032996</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702768032996</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added pages" />
     <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
     <MESSAGE value="Added not_rated + rated .svg" />
@@ -421,6 +430,7 @@
     <MESSAGE value="Changed column width" />
     <MESSAGE value="Fixed search dropdown" />
     <MESSAGE value="Fixed unblurable dropdown after deletion of last recent search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed unblurable dropdown after deletion of last recent search" />
+    <MESSAGE value="Moved season data fetching to business layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved season data fetching to business layer" />
   </component>
 </project>

@@ -76,7 +76,7 @@ export default function Season({seasonNumber, episodesUrl}) {
                                 <Row xs={1} md={2} lg={3}>
                                     {episodes.data.items.map(episode => (
                                         <Col key={episode.episodeUrl}>
-                                            <EpisodeEntry episode={episode}/>
+                                            <EpisodeEntry tconst={episode.episodeUrl.split('/').pop()}/>
                                         </Col>
                                     ))}
                                 </Row>
