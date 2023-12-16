@@ -26,8 +26,8 @@ export default function SearchForm() {
                 const dropdownMenu = document.getElementById('searchDropdownMenu');
                 if (dropdownMenu) {
                     // Ensure the dropdown has the same width as the search bar.
-                    dropdownMenu.style.minWidth = `${inputWidth}px`;
-                    dropdownMenu.style.maxWidth = `${inputWidth}px`;
+                    dropdownMenu.style.width = `${inputWidth}px`;
+                   // dropdownMenu.style.maxWidth = `${inputWidth}px`;
                 }
             }
         }
@@ -55,7 +55,6 @@ export default function SearchForm() {
         }
         if (newSearchPhrase) getData();
     }
-
 
     function handleSearchFocus() {
         setShowDropdown(true);
@@ -110,7 +109,7 @@ export default function SearchForm() {
                                 </Dropdown.Item>)
                             : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>
                     ) : (
-                        <RecentSearches/>
+                        <RecentSearches inputRef={inputRef}/>
                     )}
                 </Dropdown.Menu>
             </div>
