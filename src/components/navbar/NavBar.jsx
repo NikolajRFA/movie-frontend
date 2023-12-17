@@ -1,13 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {useState} from "react";
-import {Image} from "react-bootstrap";
-import SignInModal from "../loginComp/SignInModal";
-import {useState} from "react";
 import {Image} from "react-bootstrap";
 import SearchForm from "./SearchForm";
 import {Link} from "react-router-dom";
+import LoginMain from "#components/loginComp/LoginMain";
 
 function NavBar() {
     return (
