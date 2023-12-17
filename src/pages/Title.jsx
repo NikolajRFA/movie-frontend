@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
@@ -9,11 +9,14 @@ import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 import BookmarksObj from "#data_objects/BookmarksObj";
+import Rate from "#components/Rate";
+import {AuthContext} from "#AuthContext";
 
 export default function Title() {
     const {tconst} = useParams();
     const [title, setTitle] = useState(() => new TitleObj());
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
+    const { isLoggedIn } = useContext(AuthContext)
 
     // TODO: Make sure title page is reloaded when a user logs in while on a title page.
     useEffect(() => {
@@ -59,13 +62,22 @@ export default function Title() {
                             <Image src={title.data.poster} width="220px"/>
                         </Col>
                         <Col>
-                            <div>
-                                {title.data.plot}
-                            </div>
-                            <div className="pt-2">
-                                <TitleCrew crewUrl={title.data.crew}/>
-                            </div>
+                            <Row>
+                                <Col>
+                                    {title.data.plot}
+                                </Col>
+                                {isLoggedIn &&
+                                <Col xs={3}>
+                                    <Rate/>
+                                </Col>}
+                            </Row>
+                            <Row>
+                                <Col className="pt-2">
+                                    <TitleCrew crewUrl={title.data.crew}/>
+                                </Col>
+                            </Row>
                         </Col>
+
                     </Row>
                     <Row>
                         {title.data.episodes &&

@@ -13,6 +13,7 @@ import Person from "#pages/Person";
 import SearchResults from "#pages/SearchResults";
 import {AuthProvider} from '#AuthContext';
 import {BookmarkProvider} from "#BookmarkContext";
+import Rate from "#components/Rate";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                             <Route path="/results" element={<SearchResults/>}/>
                             <Route path="/persons/:nconst" element={<Person/>}/>
                             <Route path="*" element={<NotFound/>}/>
+                            <Route path="/test" element={<Rate/>}/>
                         </Routes>
                     </div>
                 </BrowserRouter>
