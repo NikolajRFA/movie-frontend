@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added business layer for crew and fixed double calls in pagination">
-      <change afterPath="$PROJECT_DIR$/src/components/Paging.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BookmarkContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/Season.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/Season.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
