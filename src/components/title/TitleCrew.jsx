@@ -56,7 +56,7 @@ export default function TitleCrew({crewUrl}) {
                         </Row>
                     </Card.Body>
                     <Card.Footer className="text-end">
-                        <Paging onNext={handleNextPage} onPrev={handlePrevPage} pageNo={pageNo} listObj={crew}/>
+                        <Paging onNext={handleNextPage} onPrev={handlePrevPage} listObj={crew}/>
                     </Card.Footer>
                 </Card>
                 : <LoadingSpinner/>}

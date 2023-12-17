@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added business layer for crew and fixed double calls in pagination">
-      <change afterPath="$PROJECT_DIR$/src/BookmarkContext.js" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Updates bookmark button on multiple persons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleListObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleListObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Person.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Person.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +123,7 @@
       <workItem from="1702662937730" duration="2962000" />
       <workItem from="1702761479082" duration="7179000" />
       <workItem from="1702802843591" duration="10076000" />
+      <workItem from="1702827460178" duration="2351000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -404,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702808460891</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Updates bookmark button on multiple persons">
+      <option name="closed" value="true" />
+      <created>1702823538552</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1702823538552</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +431,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added not_rated + rated .svg" />
     <MESSAGE value="Fixed import statement" />
     <MESSAGE value="Added delete alert" />
     <MESSAGE value="Trying to fix commits" />
@@ -447,6 +455,7 @@
     <MESSAGE value="Moved season data fetching to business layer" />
     <MESSAGE value="Moved EpisodeEntry to business layer" />
     <MESSAGE value="Added business layer for crew and fixed double calls in pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added business layer for crew and fixed double calls in pagination" />
+    <MESSAGE value="Updates bookmark button on multiple persons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates bookmark button on multiple persons" />
   </component>
 </project>
