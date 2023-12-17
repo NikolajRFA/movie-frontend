@@ -9,14 +9,15 @@ import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 import BookmarksObj from "#data_objects/BookmarksObj";
-import Rate from "#components/Rate";
 import {AuthContext} from "#AuthContext";
+import Rate from "#components/rating/Rate";
 
 export default function Title() {
     const {tconst} = useParams();
     const [title, setTitle] = useState(() => new TitleObj());
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const { isLoggedIn } = useContext(AuthContext)
+    const [numVotes, setNumVotes] = useState(0);
 
     // TODO: Make sure title page is reloaded when a user logs in while on a title page.
     useEffect(() => {
@@ -24,6 +25,7 @@ export default function Title() {
             try {
                 const updatedTitle = await TitleObj.getTitle(tconst);
                 setTitle(updatedTitle);
+                setNumVotes(updatedTitle.data.numVotes)
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -31,7 +33,9 @@ export default function Title() {
         getData();
     }, [tconst, bookmarks]);
 
-
+    const handleRatingUpdate = (add) => {
+        setNumVotes(numVotes + add);
+    }
 
     return (
         (!title.loading)
@@ -51,7 +55,7 @@ export default function Title() {
                         </Col>
                         <Col className="text-end">
                             <h2>Rating - {title.data.averageRating}/10</h2>
-                            <h5>Total ratings: {title.data.numVotes}</h5>
+                            <h5>Total ratings: {numVotes}</h5>
                         </Col>
                         <Col xs={'auto'} className='d-flex justify-content-center align-items-center'>
                             <Image className='my-auto' height='40px' src='/rating_star.svg'/>
@@ -68,7 +72,7 @@ export default function Title() {
                                 </Col>
                                 {isLoggedIn &&
                                 <Col xs={3}>
-                                    <Rate/>
+                                    <Rate tconst={tconst} onUpdate={handleRatingUpdate}/>
                                 </Col>}
                             </Row>
                             <Row>

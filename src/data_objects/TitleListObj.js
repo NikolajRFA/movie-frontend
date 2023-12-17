@@ -10,7 +10,6 @@ export default class TitleListObj extends ListObj {
     }
 
     static async get(url, pageNo, pageSize) {
-        console.log(url);
         const res = await axios.get(`${url}?page=${pageNo}&pageSize=${pageSize}`);
         let titles = new TitleListObj();
         titles.mapData(res.data);

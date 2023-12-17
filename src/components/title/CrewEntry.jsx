@@ -18,7 +18,6 @@ export default function CrewEntry({crew}) {
             </Card.Subtitle>
             <div style={{ display: 'inline-block', margin: "5px" }}>
                 <BookmarkPersonBtn
-                    // TODO: If crew has the same person multiple times the buttons should update on that person everywhere
                     addStyle={{}}
                     removeStyle={{fontSize: '1.5rem', width: '2rem', height: '1.25rem'}}
                     nconst={crew.person.split('/').pop()}
