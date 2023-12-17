@@ -17,6 +17,7 @@ function CreateAccountForm({onCreateClose}) {
             handleLogin();
             onCreateClose();
         } catch (error) {
+
         }
     };
 
