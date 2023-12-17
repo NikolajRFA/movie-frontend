@@ -1,16 +1,12 @@
 import React from 'react';
-import {Modal} from 'react-bootstrap';
-import CreateAccForm from './CreateAccForm'; // Adjust the path accordingly
+import { Modal } from 'react-bootstrap';
+import CreateAccountForm from './CreateAccForm';
 
-function CreateAccountModal({ show, onHide, formData, onChange, onSubmit }) {
+function CreateAccountModal({ show, onHide, onCreateClose }) {
     return (
-        <Modal
-            show={show}
-            onHide={onHide}
-            centered
-        >
-            <Modal.Body className="d-flex flex-column align-items-center">
-                <CreateAccForm formData={formData} onChange={onChange} onSubmit={onSubmit} />
+        <Modal size={'sm'} centered show={show} onHide={onHide}>
+            <Modal.Body>
+                <CreateAccountForm onCreateClose={onCreateClose}/>
             </Modal.Body>
         </Modal>
     );
