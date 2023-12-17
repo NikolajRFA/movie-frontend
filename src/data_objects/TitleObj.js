@@ -2,7 +2,7 @@ import axios from "axios";
 import ApiHandler from "./ApiHandler";
 
 export default class TitleObj extends ApiHandler {
-    apiUrlBase = 'http://localhost:5011/api/titles/'
+    static apiUrlBase = `${ApiHandler.url}titles/`
     constructor(data) {
         super();
         if (data) this.mapData(data);
@@ -29,14 +29,17 @@ export default class TitleObj extends ApiHandler {
         this.loading = false;
     }
 
-    async getTitle(tconst) {
+    static async getTitle(tconst) {
+        let title;
         try {
-            const res = await axios.get(this.apiUrlBase + tconst);
-            this.mapData(res.data);
-            this.loading = false;
+            const res = await axios.get(TitleObj.apiUrlBase + tconst);
+            title = new TitleObj(res.data);
+            title.loading = false;
         } catch (error) {
-            this.error = error;
-            this.loading = false;
+            title.error = error;
+            title.loading = false;
         }
+
+        return title;
     }
 }

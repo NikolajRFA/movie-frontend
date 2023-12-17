@@ -12,34 +12,37 @@ import NotFound from "#components/NotFound";
 import Person from "#pages/Person";
 import SearchResults from "#pages/SearchResults";
 import {AuthProvider} from '#AuthContext';
+import {BookmarkProvider} from "#BookmarkContext";
 
 
 function App() {
 
     return (
         <AuthProvider>
-            <BrowserRouter>
-                <NavBar/>
-                <div style={{paddingTop: '77px'}}>
+            <BookmarkProvider>
+                <BrowserRouter>
+                    <NavBar/>
+                    <div style={{paddingTop: '77px'}}>
 
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={<Home/>}
-                        />
-                        <Route path="/user">
-                            <Route path="details" element={<AccountDetails/>}/>
-                            <Route path="bookmarks" element={<UserBookmarks/>}/>
-                            <Route path="update" element={<UpdateUser/>}/>
-                            <Route path="delete" element={<DeleteUser/>}/>
-                        </Route>
-                        <Route path="/titles/:tconst" element={<Title/>}/>
-                        <Route path="/results" element={<SearchResults/>}/>
-                        <Route path="/persons/:nconst" element={<Person/>}/>
-                        <Route path="*" element={<NotFound/>}/>
-                    </Routes>
-                </div>
-            </BrowserRouter>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={<Home/>}
+                            />
+                            <Route path="/user">
+                                <Route path="details" element={<AccountDetails/>}/>
+                                <Route path="bookmarks" element={<UserBookmarks/>}/>
+                                <Route path="update" element={<UpdateUser/>}/>
+                                <Route path="delete" element={<DeleteUser/>}/>
+                            </Route>
+                            <Route path="/titles/:tconst" element={<Title/>}/>
+                            <Route path="/results" element={<SearchResults/>}/>
+                            <Route path="/persons/:nconst" element={<Person/>}/>
+                            <Route path="*" element={<NotFound/>}/>
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </BookmarkProvider>
         </AuthProvider>
     );
 }

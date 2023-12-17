@@ -7,8 +7,8 @@ export default function CrewEntry({crew}) {
 
 
     return (
-        <Card className="p-1 m-2 searchResult" style={{cursor: 'pointer', textAlign: 'center'}}>
-            <Card.Title className='searchCard-title'
+        <Card className="p-1 m-2 searchResult" style={{textAlign: 'center'}}>
+            <Card.Title className='searchCard-title' style={{cursor: 'pointer'}}
                         onClick={() => navigate('/persons/' + crew.person.split('/').pop())}>
                 {crew.personName}
 

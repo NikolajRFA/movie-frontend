@@ -19,8 +19,7 @@ export default function Title() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const updatedTitle = new TitleObj();
-                await updatedTitle.getTitle(tconst);
+                const updatedTitle = await TitleObj.getTitle(tconst);
                 setTitle(updatedTitle);
             } catch (error) {
                 console.error("Error fetching data:", error);

@@ -4,66 +4,45 @@ import EpisodeEntry from "./EpisodeEntry";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner";
+import EpisodeObj from "#data_objects/EpisodeObj";
+import Paging from "#components/Paging";
 
 export default function Season({seasonNumber, episodesUrl}) {
-    const [episodes, setEpisodes] = useState([]);
-    const [pagingMetaData, setPagingMetaData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [episodes, setEpisodes] = useState(() => new EpisodeObj());
 
     const episodesPerPage = 6;
     const [pageNo, setPageNo] = useState(0);
-    const [prevPage, setPrevPage] = useState(false);
-    const [nextPage, setNextPage] = useState(true);
 
     function handleNextPage() {
-        setPrevPage(true);
-        const nextPageNo = pageNo + 1;
-        setPageNo(nextPageNo);
-        if (nextPageNo + 1 === pagingMetaData.numberOfPages) {
-            setNextPage(false);
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.getNext(episodes);
+            setEpisodes(newEpisodes);
         }
+        fetchEpisodes();
+        setPageNo(pageNo + 1);
     }
 
     function handlePrevPage() {
-        setNextPage(true);
-        const prevPageNo = pageNo - 1
-        setPageNo(prevPageNo);
-        if (prevPageNo + 1 === 1) {
-            setPrevPage(false);
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.getPrev(episodes);
+            setEpisodes(newEpisodes);
         }
-    }
-
-    const buttonStyle = {
-        width: '75px',
-        backgroundColor: '#FFE920',
-        border: 'none',
-        color: "black"
+        fetchEpisodes();
+        setPageNo(pageNo - 1);
     }
 
     useEffect(() => {
-        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=${episodesPerPage}&season=${seasonNumber}`)
-            .then(res => {
-                setPagingMetaData(res.data)
-                setEpisodes(res.data.items);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, [pageNo]);
-
-    useEffect(() => {
-        // Check if there is only one page.
-        if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
-            setNextPage(false);
+        const fetchEpisodes = async () => {
+            let newEpisodes = await EpisodeObj.get(episodesUrl, 0, episodesPerPage, seasonNumber)
+            setEpisodes(newEpisodes);
         }
-    }, [pagingMetaData])
+        fetchEpisodes();
+
+    }, [episodesUrl, seasonNumber]);
 
     return (
         <div>
-            {!loading
+            {!episodes.loading
                 ? <Accordion.Item eventKey={seasonNumber}>
                     <Accordion.Header>
                         Season {seasonNumber}
@@ -72,23 +51,16 @@ export default function Season({seasonNumber, episodesUrl}) {
                         <Card>
                             <Card.Body>
                                 <Row xs={1} md={2} lg={3}>
-                                    {episodes.map(episode => (
+                                    {episodes.data.items.map(episode => (
                                         <Col key={episode.episodeUrl}>
-                                            <EpisodeEntry episode={episode}/>
+                                            <EpisodeEntry tconst={episode.episodeUrl.split('/').pop()}/>
                                         </Col>
                                     ))}
                                 </Row>
 
                             </Card.Body>
                             <Card.Footer className="text-end">
-                                <p>Page {pageNo + 1} of {pagingMetaData.numberOfPages}</p>
-                                <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage}
-                                        disabled={!prevPage}>
-                                    Prev
-                                </Button>
-                                <Button style={buttonStyle} onClick={handleNextPage} disabled={!nextPage}>
-                                    Next
-                                </Button>
+                                <Paging onNext={handleNextPage} onPrev={handlePrevPage} listObj={episodes}/>
                             </Card.Footer>
                         </Card>
                     </Accordion.Body>

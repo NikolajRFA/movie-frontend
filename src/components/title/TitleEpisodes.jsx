@@ -1,38 +1,20 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import Card from "react-bootstrap/Card";
 import {Accordion} from "react-bootstrap";
 import Season from "./Season";
+import EpisodeObj from "#data_objects/EpisodeObj";
 
 export default function TitleEpisodes({episodesUrl}) {
-    const [pagingMetaData, setPagingMetaData] = useState(null);
     const [numberOfSeasons, setNumberOfSeasons] = useState(0);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    const [pageNo, setPageNo] = useState(0);
-
+    
     useEffect(() => {
-        axios.get(`${episodesUrl}?page=${pageNo}&pageSize=10`)
-            .then(res => {
-                setPagingMetaData(res.data)
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, []);
-
-    // Fetch total number of seasons
-    useEffect(() => {
-        if (!loading) {
-            axios.get(`${episodesUrl}?page=${pagingMetaData.numberOfPages - 1}&pageSize=10`)
-                .then(res => {
-                    setNumberOfSeasons(res.data.items[res.data.items.length - 1].season);
-                })
+        const fetchEpisodes = async () =>  {
+            const newEpisodes = await EpisodeObj.get(episodesUrl);
+            setNumberOfSeasons(await EpisodeObj.getNumberOfSeasons(newEpisodes));
         }
-    }, [pagingMetaData])
+        fetchEpisodes();
+
+    }, [episodesUrl]);
 
     return (
         <Card>

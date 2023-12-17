@@ -3,44 +3,49 @@ import {useEffect, useState} from "react";
 import PersonObj from "#data_objects/PersonObj";
 import LoadingSpinner from "#components/LoadingSpinner";
 import Container from "react-bootstrap/Container";
-import {Button, Col, Image, Row} from "react-bootstrap";
+import {Col, Image, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import TitleListObj from "#data_objects/TitleListObj";
 import TitleCard from "#components/TitleCard";
 import Utils from "#data_objects/Utils";
+import Paging from "#components/Paging";
 
 export default function Person() {
     const {nconst} = useParams();
     const [person, setPerson] = useState(() => new PersonObj());
     const [titles, setTitles] = useState(() => new TitleListObj());
+    const [pageNo, setPageNo] = useState(0);
+    const titlesPerPage = 4;
 
     function handleNextPage() {
-        person.getTitles(titles.data.next)
-            .then(res => setTitles(res));
+        const fetchTitles = async () => {
+            let newTitles = await TitleListObj.getNext(titles);
+            setTitles(newTitles);
+        }
+        fetchTitles()
+        setPageNo(pageNo + 1);
     }
 
     function handlePrevPage() {
-        person.getTitles(titles.data.prev)
-            .then(res => setTitles(res));
-    }
-
-    const buttonStyle = {
-        width: '75px',
-        backgroundColor: '#FFE920',
-        border: 'none',
-        color: "black"
+        const fetchTitles = async () => {
+            let newTitles = await TitleListObj.getPrev(titles);
+            setTitles(newTitles);
+        }
+        fetchTitles()
+        setPageNo(pageNo - 1);
     }
 
     useEffect(() => {
         person.getPerson(nconst)
             .then(res => setPerson(res));
-    }, []);
+    }, [nconst]);
 
     useEffect(() => {
-        if (person.data) {
-            person.getTitles()
-                .then(res => setTitles(res));
+        const fetchTitles = async () => {
+            let newTitles = await TitleListObj.get(person.data.titlesUrl, 0, titlesPerPage);
+            setTitles(newTitles);
         }
+        if(!person.loading) fetchTitles();
     }, [person]);
 
     return (
@@ -76,14 +81,8 @@ export default function Person() {
                         <Card.Footer className='text-end'>
                             {!titles.loading
                                 ? <div>
-                                    <p>Page {Number(titles.data.current.match(/(?<=Page=)\d+/)) + 1} of {titles.data.numberOfPages && titles.data.numberOfPages}</p>
-                                    <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage}
-                                            disabled={!titles.data.prev}>
-                                        Prev
-                                    </Button>
-                                    <Button style={buttonStyle} onClick={handleNextPage} disabled={!titles.data.next}>
-                                        Next
-                                    </Button></div>
+                                    <Paging onNext={handleNextPage} onPrev={handlePrevPage} listObj={titles}/>
+                                </div>
                                 : <LoadingSpinner/>}
 
                         </Card.Footer>
