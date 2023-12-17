@@ -6,6 +6,7 @@ import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import Cookies from "js-cookie";
 import LoadingSpinner from "#components/LoadingSpinner";
 import {AuthContext} from "#AuthContext";
+
 export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, onUpdate}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user, setUser] = useState(() => new User());
@@ -44,11 +45,10 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, o
                     bookmarks.data === "No bookmark found"
                         ? <AddBookmark style={addStyle} url={bookmarks.data.url} id={nconst} isPerson={true}
                                        onUpdate={handleUpdateBookmark}/>
-                        :
-                        <RemoveBookmark style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>}
+                        : <RemoveBookmark style={removeStyle} url={bookmarks.data.url} onUpdate={handleUpdateBookmark}/>
+                }
             </>
-            :
-            (user.id)
+            : (user.id)
                 ? <LoadingSpinner/>
                 : <></>
     );
