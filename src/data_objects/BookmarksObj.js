@@ -1,8 +1,7 @@
 import axios from "axios";
-import data from "bootstrap/js/src/dom/data";
 import ApiHandler from "#data_objects/ApiHandler";
 
-export default class BookmarksObj extends ApiHandler{
+export default class BookmarksObj extends ApiHandler {
     apiUrlBase = 'http://localhost:5011/api/users/'
 
     constructor(data) {
@@ -77,5 +76,28 @@ export default class BookmarksObj extends ApiHandler{
             this.loading = false;
         }
     }
+
+    async addBookmark(identifier, user_id, jwt, isPerson) {
+        let url;
+        (isPerson)
+            ? url = `http://localhost:5011/api/users/${user_id}/bookmarks/person`
+            : url = `http://localhost:5011/api/users/${user_id}/bookmarks/title`;
+        console.log(url)
+        try {
+            await axios.post(
+                url,
+                {"TitlePersonId": identifier},
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwt}`
+                    }
+                }
+            )
+        } catch (error) {
+            this.error = error;
+        }
+        this.loading = false;
+    }
+
 
 }

@@ -1,14 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import {CloseButton, Dropdown} from "react-bootstrap";
-import axios from "axios";
-import Cookies from "js-cookie";
-import SearchService from "#data_objects/Searches"; // Import Dropdown from react-bootstrap if needed
+import {CloseButton, Col, Row} from "react-bootstrap";
+import SearchService from "#data_objects/Searches";
+import {useNavigate} from "react-router-dom";
 
 function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
+    const navigate = useNavigate();
     const handleDelete = () => {
         SearchService.deleteSearch(deleteUrl)
-                .then(response => {
+            .then(response => {
                 onDeleted();
             })
             .catch(error => {
@@ -16,12 +15,19 @@ function RecentSearchesEntry({searchPhrase, deleteUrl, onDeleted}) {
             });
     };
     return (
-        <Dropdown.Item>
-            <Link to={`/results?q=${(searchPhrase)}`} className={"recent-search-link"} style={{ cursor: 'pointer' }}>
-                {searchPhrase}
-            </Link>
-            <CloseButton onClick={handleDelete} style={{float: "right" }}></CloseButton>
-        </Dropdown.Item>
+        <>
+            <Row>
+                {/* eslint-disable-next-line no-undef */}
+                <Col xs={11}  onClick={() => navigate(`/results?q=${(searchPhrase.replaceAll(',', ' '))}`)}>
+                    <p className={"my-0 recent-search-link"} style={{cursor: 'pointer'}}>
+                        {searchPhrase}
+                    </p>
+                </Col>
+                <Col onClick={handleDelete}>
+                    <CloseButton style={{float: "right"}}></CloseButton>
+                </Col>
+            </Row>
+        </>
     );
 }
 

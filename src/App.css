@@ -94,9 +94,23 @@
     }
 }
 
-.searchResult:hover .searchCard-title {
+.searchResult{
+    /* Set box-sizing to border-box to include border and padding within the total width and height */
+    box-sizing: border-box;
+
+    /* Set a transparent border to reserve space for the border */
+    border: 3px solid transparent;
+
+}
+
+.searchResult:hover {
+    border-color: #ffe920;
+}
+
+.searchCard-title:hover{
     color: #808080; /* Change to the desired color */
 }
+
 
 .recent-search-link {
     color: black;

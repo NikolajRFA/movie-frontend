@@ -35,7 +35,7 @@ export default class SearchResultsObj extends ApiHandler {
         const apiUrl = `${this.apiUrlBase}results?q=${searchPhrase}&page=${page}&pageSize=${pageSize}`;
         let res;
         // User is logged in
-        if (Cookies.get('token')) {
+        if (Cookies.get('token') != null) {
             res = await axios.get(apiUrl, {
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('token')}`

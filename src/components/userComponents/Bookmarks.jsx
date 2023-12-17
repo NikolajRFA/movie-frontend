@@ -12,15 +12,17 @@ const Bookmarks = () => {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user] = useState(() => new User());
 
+    // TODO: Remove bookmark button + bookmark does not disappear when clicked - adding bookmarks to deps below causes
+    // infinite get loop.
     useEffect(() => {
         const fetchData = async () => {
             const newBookmarks = new BookmarksObj();
             await newBookmarks.getBookmarks(user.id, user.jwt);
-            setBookmarks({...newBookmarks})
+            setBookmarks(newBookmarks)
         };
 
         fetchData();
-    }, [user.id, user.jwt, bookmarks]);
+    }, [user.id, user.jwt]);
 
     if (bookmarks.loading) {
         return <p>Loading...</p>;

@@ -1,33 +1,31 @@
 import {Dropdown} from "react-bootstrap";
 import DropdownCard from "../DropdownCard";
 import Form from "react-bootstrap/Form";
-import {useEffect, useRef, useState} from "react";
-import axios from "axios";
-import TitleObj from "../../data_objects/TitleObj";
+import {useContext, useEffect, useRef, useState} from "react";
 import DropdownTitles from "../../data_objects/DropdownTitles";
-import dropdown from "bootstrap/js/src/dropdown";
 import LoadingSpinner from "../LoadingSpinner";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import RecentSearches from "../recentSearches/RecentSearches";
+import {AuthContext} from "#AuthContext";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [searchPhrase, setSearchPhrase] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const inputRef = useRef(null);
+    const dropdownRef = useRef(null);
     const navigate = useNavigate();
+    const { isLoggedIn } = useContext(AuthContext)
 
     useEffect(() => {
         function handleResize() {
             if (inputRef.current) {
                 const inputWidth = inputRef.current.offsetWidth;
-                const dropdownMenu = document.getElementById('searchDropdownMenu');
+                const dropdownMenu = dropdownRef.current;
                 if (dropdownMenu) {
                     // Ensure the dropdown has the same width as the search bar.
-                    dropdownMenu.style.minWidth = `${inputWidth}px`;
-                    dropdownMenu.style.maxWidth = `${inputWidth}px`;
+                    dropdownMenu.style.width = `${inputWidth}px`;
+                   // dropdownMenu.style.maxWidth = `${inputWidth}px`;
                 }
             }
         }
@@ -56,13 +54,12 @@ export default function SearchForm() {
         if (newSearchPhrase) getData();
     }
 
-
     function handleSearchFocus() {
         setShowDropdown(true);
     }
 
     function handleSearchBlur(event) {
-        const dropdownMenu = document.getElementById('searchDropdownMenu');
+        const dropdownMenu = dropdownRef.current;
 
         if (dropdownMenu && dropdownMenu.contains(event.relatedTarget)) {
             // If focus is moving to the dropdown or its children, don't close the dropdown immediately
@@ -96,7 +93,7 @@ export default function SearchForm() {
                 zIndex: 1000,
             }}
                  onBlur={handleSearchBlur}>
-                <Dropdown.Menu id="searchDropdownMenu" show={showDropdown}>
+                <Dropdown.Menu ref={dropdownRef} show={showDropdown}>
                     {searchPhrase ? (
                         !dropdownTitles.loading
                             ? dropdownTitles.data.map(title =>
@@ -110,7 +107,7 @@ export default function SearchForm() {
                                 </Dropdown.Item>)
                             : <Dropdown.Item><LoadingSpinner/></Dropdown.Item>
                     ) : (
-                        <RecentSearches/>
+                        isLoggedIn ? <RecentSearches inputRef={inputRef}/> : <Dropdown.Item>Start typing to see results!</Dropdown.Item>
                     )}
                 </Dropdown.Menu>
             </div>
