@@ -6,7 +6,6 @@ import {AuthContext} from "#AuthContext";
 import {useContext} from "react";
 
 
-
 function LoginDropdown(){
     const navigate = useNavigate();
     const { setLogout } = useContext(AuthContext)

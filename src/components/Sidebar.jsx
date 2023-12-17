@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Navbar, Container} from 'react-bootstrap';
+import {Navbar} from 'react-bootstrap';
 import {Link, useLocation, useParams} from 'react-router-dom';
 import '../App.css';
 

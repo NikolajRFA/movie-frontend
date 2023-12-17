@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Col, Row, Image, NavLink} from "react-bootstrap";
+import {Col, Image, Row} from "react-bootstrap";
 import LoadingSpinner from "../LoadingSpinner";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Utils from "#data_objects/Utils";
 
 export default function EpisodeEntry({episode}) {

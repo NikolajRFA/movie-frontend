@@ -2,12 +2,9 @@ import {Dropdown} from "react-bootstrap";
 import DropdownCard from "../DropdownCard";
 import Form from "react-bootstrap/Form";
 import {useEffect, useRef, useState} from "react";
-import axios from "axios";
-import TitleObj from "../../data_objects/TitleObj";
 import DropdownTitles from "../../data_objects/DropdownTitles";
-import dropdown from "bootstrap/js/src/dropdown";
 import LoadingSpinner from "../LoadingSpinner";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import RecentSearches from "../recentSearches/RecentSearches";
 
 export default function SearchForm() {

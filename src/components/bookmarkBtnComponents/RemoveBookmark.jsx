@@ -1,6 +1,6 @@
 import axios from "axios";
-import { CloseButton } from "react-bootstrap";
-import { useState } from "react";
+import {CloseButton} from "react-bootstrap";
+import {useState} from "react";
 import User from "#data_objects/User";
 
 export default function RemoveBookmark({ style, url, onUpdate }) {

@@ -8,8 +8,6 @@ import {useParams} from 'react-router-dom';
 import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
-import Cookies from "js-cookie";
-import user from "#data_objects/User";
 import BookmarksObj from "#data_objects/BookmarksObj";
 
 export default function Title() {

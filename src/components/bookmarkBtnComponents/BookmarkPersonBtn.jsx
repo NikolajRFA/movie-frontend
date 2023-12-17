@@ -6,6 +6,7 @@ import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
 import Cookies from "js-cookie";
 import LoadingSpinner from "#components/LoadingSpinner";
 import {AuthContext} from "#AuthContext";
+
 export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url, onUpdate}) {
     const [bookmarks, setBookmarks] = useState(() => new BookmarksObj());
     const [user, setUser] = useState(() => new User());

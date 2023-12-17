@@ -1,5 +1,4 @@
 import TitlesForFrontpage from "../components/TitlesForFrontpage";
-import NavBar from "../components/navbar/NavBar";
 
 const Home = () => {
     return (

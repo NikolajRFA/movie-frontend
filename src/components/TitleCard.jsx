@@ -1,8 +1,8 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Col, Row, Image } from 'react-bootstrap';
+import {Col, Image, Row} from 'react-bootstrap';
 import Utils from "#data_objects/Utils";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function TitleCard({title, plotLength}) {
     const navigate = useNavigate();

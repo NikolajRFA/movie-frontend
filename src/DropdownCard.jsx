@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Col, Row, Image } from 'react-bootstrap';
-import axios from 'axios';
-
+import {Col, Image, Row} from 'react-bootstrap';
 
 
 function DropdownCard({title}) {

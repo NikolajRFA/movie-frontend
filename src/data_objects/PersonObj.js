@@ -1,5 +1,5 @@
 import ApiHandler from "#data_objects/ApiHandler";
-import axios, {Axios} from "axios";
+import axios from "axios";
 import TitleListObj from "#data_objects/TitleListObj";
 
 export default class PersonObj extends ApiHandler {

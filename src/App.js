@@ -11,7 +11,7 @@ import NavBar from "#components/navbar/NavBar";
 import NotFound from "#components/NotFound";
 import Person from "#pages/Person";
 import SearchResults from "#pages/SearchResults";
-import { AuthProvider } from '#AuthContext';
+import {AuthProvider} from '#AuthContext';
 
 
 function App() {

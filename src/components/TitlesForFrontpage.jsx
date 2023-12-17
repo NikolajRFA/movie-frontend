@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import TitleCard from './TitleCard';
 import axios from "axios";

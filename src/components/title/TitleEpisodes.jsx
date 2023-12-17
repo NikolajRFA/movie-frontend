@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
-import {Accordion, Col, Row} from "react-bootstrap";
-import EpisodeEntry from "./EpisodeEntry";
+import {Accordion} from "react-bootstrap";
 import Season from "./Season";
 
 export default function TitleEpisodes({episodesUrl}) {

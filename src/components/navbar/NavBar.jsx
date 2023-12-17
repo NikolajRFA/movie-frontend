@@ -1,12 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Form from "react-bootstrap/Form";
-import {useEffect, useRef, useState} from "react";
-import {Dropdown, Image} from "react-bootstrap";
-import DropdownCard from "../DropdownCard";
+import {useState} from "react";
+import {Image} from "react-bootstrap";
 import SignInModal from "../loginComp/SignInModal";
-import axios from "axios";
 import SearchForm from "./SearchForm";
 import {Link} from "react-router-dom";
 

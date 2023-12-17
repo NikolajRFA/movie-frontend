@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const StdButton = ({ text, type, onClick, dynamicPath, style}) => {
     const [isHovered, setIsHovered] = useState(false);
