@@ -14,14 +14,13 @@ export default function EpisodeEntry({tconst}) {
     useEffect(() => {
         const getData = async () => {
             try {
-                const updatedTitle = await TitleObj.getTitle(tconst);
-                setEpisode(updatedTitle);
+                setEpisode(await TitleObj.getTitle(tconst));
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
         getData();
-    }, [episode, tconst]);
+    }, [tconst]);
 
     return (
         !episode.loading ?

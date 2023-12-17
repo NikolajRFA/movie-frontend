@@ -49,12 +49,12 @@ export default function Season({seasonNumber, episodesUrl}) {
 
     useEffect(() => {
         const fetchEpisodes = async () => {
-            let newEpisodes = await EpisodeObj.get(episodesUrl, pageNo, episodesPerPage, seasonNumber)
+            let newEpisodes = await EpisodeObj.get(episodesUrl, 0, episodesPerPage, seasonNumber)
             setEpisodes(newEpisodes);
         }
         fetchEpisodes();
 
-    }, [episodesUrl, pageNo, seasonNumber]);
+    }, [episodesUrl, seasonNumber]);
 
     useEffect(() => {
         // Check if there is only one page.

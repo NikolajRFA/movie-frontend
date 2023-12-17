@@ -1,15 +1,12 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import Card from "react-bootstrap/Card";
-import {Accordion, Col, Row} from "react-bootstrap";
-import EpisodeEntry from "./EpisodeEntry";
+import {Accordion} from "react-bootstrap";
 import Season from "./Season";
 import EpisodeObj from "#data_objects/EpisodeObj";
 
 export default function TitleEpisodes({episodesUrl}) {
     const [numberOfSeasons, setNumberOfSeasons] = useState(0);
-    const [episodes, setEpisodes] = useState(() => new EpisodeObj());
-
+    
     useEffect(() => {
         const fetchEpisodes = async () =>  {
             const newEpisodes = await EpisodeObj.get(episodesUrl);
@@ -17,7 +14,7 @@ export default function TitleEpisodes({episodesUrl}) {
         }
         fetchEpisodes();
 
-    }, []);
+    }, [episodesUrl]);
 
     return (
         <Card>
@@ -28,7 +25,7 @@ export default function TitleEpisodes({episodesUrl}) {
                 <Accordion>
                     {Array.from({length: numberOfSeasons}, (_, index) => index + 1)
                         .map(seasonNumber => (
-                            <Season key={seasonNumber} episodes={episodes} seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
+                            <Season key={seasonNumber} seasonNumber={seasonNumber} episodesUrl={episodesUrl}/>
                         ))}
                 </Accordion>
             </Card.Body>

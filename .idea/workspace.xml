@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Moved season data fetching to business layer">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Moved EpisodeEntry to business layer">
+      <change afterPath="$PROJECT_DIR$/src/data_objects/CrewObj.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/title/Season.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/Season.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/TitleObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/TitleObj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/TitleEpisodes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleEpisodes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/EpisodeObj.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "smart-business-layers",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;smart-business-layers&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
@@ -122,7 +124,8 @@
       <workItem from="1702466419850" duration="10329000" />
       <workItem from="1702540430854" duration="20126000" />
       <workItem from="1702662937730" duration="2962000" />
-      <workItem from="1702761479082" duration="6231000" />
+      <workItem from="1702761479082" duration="7179000" />
+      <workItem from="1702802843591" duration="4285000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -388,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702768032996</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Moved EpisodeEntry to business layer">
+      <option name="closed" value="true" />
+      <created>1702769535693</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702769535693</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
     <MESSAGE value="Added not_rated + rated .svg" />
     <MESSAGE value="Fixed import statement" />
@@ -431,6 +441,7 @@
     <MESSAGE value="Fixed search dropdown" />
     <MESSAGE value="Fixed unblurable dropdown after deletion of last recent search" />
     <MESSAGE value="Moved season data fetching to business layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved season data fetching to business layer" />
+    <MESSAGE value="Moved EpisodeEntry to business layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved EpisodeEntry to business layer" />
   </component>
 </project>

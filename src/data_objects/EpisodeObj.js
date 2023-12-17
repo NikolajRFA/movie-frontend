@@ -49,7 +49,7 @@ export default class EpisodeObj extends ListObj {
                 season: item.season,
                 episode: item.episode
             })
-        )
+        );
 
     }
 }

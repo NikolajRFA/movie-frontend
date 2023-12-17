@@ -4,13 +4,13 @@ import CrewEntry from "./CrewEntry";
 import LoadingSpinner from "../LoadingSpinner";
 import {Button, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import CrewObj from "#data_objects/CrewObj";
 
 export default function TitleCrew({crewUrl}) {
-    const [pagingMetaData, setPagingMetaData] = useState(null);
-    const [crew, setCrew] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [crew, setCrew] = useState(() => new CrewObj());
+
     // States relating to paging of crew
+    const crewPerPage = 8;
     const [pageNo, setPageNo] = useState(0);
     const [prevPage, setPrevPage] = useState(false);
     const [nextPage, setNextPage] = useState(true);
@@ -23,53 +23,52 @@ export default function TitleCrew({crewUrl}) {
     }
 
     function handleNextPage() {
-        setPrevPage(true);
-        const nextPageNo = pageNo + 1;
-        setPageNo(nextPageNo);
-        if (nextPageNo + 1 === pagingMetaData.numberOfPages) {
-            setNextPage(false);
+        const fetchCrew = async () => {
+            let newCrew = await CrewObj.getNext(crew);
+            setCrew(newCrew);
+            if (newCrew.data.next == null) setNextPage(false);
         }
+        setPrevPage(true);
+        fetchCrew()
+        setPageNo(pageNo + 1);
     }
 
     function handlePrevPage() {
-        setNextPage(true);
-        const prevPageNo = pageNo - 1
-        setPageNo(prevPageNo);
-        if (prevPageNo + 1 === 1) {
-            setPrevPage(false);
+        const fetchCrew = async () => {
+            let newCrew = await CrewObj.getPrev(crew);
+            setCrew(newCrew);
+            if (newCrew.data.prev == null) setPrevPage(false);
         }
+        setNextPage(true);
+        fetchCrew()
+        setPageNo(pageNo - 1);
     }
 
     useEffect(() => {
-        axios.get(`${crewUrl}?page=${pageNo}&pageSize=8`)
-            .then(res => {
-                setPagingMetaData(res.data)
-                setCrew(res.data.items);
-                setLoading(false);
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            });
-    }, [pageNo]);
+        const fetchCrew = async () => {
+            let newCrew = await CrewObj.get(crewUrl, 0, crewPerPage);
+            setCrew(newCrew);
+        }
+        fetchCrew();
+    }, [crewUrl]);
 
     useEffect(() => {
         // Check if there is only one page.
-        if (pagingMetaData && pagingMetaData.numberOfPages === 1) {
+        if (!crew.loading && crew.data.numberOfPages === 1) {
             setNextPage(false);
         }
-    }, [])
+    }, [crew])
 
     return (
         <div>
-            {!loading
+            {!crew.loading
                 ? <Card>
                     <Card.Body>
                         <Card.Title>
                             <h4>Crew</h4>
                         </Card.Title>
                         <Row xs={1} md={2} lg={4} style={{minHeight: '180px'}}>
-                            {crew.map(member => (
+                            {crew.data.items.map(member => (
                                 <Col key={member.url}>
                                     <CrewEntry crew={member}/>
                                 </Col>
@@ -77,7 +76,7 @@ export default function TitleCrew({crewUrl}) {
                         </Row>
                     </Card.Body>
                     <Card.Footer className="text-end">
-                        <p>Page {pageNo + 1} of {pagingMetaData.numberOfPages}</p>
+                        <p>Page {pageNo + 1} of {crew.data.numberOfPages}</p>
                         <Button className="mx-2" style={buttonStyle} onClick={handlePrevPage} disabled={!prevPage}>
                             Prev
                         </Button>
