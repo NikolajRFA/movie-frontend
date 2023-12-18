@@ -73,7 +73,7 @@ export default function Person() {
                             <Row md={2}>
                                 {!titles.loading
                                     ? titles.data.items.map(title => <Col key={title.data.url} className="my-2">
-                                        <TitleCard title={title.data} plotLength={170}/>
+                                        <TitleCard title={title.data} plotLength={130}/>
                                     </Col>)
                                     : <LoadingSpinner/>}
                             </Row>
