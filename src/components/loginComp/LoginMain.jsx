@@ -10,7 +10,7 @@ const separatorStyle = {
     width: '100%',
     textAlign: 'center',
     lineHeight: '0.1em',
-    margin: '10px 0 14px',
+    margin: '13px 0 13px',
 }
 
 
@@ -32,7 +32,7 @@ function LoginMain() {
                         setShowInitialModal(false);
                     }}/>
                     <div className="mx-auto" style={separatorStyle}>
-                        <span style={{background: 'white', padding: '0 10px'}}>or</span>
+                        <span style={{background: 'white', padding: '0 12px'}}>or</span>
                     </div>
                     <StdButton text={"Create Account"} onClick={()=>{
                         setShowCreateAccountModal(true);

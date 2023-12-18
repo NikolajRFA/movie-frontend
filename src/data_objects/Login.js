@@ -14,7 +14,7 @@ class Login {
             Cookies.set('token', token, { expires: 1/12 }); // Expires in 2 hours
             Cookies.set('id', id, { expires: 1/12 }); // Expires in 2 hours
         } catch (error) {
-            console.error('Login failed:', error);
+            this.error=error;
             throw error; // Rethrow to handle it in the component
         }
     }
@@ -30,8 +30,7 @@ class Login {
 
             await Login.performLogin(username, password);
         } catch (error) {
-            console.error('Account creation failed:', error);
-            throw error;
+            this.error=error;
         }
     }
 }
