@@ -53,7 +53,7 @@ export default function Title() {
                                     tconst={title.data.url.split('/').pop()}
                                 />
                             </h1>
-                            <p className='my-0'>{Utils.capitalize(title.data.titleType)} | {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
+                            <p className='my-0'>{Utils.capitalize(title.data.titleType)} | {title.data.isAdult && 'Adult | '} {title.data.startYear} {title.data.endYear && ' - ' + title.data.endYear} | {title.data.runTimeMinutes} min</p>
                         </Col>
                         <Col className="text-end">
                             <h2>Rating - {title.data.averageRating}/10</h2>
