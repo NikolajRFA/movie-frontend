@@ -7,6 +7,7 @@ import {AuthContext} from "#AuthContext";
 function SignInForm({onLoginClose}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const {handleLogin } = useContext(AuthContext)
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -15,6 +16,7 @@ function SignInForm({onLoginClose}) {
             handleLogin();
             onLoginClose();
         } catch (error) {
+            setErrorMessage("Could not sign in: "+error.message);
         }
     };
 
@@ -37,7 +39,7 @@ function SignInForm({onLoginClose}) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
-
+            <div className="error-message">{errorMessage}</div>
             <StdButton text={"Sign in"} type="submit" style={{ margin: '12px', display: 'flex', justifyContent: 'center'}}>
             </StdButton>
         </Form>
