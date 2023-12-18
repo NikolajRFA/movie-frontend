@@ -1,5 +1,4 @@
 import Sidebar from "#components/Sidebar";
-import UserDetails from "#components/userComponents/UserDetails";
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
 import RatingListObj from "#data_objects/RatingListObj";
