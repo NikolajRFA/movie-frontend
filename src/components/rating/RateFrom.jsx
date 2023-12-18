@@ -1,6 +1,5 @@
 import {CloseButton, Col, Form, Row} from "react-bootstrap";
-import StdButton from "#components/StdButton";
-import {useState} from "react";
+import StdButton from "#components/misc/StdButton";
 
 export default function RateForm({value, onChange, onSubmit, showClose = false, onCancel}) {
 

@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import {useEffect, useState} from "react";
 import "../../App.css"
-import StdButton from "../StdButton";
+import StdButton from "../misc/StdButton";
 import User from "../../data_objects/User";
 import Cookies from "js-cookie";
 import {useNavigate} from "react-router-dom";

@@ -1,12 +1,12 @@
 import {Dropdown} from "react-bootstrap";
-import DropdownCard from "../DropdownCard";
+import DropdownCard from "../misc/DropdownCard";
 import Form from "react-bootstrap/Form";
 import {useContext, useEffect, useRef, useState} from "react";
 import DropdownTitles from "../../data_objects/DropdownTitles";
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../misc/LoadingSpinner";
 import {useNavigate} from "react-router-dom";
 import RecentSearches from "../recentSearches/RecentSearches";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 
 export default function SearchForm() {
     const [dropdownTitles, setDropdownTitles] = useState(() => new DropdownTitles());

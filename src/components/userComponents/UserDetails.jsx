@@ -1,5 +1,5 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import StdButton from "../StdButton";
+import StdButton from "../misc/StdButton";
 import User from "../../data_objects/User"
 import {useEffect, useState} from "react";
 

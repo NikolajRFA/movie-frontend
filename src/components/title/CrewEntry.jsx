@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import {useNavigate} from "react-router-dom";
 import BookmarkPersonBtn from "#components/bookmarkBtnComponents/BookmarkPersonBtn";
 import {useContext} from "react";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 
 export default function CrewEntry({crew}) {
     const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
 import {Col, Row, Image} from "react-bootstrap";
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../misc/LoadingSpinner";
 import {useNavigate} from "react-router-dom";
 import Utils from "#data_objects/Utils";
 import TitleObj from "#data_objects/TitleObj";

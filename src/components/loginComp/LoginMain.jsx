@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 import {Modal} from "react-bootstrap";
-import StdButton from "#components/StdButton";
+import StdButton from "#components/misc/StdButton";
 import SignInModal from "#components/loginComp/SignInModal";
 import CreateAccountModal from "#components/loginComp/CreateAccountModal";
 import LoginDropdown from "#components/loginComp/LoginDropdown";

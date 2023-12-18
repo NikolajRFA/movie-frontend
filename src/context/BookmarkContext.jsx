@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import BookmarksObj from '#data_objects/BookmarksObj';
 
 const BookmarkContext = createContext();

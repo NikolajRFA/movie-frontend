@@ -2,7 +2,7 @@ import Nav from 'react-bootstrap/Nav';
 import Dropdown from 'react-bootstrap/Dropdown'
 import {useNavigate} from "react-router-dom";
 import Cookies from "js-cookie";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 import {useContext} from "react";
 
 

@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image"
 import {Col, Row} from "react-bootstrap";
-import StdButton from "#components/StdButton";
+import StdButton from "#components/misc/StdButton";
 import {useState} from "react";
 import RateForm from "#components/rating/RateFrom";
 import RatingObj from "#data_objects/RatingObj";

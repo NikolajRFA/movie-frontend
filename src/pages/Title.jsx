@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../components/misc/LoadingSpinner";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
 import TitleCrew from "../components/title/TitleCrew";
@@ -9,7 +9,7 @@ import TitleObj from "../data_objects/TitleObj";
 import Utils from "#data_objects/Utils";
 import BookmarkTitleBtn from "#components/bookmarkBtnComponents/BookmarkTitleBtn";
 import BookmarksObj from "#data_objects/BookmarksObj";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 import Rate from "#components/rating/Rate";
 
 export default function Title() {

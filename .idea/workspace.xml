@@ -4,10 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Person search done">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookmarkContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/BookmarkContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DropdownCard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SignUp.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DropdownCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/DropdownCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoadingSpinner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/LoadingSpinner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NotFound.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFound.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Paging.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/Paging.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchResultCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/SearchResultCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StdButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/StdButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TitleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/TitleCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TitlesForFrontpage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/TitlesForFrontpage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TwoHighestOrderedCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/TwoHighestOrderedCrew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkPersonBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkTitleBtn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/bookmarkBtnComponents/BookmarkTitleBtn.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/CreateAccForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/LoginMain.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/LoginMain.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/SignInForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/SearchForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rating/IsRated.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rating/IsRated.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rating/NotRated.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rating/NotRated.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/rating/RateFrom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rating/RateFrom.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/recentSearches/RecentSearches.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/recentSearches/RecentSearches.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/CrewEntry.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/EpisodeEntry.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/Season.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/Season.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/title/TitleCrew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/userComponents/DeleteUserForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/DeleteUserForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/userComponents/UserDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/UserDetails.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Person.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Person.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Ratings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Ratings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SearchResults.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="smart-business-layers" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,37 +90,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "input-validation",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\pages" />
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\context" />
+      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\components\misc" />
       <recent name="C:\Users\nrfad\Desktop\Github\movie-frontend\src\pages" />
       <recent name="C:\Users\nrfad\Desktop\Github\movie-frontend\src\components\Rating" />
-      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\components\userComponents" />
-      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
-      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -383,15 +423,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702889739041</updated>
     </task>
-    <task id="LOCAL-00034" summary="Person search done">
-      <option name="closed" value="true" />
-      <created>1702910434976</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1702910434976</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +471,7 @@
     <MESSAGE value="Added update to avg rating when rating a title" />
     <MESSAGE value="Fixed rating avgrating update when rating is updated" />
     <MESSAGE value="Added ratings page and deleted double navbar on user pages" />
-    <MESSAGE value="Person search done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Person search done" />
+    <MESSAGE value="Structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Structure" />
   </component>
 </project>

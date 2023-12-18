@@ -1,14 +1,13 @@
-import SearchResultCard from "../components/SearchResultCard";
-import {Link, useNavigate, useSearchParams} from "react-router-dom";
+import SearchResultCard from "#components/misc/SearchResultCard";
+import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import SearchResultsObj from "../data_objects/SearchResultsObj";
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "#components/misc/LoadingSpinner";
 import {Button, Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import PersonListObj from "#data_objects/PersonListObj";
-import PersonObj from "#data_objects/PersonObj";
 import Card from "react-bootstrap/Card";
-import Paging from "#components/Paging";
+import Paging from "#components/misc/Paging";
 
 export default function SearchResults() {
     const [searchParams, setSearchParams] = useSearchParams();

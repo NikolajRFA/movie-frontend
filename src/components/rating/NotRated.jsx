@@ -1,10 +1,6 @@
 import Card from "react-bootstrap/Card";
-import {Col, Form, Row} from "react-bootstrap";
 import {useState} from "react";
-import Button from "react-bootstrap/Button";
-import RatingService from "#data_objects/RatingObj";
 import RatingObj from "#data_objects/RatingObj";
-import StdButton from "#components/StdButton";
 import RateForm from "#components/rating/RateFrom";
 
 export default function NotRated({tconst, onRating}) {

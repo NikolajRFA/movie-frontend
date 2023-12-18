@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 import CrewEntry from "./CrewEntry";
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../misc/LoadingSpinner";
 import {Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import CrewObj from "#data_objects/CrewObj";
-import Paging from "#components/Paging";
+import Paging from "#components/misc/Paging";
 
 export default function TitleCrew({crewUrl}) {
     const [crew, setCrew] = useState(() => new CrewObj());

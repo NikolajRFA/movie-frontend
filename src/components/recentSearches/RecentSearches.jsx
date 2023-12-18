@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Cookies from 'js-cookie';
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../misc/LoadingSpinner";
 import RecentSearchesEntry from "./RecentSearchesEntry";
 import SearchService from "../../data_objects/Searches";
 import {Dropdown} from "react-bootstrap";

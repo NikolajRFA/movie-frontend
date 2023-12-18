@@ -1,14 +1,14 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import PersonObj from "#data_objects/PersonObj";
-import LoadingSpinner from "#components/LoadingSpinner";
+import LoadingSpinner from "#components/misc/LoadingSpinner";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import TitleListObj from "#data_objects/TitleListObj";
-import TitleCard from "#components/TitleCard";
+import TitleCard from "#components/misc/TitleCard";
 import Utils from "#data_objects/Utils";
-import Paging from "#components/Paging";
+import Paging from "#components/misc/Paging";
 
 export default function Person() {
     const {nconst} = useParams();

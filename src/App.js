@@ -8,11 +8,11 @@ import UserBookmarks from "#pages/UserBookmarks";
 import DeleteUser from "#pages/DeleteUser";
 import Title from "#pages/Title";
 import NavBar from "#components/navbar/NavBar";
-import NotFound from "#components/NotFound";
+import NotFound from "#pages/NotFound";
 import Person from "#pages/Person";
 import SearchResults from "#pages/SearchResults";
-import {AuthProvider} from '#AuthContext';
-import {BookmarkProvider} from "#BookmarkContext";
+import {AuthProvider} from '#context/AuthContext';
+import {BookmarkProvider} from "#context/BookmarkContext";
 import Ratings from "#pages/Ratings";
 
 

@@ -1,4 +1,4 @@
-import TitlesForFrontpage from "../components/TitlesForFrontpage";
+import TitlesForFrontpage from "../components/misc/TitlesForFrontpage";
 
 const Home = () => {
     return (

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Navbar} from 'react-bootstrap';
 import {Link, useLocation, useParams} from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 
 function Sidebar() {
     const { id } = useParams();

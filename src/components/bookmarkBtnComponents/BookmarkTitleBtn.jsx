@@ -3,8 +3,8 @@ import BookmarksObj from "#data_objects/BookmarksObj";
 import User from "#data_objects/User";
 import RemoveBookmark from "#components/bookmarkBtnComponents/RemoveBookmark";
 import AddBookmark from "#components/bookmarkBtnComponents/AddBookmark";
-import LoadingSpinner from "#components/LoadingSpinner";
-import {AuthContext} from "#AuthContext";
+import LoadingSpinner from "#components/misc/LoadingSpinner";
+import {AuthContext} from "#context/AuthContext";
 import Cookies from "js-cookie";
 
 export default function BookmarkTitleBtn({tconst, addStyle, removeStyle}) {

@@ -1,10 +1,10 @@
-import Sidebar from "#components/Sidebar";
+import Sidebar from "#components/misc/Sidebar";
 import Card from "react-bootstrap/Card";
 import {useEffect, useState} from "react";
 import RatingListObj from "#data_objects/RatingListObj";
 import UserRatingCard from "#components/rating/UserRatingCard";
-import Paging from "#components/Paging";
-import LoadingSpinner from "#components/LoadingSpinner";
+import Paging from "#components/misc/Paging";
+import LoadingSpinner from "#components/misc/LoadingSpinner";
 
 export default function Ratings() {
     const [ratings, setRatings] = useState(() => new RatingListObj());

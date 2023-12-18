@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 import { Form} from 'react-bootstrap';
-import StdButton from "#components/StdButton";
+import StdButton from "#components/misc/StdButton";
 import Login from "#data_objects/Login";
-import {AuthContext} from "#AuthContext";
+import {AuthContext} from "#context/AuthContext";
 
 function CreateAccountForm({onCreateClose}) {
     const [username, setUsername] = useState('');

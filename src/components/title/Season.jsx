@@ -1,10 +1,10 @@
-import {Accordion, Button, Col, Row} from "react-bootstrap";
+import {Accordion, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import EpisodeEntry from "./EpisodeEntry";
 import {useEffect, useState} from "react";
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../misc/LoadingSpinner";
 import EpisodeObj from "#data_objects/EpisodeObj";
-import Paging from "#components/Paging";
+import Paging from "#components/misc/Paging";
 
 export default function Season({seasonNumber, episodesUrl}) {
     const [episodes, setEpisodes] = useState(() => new EpisodeObj());
