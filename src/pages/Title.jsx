@@ -31,7 +31,7 @@ export default function Title() {
             }
         }
         getData();
-    }, [tconst, bookmarks]);
+    }, [tconst, bookmarks, numVotes]);
 
     const handleRatingUpdate = (add) => {
         setNumVotes(numVotes + add);
