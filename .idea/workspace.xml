@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added update to avg rating when rating a title">
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed rating avgrating update when rating is updated">
+      <change afterPath="$PROJECT_DIR$/src/pages/Ratings.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/rating/Rate.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rating/Rate.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Title.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Title.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,37 +54,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nrfad\Desktop\Github\movie-frontend\src\pages" />
       <recent name="C:\Users\nrfad\Desktop\Github\movie-frontend\src\components\Rating" />
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\components\userComponents" />
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\public" />
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src" />
-      <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -367,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702886058078</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed rating avgrating update when rating is updated">
+      <option name="closed" value="true" />
+      <created>1702888626415</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1702888626415</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +403,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved components" />
     <MESSAGE value="Added pages" />
     <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
@@ -416,6 +427,7 @@
     <MESSAGE value="Removed unused imports" />
     <MESSAGE value="Started moving title subcomponents to business layers" />
     <MESSAGE value="Added update to avg rating when rating a title" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added update to avg rating when rating a title" />
+    <MESSAGE value="Fixed rating avgrating update when rating is updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed rating avgrating update when rating is updated" />
   </component>
 </project>

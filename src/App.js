@@ -13,6 +13,7 @@ import Person from "#pages/Person";
 import SearchResults from "#pages/SearchResults";
 import {AuthProvider} from '#AuthContext';
 import {BookmarkProvider} from "#BookmarkContext";
+import Ratings from "#pages/Ratings";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                             <Route path="/user">
                                 <Route path="details" element={<AccountDetails/>}/>
                                 <Route path="bookmarks" element={<UserBookmarks/>}/>
+                                <Route path="ratings" element={<Ratings/>}/>
                                 <Route path="update" element={<UpdateUser/>}/>
                                 <Route path="delete" element={<DeleteUser/>}/>
                             </Route>

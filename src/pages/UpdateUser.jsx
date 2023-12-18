@@ -6,7 +6,6 @@ const UpdateUser = () => {
     return (
         <div style={{display: 'flex'}}>
             <Sidebar/>
-            <NavBar/>
 
             <div style={{
                 display: 'flex',
