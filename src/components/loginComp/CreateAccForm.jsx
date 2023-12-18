@@ -8,16 +8,23 @@ function CreateAccountForm({onCreateClose}) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const {handleLogin } = useContext(AuthContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrorMessage('');
+        if (password.length < 8) {
+            setErrorMessage('Password must be at least 8 characters long.');
+            return;
+        }
         try {
             await Login.createAccount(username, email, password);
             handleLogin();
             onCreateClose();
-        } catch (error) {
 
+        } catch (error) {
+            setErrorMessage("Could not create account: "+error.message)
         }
     };
 
@@ -48,9 +55,10 @@ function CreateAccountForm({onCreateClose}) {
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} />
+                    onChange={(e) => setPassword(e.target.value)}
+                    required/>
             </Form.Group>
-
+            <div className="error-message">{errorMessage}</div>
             <StdButton text={"Create Account"} type="submit" style={{ margin: '12px', display: 'flex', justifyContent: 'center'}}/>
         </Form>
     );

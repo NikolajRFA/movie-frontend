@@ -33,8 +33,8 @@ function LoginDropdown(){
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu style={{marginTop: '7px'}}>
-                    {dropdownItems.map((item, index) => (
-                        <Dropdown.Item key={index} onClick={() => navigate(`/user/${item.link}`)}>
+                    {dropdownItems.map((item, searchPhrase) => (
+                        <Dropdown.Item key={searchPhrase} onClick={() => navigate(`/user/${item.link}`)}>
                             {item.title}
                         </Dropdown.Item>
                     ))}
