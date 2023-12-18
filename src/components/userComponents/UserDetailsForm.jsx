@@ -55,21 +55,28 @@ UserDetailsForm() {
 
         // Send the PUT request
 
-        User.updateUser(user, user.id, updatedUserData, jwt);
-        if (user.error != null) {
-            window.alert(user.error.message)
-        } else {
-            navigate("/user/details")
+        const updateUser = async () => {
+            const res = await User.updateUser(user, user.id, updatedUserData, jwt);
+            console.log(res);
+            if (user.error != null) {
+                // this error is handled therefore we can remove it
+                user.error = null;
+                window.alert('Email already in use');
+            } else {
+                navigate("/user/details")
+            }
         }
+        updateUser();
+
     };
 
     if (user.loading) {
         return <p>Loading...</p>;
     }
 
-    if (user.error) {
+    /*if (user.error) {
         return <p>Error: {user.error.message}</p>;
-    }
+    }*/
 
     return (
         <Form onSubmit={handleUpdate} style={{padding: "10px", borderRadius: "10px", border: "1px solid black"}}>

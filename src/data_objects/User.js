@@ -38,6 +38,7 @@ class User {
                     },
                 }
             );
+            return res.data;
         } catch (e){
             user.error = e;
         }
