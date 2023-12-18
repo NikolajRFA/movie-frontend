@@ -19,6 +19,7 @@ class Login {
         }
     }
 
+
     static async createAccount(username, email, password) {
         try {
              await axios.post('http://localhost:5011/api/users', {

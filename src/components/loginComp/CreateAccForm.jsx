@@ -37,16 +37,19 @@ function CreateAccountForm({onCreateClose}) {
                     type="text"
                     placeholder="Enter username"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)} />
+                    onChange={(e) => setUsername(e.target.value)}
+                    required/>
+
             </Form.Group>
 
             <Form.Group controlId="formCreateEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                    type="text"
+                    type="email"
                     placeholder="Enter email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)} />
+                    onChange={(e) => setEmail(e.target.value)}
+                    required/>
             </Form.Group>
 
             <Form.Group controlId="formCreatePassword">

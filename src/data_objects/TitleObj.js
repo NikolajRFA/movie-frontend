@@ -29,6 +29,7 @@ export default class TitleObj extends ApiHandler {
         this.loading = false;
     }
 
+
     static async getTitle(tconst) {
         let title;
         try {
