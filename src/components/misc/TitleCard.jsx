@@ -8,7 +8,7 @@ function TitleCard({title, plotLength}) {
     const navigate = useNavigate();
 
     return (
-        <Card className='searchResult' style={{cursor: 'pointer'}} onClick={() => navigate('/titles/' + title.url.split('/').pop())}>
+        <Card className='searchResult mb-2' style={{cursor: 'pointer'}} onClick={() => navigate('/titles/' + title.url.split('/').pop())}>
             <Card.Body style={{height: "220px"}}>
                 <Row className="no-gutters" style={{flexWrap: "nowrap"}}>
                     <Col xs="auto" style={{ maxWidth: '150px', minWidth: '150px'}}>
