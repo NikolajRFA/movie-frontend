@@ -2,7 +2,6 @@ import {Accordion, Button, Col, Row} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import EpisodeEntry from "./EpisodeEntry";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner";
 import EpisodeObj from "#data_objects/EpisodeObj";
 import Paging from "#components/Paging";
