@@ -43,7 +43,7 @@ const Bookmarks = () => {
                             .map((item, index) => (
                                 <ListGroup.Item key={index}>
                                     <Image src="/movie-icon.svg" fluid style={{width: '30px', paddingRight: '7px'}}/>
-                                    <Link to={item.tconst}>
+                                    <Link to={`/titles/${item.tconst.split('/').pop()}`}>
                                         {item.title}
                                     </Link>
                                     <BookmarkTitleBtn
@@ -63,7 +63,7 @@ const Bookmarks = () => {
                             .map((item, index) =>
                                 <ListGroup.Item key={index}>
                                     <Image src="/person.jpg" fluid style={{width: '30px', paddingRight: '5px'}}/>
-                                    <Link to={item.nconst}>
+                                    <Link to={`/persons/${item.nconst.split('/').pop()}`}>
                                         {item.personName}
                                     </Link>
                                     <BookmarkPersonBtn

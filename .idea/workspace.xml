@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Person search done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/UserDetailsForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/userComponents/Bookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/userComponents/Bookmarks.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "input-validation",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/laust/WebstormProjects/movie-frontend/public",
     "node.js.detected.package.eslint": "true",
