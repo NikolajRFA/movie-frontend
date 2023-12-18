@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 
 class User {
     apiUrl = "http://localhost:5011/api/users/";
+
     constructor() {
         this.data = null;
         this.loading = true;
@@ -14,6 +15,7 @@ class User {
         this.id = Cookies.get('id');
         this.jwt = Cookies.get('token');
     }
+
     async fetchData(id) {
         try {
             const res = await axios.get(this.apiUrl + id);
@@ -25,10 +27,10 @@ class User {
         }
     }
 
-    updateUser = async (id, updatedUserData, jwt) => {
-        try {
+    static updateUser = async (user, id, updatedUserData, jwt) => {
+        try{
             const res = await axios.put(
-                this.apiUrl + id,
+                user.apiUrl + id,
                 updatedUserData,
                 {
                     headers: {
@@ -36,11 +38,10 @@ class User {
                     },
                 }
             );
-
-            this.data = res.data;
-        } catch (error) {
-            this.error = error;
+        } catch (e){
+            user.error = e;
         }
+
     };
 
 

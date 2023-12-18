@@ -22,7 +22,7 @@ UserDetailsForm() {
         const fetchData = async () => {
             const newUser = new User(); // create a new User instance
             await newUser.fetchData(user.id); // fetch data for the specific user
-            setUser({ ...newUser }); // update state with the new user data
+            setUser({...newUser}); // update state with the new user data
         };
 
         fetchData();
@@ -54,8 +54,13 @@ UserDetailsForm() {
         };
 
         // Send the PUT request
-        user.updateUser(user.id, updatedUserData, jwt);
-        navigate(`/users/details`)
+
+        User.updateUser(user, user.id, updatedUserData, jwt);
+        if (user.error != null) {
+            window.alert(user.error.message)
+        } else {
+            navigate("/user/details")
+        }
     };
 
     if (user.loading) {
@@ -67,7 +72,7 @@ UserDetailsForm() {
     }
 
     return (
-        <Form onSubmit={handleUpdate} style={{padding: "10px", borderRadius:"10px",border:"1px solid black"}}>
+        <Form onSubmit={handleUpdate} style={{padding: "10px", borderRadius: "10px", border: "1px solid black"}}>
             <Form.Group className="mb-3" controlId="formUsername">
                 <Form.Label>Current username: "{user.data.username}"</Form.Label>
                 <Form.Control
