@@ -3,8 +3,9 @@ import ApiHandler from "#data_objects/ApiHandler";
 import Cookies from "js-cookie";
 
 export default class RatingObj extends ApiHandler {
-    constructor() {
+    constructor(data = null) {
         super();
+        if (data) this.mapData(data);
     }
 
     static async get(tconst) {
@@ -66,6 +67,7 @@ export default class RatingObj extends ApiHandler {
         this.data = {
             url: jsonData.url,
             tconst: jsonData.tconst,
+            title: jsonData.title,
             user: jsonData.user,
             rating: jsonData.rating,
             date: jsonData.date

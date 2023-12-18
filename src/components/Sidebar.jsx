@@ -10,6 +10,7 @@ function Sidebar() {
 
     const menuItems = [
         {title: 'Bookmarks', link: `bookmarks`},
+        {title: 'Ratings', link: 'ratings'},
         {title: 'Account details', link: `details`}, // Update the link to match your user ID pattern
         {title: 'Update account', link: `update`},
         {title: 'Delete account', link: `delete`},

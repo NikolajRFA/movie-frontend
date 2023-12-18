@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Fixed rating avgrating update when rating is updated">
-      <change afterPath="$PROJECT_DIR$/src/pages/Ratings.jsx" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added ratings page and deleted double navbar on user pages">
+      <change afterPath="$PROJECT_DIR$/src/components/rating/UserRatingCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_objects/RatingListObj.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AccountDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DeleteUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UserBookmarks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_objects/RatingObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/RatingObj.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Ratings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Ratings.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702888626415</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added ratings page and deleted double navbar on user pages">
+      <option name="closed" value="true" />
+      <created>1702889739041</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702889739041</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added pages" />
     <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
     <MESSAGE value="Added not_rated + rated .svg" />
@@ -428,6 +436,7 @@
     <MESSAGE value="Started moving title subcomponents to business layers" />
     <MESSAGE value="Added update to avg rating when rating a title" />
     <MESSAGE value="Fixed rating avgrating update when rating is updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed rating avgrating update when rating is updated" />
+    <MESSAGE value="Added ratings page and deleted double navbar on user pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ratings page and deleted double navbar on user pages" />
   </component>
 </project>

@@ -20,6 +20,7 @@ function LoginDropdown(){
     }
     const dropdownItems = [
         { title: 'Bookmarks', link: 'bookmarks' },
+        { title: 'Ratings', link: 'ratings'},
         { title: 'Account details', link: 'details' },
         { title: 'Update account', link: 'update' },
         { title: 'Delete account', link: 'delete' },
