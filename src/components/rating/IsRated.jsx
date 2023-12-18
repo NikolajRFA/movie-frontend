@@ -23,9 +23,9 @@ export default function IsRated({tconst, ratingValue, onUpdate, onDelete}) {
         setValue(newValue);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        RatingObj.put(tconst, value);
+        await RatingObj.put(tconst, value);
         onUpdate(value);
         setShowUpdate(false);
     }

@@ -20,21 +20,23 @@ export default function Title() {
     const [numVotes, setNumVotes] = useState(0);
 
     // TODO: Make sure title page is reloaded when a user logs in while on a title page.
-    useEffect(() => {
-        const getData = async () => {
-            try {
-                const updatedTitle = await TitleObj.getTitle(tconst);
-                setTitle(updatedTitle);
-                setNumVotes(updatedTitle.data.numVotes)
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
+    const getData = async () => {
+        try {
+            const updatedTitle = await TitleObj.getTitle(tconst);
+            setTitle(updatedTitle);
+            setNumVotes(updatedTitle.data.numVotes)
+        } catch (error) {
+            console.error("Error fetching data:", error);
         }
+    }
+
+    useEffect(() => {
         getData();
     }, [tconst, bookmarks, numVotes]);
 
     const handleRatingUpdate = (add) => {
         setNumVotes(numVotes + add);
+        getData();
     }
 
     return (

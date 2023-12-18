@@ -24,6 +24,7 @@ export default function Rate({tconst, onUpdate}) {
 
     const handleUpdate = (ratingValue) => {
         setRatingValue(ratingValue);
+        onUpdate(0);
     }
 
     const handleDelete = () => {
