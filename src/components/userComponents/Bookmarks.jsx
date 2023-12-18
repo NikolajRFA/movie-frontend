@@ -67,6 +67,7 @@ const Bookmarks = () => {
                                         {item.personName}
                                     </Link>
                                     <BookmarkPersonBtn
+                                        addStyle={{float: "right"}}
                                         removeStyle={{float: "right"}}
                                         url={item.url}
                                         nconst={item.nconst.split('/').pop()}

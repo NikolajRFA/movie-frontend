@@ -17,10 +17,6 @@ export const BookmarkProvider = ({ children }) => {
         }));
     };
 
-    useEffect(() => {
-        // You might want to fetch initial bookmarks here
-    }, []); // Add dependencies if needed for fetching initial data
-
     return (
         <BookmarkContext.Provider value={{ bookmarks, updateBookmark }}>
             {children}

@@ -11,8 +11,6 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url}) 
     const {bookmarks, updateBookmark} = useBookmarkContext();
     const [user] = useState(() => new User());
     const bookmarkData = bookmarks[nconst]?.data;
-    const { isLoggedIn } = useContext(AuthContext)
-
 
     useEffect(() => {
         // Fetch/update bookmark when user changes
@@ -23,25 +21,21 @@ export default function BookmarkPersonBtn({nconst, addStyle, removeStyle, url}) 
         updateBookmark(nconst, user.id, user.jwt);
     };
 
+    if (bookmarkData === "No bookmark found") {
+        return <AddBookmark
+            style={addStyle}
+            url={bookmarkData.url}
+            id={nconst}
+            isPerson
+            onUpdate={handleUpdateBookmark}
+        />
+    }
+
     return (
         <>
-            {bookmarkData ? (
-                bookmarkData === 'No bookmark found' ? (
-                    <AddBookmark
-                        style={addStyle}
-                        url={bookmarkData.url}
-                        id={nconst}
-                        isPerson
-                        onUpdate={handleUpdateBookmark}
-                    />
-                ) : (
-                    <RemoveBookmark style={removeStyle} url={bookmarkData.url} onUpdate={handleUpdateBookmark}/>
-                )
-            ) : user.id ? (
-                <LoadingSpinner/>
-            ) : (
-                <></>
-            )}
+            {bookmarkData &&
+                <RemoveBookmark style={removeStyle} url={bookmarkData.url} onUpdate={handleUpdateBookmark}/>
+            }
         </>
     );
 }
