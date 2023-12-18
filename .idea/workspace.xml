@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added ratings page and deleted double navbar on user pages">
-      <change afterPath="$PROJECT_DIR$/src/components/rating/UserRatingCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data_objects/RatingListObj.js" afterDir="false" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Added user ratings page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginComp/LoginDropdown.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_objects/RatingObj.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_objects/RatingObj.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Ratings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Ratings.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -388,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702889739041</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added user ratings page">
+      <option name="closed" value="true" />
+      <created>1702901432827</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702901432827</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update sidebar styling" />
     <MESSAGE value="Added rating_star.svg" />
     <MESSAGE value="Added not_rated + rated .svg" />
     <MESSAGE value="Fixed import statement" />
@@ -437,6 +438,7 @@
     <MESSAGE value="Added update to avg rating when rating a title" />
     <MESSAGE value="Fixed rating avgrating update when rating is updated" />
     <MESSAGE value="Added ratings page and deleted double navbar on user pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ratings page and deleted double navbar on user pages" />
+    <MESSAGE value="Added user ratings page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user ratings page" />
   </component>
 </project>
