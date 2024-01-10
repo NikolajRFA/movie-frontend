@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Changed plotLength" />
+    <list default="true" id="5025b1e7-004e-4583-9c31-8d0ca1d4045a" name="Changes" comment="Person search done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,10 +52,12 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Cypress.all tests in login.cy.js (1).executor&quot;: &quot;Run&quot;,
+    &quot;Cypress.all tests in login.cy.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Cypress-tests&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/laust/WebstormProjects/movie-frontend/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -79,7 +85,34 @@
       <recent name="C:\Users\laust\WebstormProjects\movie-frontend\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="all tests in login.cy.js (1)" type="JavaScriptTestRunnerCypress" temporary="true">
+      <node-interpreter value="project" />
+      <cypress-package value="$PROJECT_DIR$/node_modules/cypress" />
+      <working-dir value="$PROJECT_DIR$" />
+      <cypress-options value="-q" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/cypress/e2e/login.cy.js" />
+      <test-names>
+        <test-name value="login" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="all tests in login.cy.js" type="JavaScriptTestRunnerCypress" temporary="true">
+      <node-interpreter value="project" />
+      <cypress-package value="$PROJECT_DIR$/node_modules/cypress" />
+      <working-dir value="$PROJECT_DIR$" />
+      <cypress-options value="-q" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/cypress/e2e/login.cy.js" />
+      <test-names>
+        <test-name value="login" />
+        <test-name value="logs in and displays the user button in the navbar" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -87,6 +120,12 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cypress.all tests in login.cy.js (1)" />
+        <item itemvalue="Cypress.all tests in login.cy.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,6 +153,7 @@
       <workItem from="1702466419850" duration="8969000" />
       <workItem from="1702738039319" duration="13396000" />
       <workItem from="1702840702207" duration="9913000" />
+      <workItem from="1704885339653" duration="257000" />
     </task>
     <task id="LOCAL-00001" summary="Added navbar">
       <option name="closed" value="true" />
@@ -387,23 +427,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702910434976</updated>
     </task>
-    <task id="LOCAL-00035" summary="Refactored home page to use business layer and paging">
-      <option name="closed" value="true" />
-      <created>1702925003194</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1702925003194</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Changed plotLength">
-      <option name="closed" value="true" />
-      <created>1702926972404</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1702926972404</updated>
-    </task>
-    <option name="localTasksCounter" value="37" />
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,6 +451,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added rating_star.svg" />
+    <MESSAGE value="Added not_rated + rated .svg" />
     <MESSAGE value="Fixed import statement" />
     <MESSAGE value="Added delete alert" />
     <MESSAGE value="Trying to fix commits" />
@@ -450,8 +476,6 @@
     <MESSAGE value="Fixed rating avgrating update when rating is updated" />
     <MESSAGE value="Added ratings page and deleted double navbar on user pages" />
     <MESSAGE value="Person search done" />
-    <MESSAGE value="Refactored home page to use business layer and paging" />
-    <MESSAGE value="Changed plotLength" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed plotLength" />
+    <option name="LAST_COMMIT_MESSAGE" value="Person search done" />
   </component>
 </project>
